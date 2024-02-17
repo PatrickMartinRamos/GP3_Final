@@ -6,7 +6,7 @@ public class playerCombatScript : MonoBehaviour
 {
     bulletPool bulletPool;
     public Transform bulletSpawnPoint;
-    public float shootInterval = 2.5f; // Adjust this value to set the interval between shots
+    public float shootInterval = 2.5f; 
 
     private float lastShootTime;
 
