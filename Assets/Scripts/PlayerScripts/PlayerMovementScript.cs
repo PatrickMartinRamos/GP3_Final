@@ -52,8 +52,7 @@ public class PlayerMovementScript : MonoBehaviour
 
     #region player movements
     void playerMovement()
-    {
-        
+    {        
         rb2d.velocity = new Vector2(moveAction.x * moveSpeed, moveAction.y * moveSpeed);
 
         //clamp nlng naten ung movement ni player para di sya pwede mag close sa pinka righ side -pat

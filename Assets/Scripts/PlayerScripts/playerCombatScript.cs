@@ -4,15 +4,35 @@ using UnityEngine;
 
 public class playerCombatScript : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    bulletPool bulletPool;
+    public Transform bulletSpawnPoint;
+    public float shootInterval = 2.5f; // Adjust this value to set the interval between shots
+
+    private float lastShootTime;
+
+    private void Start()
     {
-        
+        bulletPool = bulletPool._SharedInstance;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        if (Time.time - lastShootTime >= shootInterval)
+        {
+            shootBullet();
+            lastShootTime = Time.time;
+        }
+    }
+
+    void shootBullet()
+    {
+        GameObject bullet = bulletPool.GetPooledObject();
+
+        if (bullet != null)
+        {
+            bullet.transform.position = bulletSpawnPoint.transform.position;
+            bullet.transform.rotation = bulletSpawnPoint.transform.rotation;
+            bullet.SetActive(true);
+        }
     }
 }
