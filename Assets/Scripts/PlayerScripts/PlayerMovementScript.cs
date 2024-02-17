@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovementScript : MonoBehaviour
 {
     //system var
     private _playerInputs player_Inputs;
@@ -42,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
-        rb2d = GetComponentInChildren<Rigidbody2D>();
+        rb2d = GetComponent<Rigidbody2D>();
     }
 
     private void Update()
@@ -56,7 +56,8 @@ public class PlayerMovement : MonoBehaviour
         
         rb2d.velocity = new Vector2(moveAction.x * moveSpeed, moveAction.y * moveSpeed);
 
-       //clamp nlng naten ung movement ni player para di sya pwede mag close sa pinka righ side -pat
+        //clamp nlng naten ung movement ni player para di sya pwede mag close sa pinka righ side -pat
+        transform.position = new Vector2(Mathf.Clamp(transform.position.x, -8f, 0f),Mathf.Clamp(transform.position.y, -4.5f, 4.5f));
     }
     #endregion
 }
