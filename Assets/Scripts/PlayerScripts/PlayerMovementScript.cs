@@ -55,7 +55,7 @@ public class PlayerMovementScript : MonoBehaviour
     {        
         rb2d.velocity = new Vector2(moveAction.x * moveSpeed, moveAction.y * moveSpeed);
 
-        //clamp nlng naten ung movement ni player para di sya pwede mag close sa pinka righ side -pat
+        //clamp nlng naten ung movement ni player para di lumagpas sa camera and hanggan middle lng ung movement para di makalapit sa spawn point ng enemy
         transform.position = new Vector2(Mathf.Clamp(transform.position.x, -8f, 0f),Mathf.Clamp(transform.position.y, -4.5f, 4.5f));
     }
     #endregion
