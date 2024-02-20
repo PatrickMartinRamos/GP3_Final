@@ -4,8 +4,15 @@ using UnityEngine;
 
 public class BulletScript : MonoBehaviour
 {
+
+    bulletManager _bulletManager;
     public float bulletSpeed = 10f;
     // Update is called once per frame
+    private void Start()
+    {
+        _bulletManager = GetComponentInChildren<bulletManager>();
+    }
+
     void Update()
     {
         transform.Translate(Vector2.right * bulletSpeed * Time.deltaTime);
@@ -22,6 +29,15 @@ public class BulletScript : MonoBehaviour
             gameObject.SetActive(false);
         }
     }
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            enemyScript enemy = collision.GetComponent<enemyScript>();
+            enemy.takeDamage(_bulletManager._bulletDamage);
 
-    //para sa collision sa enemy wag destroy ung gameobject i-setactive false para bumalik sa bullet pool
+            gameObject.SetActive(false);
+        }
+    }
+
 }
