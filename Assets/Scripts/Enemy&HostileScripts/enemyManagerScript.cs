@@ -1,15 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class enemyManagerScript : MonoBehaviour
 {
-    /// <summary>
-    /// dito lagay ung speed, damage to player etc
-    /// </summary>
-
-    //public var
     public int enemyHealth;
     public int enemyDamage;
     public float enemySpeed;

@@ -5,10 +5,15 @@ using UnityEngine;
 public class enemyScript : MonoBehaviour
 {
     enemyManagerScript enemyManagerScript;
+    public int individualEnemyHealth;
 
     private void Awake()
     {
         enemyManagerScript = GetComponentInParent<enemyManagerScript>();
+    }
+    private void Start()
+    {
+        individualEnemyHealth = enemyManagerScript.enemyHealth;
     }
 
     private void Update()
@@ -27,6 +32,17 @@ public class enemyScript : MonoBehaviour
         {
             //Destroy(gameObject);
             gameObject.SetActive(false);
+        }
+    }
+
+    public void takeDamage(int damage)
+    {
+        individualEnemyHealth -= damage;
+
+        if(individualEnemyHealth <= 0)
+        {
+            Destroy(gameObject);
+            Debug.Log("Destroy Enemy");
         }
     }
 
