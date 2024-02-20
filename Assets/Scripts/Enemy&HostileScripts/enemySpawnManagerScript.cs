@@ -2,76 +2,61 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-/// <summary>
-/// so sa enemySpawnManager sa scene doon tayo mag lalagay ng mga wave like ilang wave ba ilang enemy mag spawn
-/// per wave then nag lagay din ng ShouldSpawn naka auto nato pag nag start baguhin nlng pag nag add
-/// na tayo ng ibang step bago mag start ang game or kung mag spawn tayo ng boss or kung nasa shop si player
-/// para ma pause ung wave 
-/// 
-/// tas edit nalng naten yung mga enemyprefab pag meron na tayong multiple enemy i randomize nlng
-/// naten kung sino mag spawn 
-/// 
-/// next na gagwin dito is ung pag rotate ng wave like max wave naten is 15 waves tas pag na reach na ung 15 wave reset
-/// naten ung wave pero after reset x2 na ung ilalabas na enemy per wave
-/// </summary>
-
-
-[System.Serializable]
-public class Wave
-{
-    public GameObject enemyPrefab;
-    public int enemyToSpawn;
-    public float spawnInterval;
-}
-
-public class enemySpawnManagerScript : MonoBehaviour
+public class EnemySpawnManagerScript : MonoBehaviour
 {
     // Public variables
+    public GameObject[] enemyPrefab;
     public Transform[] enemySpawnPoints;
-    public List<Wave> waves;
-    //public float timeBetweenWaves = 5f;
-    public int wavesBeforePause = 3; 
-
+    public int initialWave = 5;
+    public int addEnemyPerWave;
+    public int waveBeforePause;
+    public float enemySpawnInterval;
+    public float waveSpawnInterval;
     public bool shouldSpawn = true;
+
     private int currentWave = 0;
-    private int wavesSpawnedSincePause = 0;
 
     void Update()
     {
-        // Check if there are any enemies present in the scene
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-        if (enemies.Length == 0)
+        StartCoroutine(SpawnWaves());
+    }
+
+    IEnumerator SpawnWaves()
+    {
+        while (shouldSpawn)
         {
-            // If no enemies are present, proceed to the next wave
-            if (currentWave < waves.Count && shouldSpawn)
+            yield return new WaitForSeconds(waveSpawnInterval);
+
+            // Check if there are no enemies in the scene
+            if (GameObject.FindGameObjectsWithTag("Enemy").Length == 0)
             {
-                Debug.Log("Spawning Wave " + (currentWave + 1));
-                StartCoroutine(SpawnWave(waves[currentWave]));
+                Debug.Log("Starting Wave " + (currentWave + 1));
+                for (int i = 0; i < initialWave + (currentWave * addEnemyPerWave); i++)
+                {
+                    // Randomly select a spawn point
+                    Transform spawnPoint = enemySpawnPoints[Random.Range(0, enemySpawnPoints.Length)];
+                    Instantiate(enemyPrefab[Random.Range(0, enemyPrefab.Length)], spawnPoint.position, spawnPoint.rotation);
+                    Debug.Log("Total Enemies Spawned in Wave " + (currentWave + 1) + ": " + (initialWave + (currentWave * addEnemyPerWave)));
+                    yield return new WaitForSeconds(enemySpawnInterval);
+                }
 
                 currentWave++;
-                wavesSpawnedSincePause++;
 
-                if (wavesSpawnedSincePause >= wavesBeforePause)
+                // Check if it's time to pause
+                if (currentWave % waveBeforePause == 0)
                 {
                     shouldSpawn = false;
-                    wavesSpawnedSincePause = 0;
                 }
             }
         }
     }
 
-    IEnumerator SpawnWave(Wave wave)
+    public void StartSpawning()
     {
-        for (int i = 0; i < wave.enemyToSpawn; i++)
+        if (shouldSpawn)
         {
-            SpawnEnemy(wave.enemyPrefab);
-            yield return new WaitForSeconds(wave.spawnInterval); // Time between spawning each enemy in a wave
+            StartCoroutine(SpawnWaves());
         }
-    }
-
-    void SpawnEnemy(GameObject enemyPrefab)
-    {
-        Transform spawnPoint = enemySpawnPoints[Random.Range(0, enemySpawnPoints.Length)];
-        Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
+       
     }
 }

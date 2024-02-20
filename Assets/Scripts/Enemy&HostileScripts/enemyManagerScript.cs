@@ -8,6 +8,10 @@ public class enemyManagerScript : MonoBehaviour
     /// <summary>
     /// dito lagay ung speed, damage to player etc
     /// </summary>
+
+    //public var
+    public int enemyHealth;
+    public int enemyDamage;
     public float enemySpeed;
 
     private void Update()
