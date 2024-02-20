@@ -951,28 +951,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d26ba14128121244b1eff67f817b5ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyPrefab:
+  - {fileID: 4089723550589301120, guid: e87959f886ce1a449b3a99e437ced206, type: 3}
   enemySpawnPoints:
   - {fileID: 1940785633}
   - {fileID: 1681972658}
   - {fileID: 709387468}
   - {fileID: 1272442816}
-  waves:
-  - enemyPrefab: {fileID: 4089723550589301120, guid: e87959f886ce1a449b3a99e437ced206, type: 3}
-    enemyToSpawn: 3
-    spawnInterval: 3
-  - enemyPrefab: {fileID: 4089723550589301120, guid: e87959f886ce1a449b3a99e437ced206, type: 3}
-    enemyToSpawn: 2
-    spawnInterval: 4
-  - enemyPrefab: {fileID: 4089723550589301120, guid: e87959f886ce1a449b3a99e437ced206, type: 3}
-    enemyToSpawn: 1
-    spawnInterval: 5
-  - enemyPrefab: {fileID: 4089723550589301120, guid: e87959f886ce1a449b3a99e437ced206, type: 3}
-    enemyToSpawn: 2
-    spawnInterval: 3
-  - enemyPrefab: {fileID: 4089723550589301120, guid: e87959f886ce1a449b3a99e437ced206, type: 3}
-    enemyToSpawn: 3
-    spawnInterval: 4
-  wavesBeforePause: 2
+  initialWave: 1
+  addEnemyPerWave: 2
+  waveBeforePause: 3
+  enemySpawnInterval: 1
+  waveSpawnInterval: 2
   shouldSpawn: 1
 --- !u!1 &1940785632
 GameObject:
