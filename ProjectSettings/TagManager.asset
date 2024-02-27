@@ -7,11 +7,12 @@ TagManager:
   - Border
   - Enemy
   - Bullet
+  - BattleArea
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Zones
   - Water
   - UI
   - 

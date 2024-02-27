@@ -56,7 +56,7 @@ public class EnemyAttackMoveForward : EnemyAttackSOBase
         if (viewportPos.x < -0 || viewportPos.x > 2 || viewportPos.y < -2 || viewportPos.y > 2)
         {
             //Destroy(gameObject);
-            gameObject.SetActive(false);
+            enemy.poolCont.Deactivate();
         }
     }
 }

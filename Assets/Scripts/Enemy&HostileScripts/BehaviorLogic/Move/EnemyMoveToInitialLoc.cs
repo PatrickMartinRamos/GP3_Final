@@ -6,8 +6,7 @@ using UnityEngine;
 public class EnemyMoveToInitialLoc : EnemyMoveSOBase
 {
     [SerializeField] public float Speed = 2f;
-    private Vector3 targetPos;
-    private Vector3 direction;
+
     public override void DoAnimationTriggerEventLogic(Enemy.AnimationTriggerType triggerType)
     {
         base.DoAnimationTriggerEventLogic(triggerType);
@@ -16,7 +15,6 @@ public class EnemyMoveToInitialLoc : EnemyMoveSOBase
     public override void DoEnterLogic()
     {
         base.DoEnterLogic();
-        targetPos = new Vector2(7.5f, enemy.transform.position.y);
     }
 
     public override void DoExitLogic()
@@ -28,14 +26,8 @@ public class EnemyMoveToInitialLoc : EnemyMoveSOBase
     {
         base.DoFrameUpdateLogic();
 
-        direction = (targetPos - enemy.transform.position).normalized;
-        enemy.MoveEnemy(direction * Speed);
-        if(Vector2.Distance(enemy.transform.position, targetPos) <= 0.3f)
-        {
-            enemy.SetInPlaceStatus(true);
-        }
-        else
-            enemy.SetInPlaceStatus(false);
+        enemy.MoveEnemy(Vector2.left * Speed);
+
     }
 
     public override void DoPhysicsLogic()

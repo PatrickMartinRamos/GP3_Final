@@ -4,19 +4,15 @@ using UnityEngine;
 
 public class LocationChecker : MonoBehaviour
 {
-    private Enemy enemy;
-    public void Awake()
-    {
-        enemy = GetComponent<Enemy>();
-    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "BattleArea")
-            enemy.SetInPlaceStatus(true);
+        if (collision.gameObject.tag == "Enemy")
+            collision.gameObject.GetComponent<Enemy>().SetInPlaceStatus(true);
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "BattleArea")
-            enemy.SetInPlaceStatus(false);
+        if (collision.gameObject.tag == "Enemy")
+            collision.gameObject.GetComponent<Enemy>().SetInPlaceStatus(false);
     }
 }

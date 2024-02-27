@@ -20,6 +20,7 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckea
 
     #endregion
     #region Moving Variables
+    public ObjectToPool poolCont;
     private Vector2 initialPos;
     #endregion
     void Awake() 
@@ -33,6 +34,7 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckea
         AttackState = new EnemyAttackState(this,StateMachine);
 
         initialPos = transform.position;
+        poolCont = this.gameObject.GetComponent<ObjectToPool>();
 
     }
     void OnEnable()
