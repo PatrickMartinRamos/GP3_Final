@@ -12,9 +12,8 @@ GameObject:
   - component: {fileID: 7685867747709582625}
   - component: {fileID: 4828758570854328344}
   - component: {fileID: 4473379023635801363}
-  - component: {fileID: 4302620893548425326}
   - component: {fileID: 1205622218021339772}
-  - component: {fileID: 5225838085669360687}
+  - component: {fileID: 7196674856412517974}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Enemy
@@ -114,20 +113,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &4302620893548425326
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8205732870715919606}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 776499f26a5b09d4892529a1c6c9a8d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  EnemyMoveBase: {fileID: 11400000, guid: 900d8344a2bb17a4999833454c49c02c, type: 2}
-  EnemyAttackBase: {fileID: 11400000, guid: 11b06e55f33fbcd418e3002ce4eee283, type: 2}
 --- !u!61 &1205622218021339772
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -173,7 +158,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &5225838085669360687
+--- !u!114 &7196674856412517974
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -182,7 +167,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 8205732870715919606}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3cfc8f649a90cf3499ed745ae6189d70, type: 3}
+  m_Script: {fileID: 11500000, guid: 776499f26a5b09d4892529a1c6c9a8d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeoutDelay: 3
+  <CurrentHealth>k__BackingField: 0
+  EnemyMoveBase: {fileID: 11400000, guid: 900d8344a2bb17a4999833454c49c02c, type: 2}
+  EnemyAttackBase: {fileID: 11400000, guid: 11b06e55f33fbcd418e3002ce4eee283, type: 2}
