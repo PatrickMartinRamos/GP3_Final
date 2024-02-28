@@ -45,3 +45,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: background
+    uniqueID: 1264805215
+    locked: 0
+  - name: GamePlayScreen
+    uniqueID: 2838610627
+    locked: 0
