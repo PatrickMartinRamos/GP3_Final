@@ -1,3 +1,6 @@
+using System;
+using System.Collections.Generic;
+using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
 using UnityEngine.Pool;
 
@@ -17,7 +20,9 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckea
 
     #region ScriptableObject Variable
     [SerializeField] private EnemyMoveSOBase EnemyMoveBase;
-    [SerializeField] private EnemyAttackSOBase EnemyAttackBase;
+    public List<EnemyAttackSOBase> EnemyAttackSOBaseList;
+    public int WaveNum { get; set; } = 1;
+/*    private EnemyAttackSOBase EnemyAttackBase;*/
     public EnemyMoveSOBase EnemyMoveBaseInstance { get; set; }
     public EnemyAttackSOBase EnemyAttackBaseInstance { get; set; }
     #endregion
@@ -27,21 +32,22 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckea
     #endregion
     void Awake() 
     {
+
         EnemyMoveBaseInstance = Instantiate(EnemyMoveBase);
-        EnemyAttackBaseInstance = Instantiate(EnemyAttackBase);
-
-        StateMachine = new EnemyStateMachine();
-
-        MoveState = new EnemyMovingState(this,StateMachine);
-        AttackState = new EnemyAttackState(this,StateMachine);
 
         initialPos = transform.position;
+
+        StateMachine = new EnemyStateMachine();
+        MoveState = new EnemyMovingState(this, StateMachine);
 
     }
     void OnEnable()
     {
         CurrentHealth = MaxHealth;
         rb = GetComponent<Rigidbody2D>();
+
+        EnemyAttackBaseInstance = Instantiate(EnemyAttackSOBaseList[WaveNum - 1]);
+        AttackState = new EnemyAttackState(this, StateMachine);
 
         EnemyMoveBaseInstance.Initialize(gameObject, this);
         EnemyAttackBaseInstance.Initialize(gameObject, this);

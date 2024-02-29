@@ -17,7 +17,7 @@ public class EnemySpawner : MonoBehaviour
 
     private float spawnTime = 0f;
 
-    public void Update()
+    public void FixedUpdate()
     {
         spawnTime += Time.deltaTime;
         if (spawnTime >= SpawnRate && WaveNumber <= 3)
@@ -31,7 +31,7 @@ public class EnemySpawner : MonoBehaviour
             SpawnRate = 5f;
             StartCoroutine(NextWave());
         }
-        else if (EnemyWaves.canSpawn()==false)
+        else if (EnemyWaves.canSpawn==false)
         {
             SpawnRate = 3f / WaveNumber;
             StartCoroutine(NextWave());
@@ -53,7 +53,7 @@ public class EnemySpawner : MonoBehaviour
         }
         else
         {
-            WaveNumber = 0;
+            WaveNumber = 1;
             GameObject Boss = GetComponentInChildren<BossSpawner>().SpawnRandomBoss();
         }
     }

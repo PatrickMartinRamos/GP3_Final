@@ -8,10 +8,11 @@ public class EnemyWaves : MonoBehaviour
     private ObjectPool<Enemy>enemies;
     [SerializeField]
     private int enemiesPerWave, enemiesSpawned, WaveNum;
+    public bool canSpawn;
 
     private void Awake()
     {
-       enemies = new ObjectPool<Enemy>(CreateEnemy, OnEnemyGet, OnEnemyRelease, OnEnemyDestroy, true, 5, 10);
+       enemies = new ObjectPool<Enemy>(CreateEnemy, OnEnemyGet, OnEnemyRelease, OnEnemyDestroy, true, 0, 10);
     }
 
     private void OnDestroy()
@@ -20,41 +21,32 @@ public class EnemyWaves : MonoBehaviour
        enemies?.Dispose();
     }
 
+    private void FixedUpdate()
+    {
+        canSpawn = enemiesSpawned < enemiesPerWave ? true:false;
+    }
     public Enemy Get(int WaveNumber, Vector3 position, Quaternion rotation)
     {
         WaveNum = WaveNumber;
         enemiesPerWave = WaveNumber * 5;
-        if (canSpawn())
+        while (canSpawn)
         {
             var enemy = enemies.Get();
             if (enemy != null)
             {
-                enemiesSpawned++;
-                Debug.Log($"Total Number Spawned = {enemiesSpawned}");
                 enemy.transform.SetPositionAndRotation(position, rotation);
             }
             return enemy;
         }
-        else
-        {
-            WaveNum++;
-            Debug.Log("WAVE NUMBER " + WaveNum);
-            return null;
-        }
+ 
+        WaveNum++;
+        Debug.Log("WAVE NUMBER " + WaveNum);
+        return null;
 
-    }
-    public bool canSpawn()
-    {
-        if (enemiesSpawned < enemiesPerWave)
-        {
-            return true;
-        }
-        else
-            return false;
     }
     public int ResetEnemyCount()
     {
-        enemiesSpawned = 0;
+        enemiesSpawned = 1;
         return WaveNum;
     }
 
@@ -67,7 +59,10 @@ public class EnemyWaves : MonoBehaviour
 
     private void OnEnemyGet(Enemy enemy)
     {
+        enemy.WaveNum = WaveNum;
         enemy.rb.velocity = Vector3.zero;
+        enemiesSpawned++;
+        Debug.Log($"Total Number Spawned = {enemiesSpawned}");
         enemy.gameObject.SetActive(true);
     }
 
