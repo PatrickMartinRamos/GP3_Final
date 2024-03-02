@@ -17,12 +17,17 @@ public class powerCardDisplay : MonoBehaviour
     // Start is called before the first frame update
     public void Start()
     {
-        namePowerUP.text = _powerUpCard.name;
-        description.text = _powerUpCard.description;
-
-        artWork.sprite = _powerUpCard.artWork;
-
-        costTxt.text = _powerUpCard.cost.ToString();
+        if (_powerUpCard != null)
+        {
+            namePowerUP.text = _powerUpCard.name;
+            description.text = _powerUpCard.description;
+            artWork.sprite = _powerUpCard.artWork;
+            costTxt.text = _powerUpCard.cost.ToString();
+        }
+        else
+        {
+            Debug.LogError("No shopPowerUpCards assigned to powerCardDisplay.");
+        }
     }
 
 }

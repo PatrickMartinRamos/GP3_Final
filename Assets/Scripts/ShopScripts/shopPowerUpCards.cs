@@ -29,7 +29,8 @@ public class shopPowerUpCards : ScriptableObject
     public playerPowerUpManager playerManager;
 
     public void ActivatePowerUp()
-    {
+    { 
+        //test lng ung mga name na to xD
         switch (powerUpType)
         {
             case PowerUpType.Clone:

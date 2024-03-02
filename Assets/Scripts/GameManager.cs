@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        resetPowerUPLVL();
+       // resetPowerUPLVL();
     }
 
     public void resetPowerUPLVL()
