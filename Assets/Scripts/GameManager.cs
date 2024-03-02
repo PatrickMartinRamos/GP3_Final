@@ -6,11 +6,6 @@ public class GameManager : MonoBehaviour
 {
     public shopPowerUpManager powerUpManager;
 
-    private void Start()
-    {
-       // resetPowerUPLVL();
-    }
-
     public void resetPowerUPLVL()
     {
         if (powerUpManager != null)

@@ -20,13 +20,13 @@ public class shopPowerUpCards : ScriptableObject
     public Sprite artWork;
     public int cost;
     public PowerUpType powerUpType;
-    public int powerUpLVL;
+    [HideInInspector] public int powerUpLVL;
 
     //clone sprite
     [HideInInspector] public Sprite spiritClone_1;
     [HideInInspector] public Sprite spiritClone_2;
 
-    public playerPowerUpManager playerManager;
+    [HideInInspector] public playerPowerUpManager playerManager;
 
     public void ActivatePowerUp()
     { 
