@@ -608,7 +608,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e2169339f77d4d4faf4e243c7973b8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _powerUpCard: {fileID: 0}
+  _powerUpCard: {fileID: 11400000, guid: 9a79327527752224c971db06d5051c6c, type: 2}
   costTxt: {fileID: 570785243}
   description: {fileID: 2089531638}
   namePowerUP: {fileID: 1661552467}
@@ -1162,7 +1162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e2169339f77d4d4faf4e243c7973b8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _powerUpCard: {fileID: 0}
+  _powerUpCard: {fileID: 11400000, guid: 9a79327527752224c971db06d5051c6c, type: 2}
   costTxt: {fileID: 676669023}
   description: {fileID: 1073204}
   namePowerUP: {fileID: 994240063}
@@ -4851,7 +4851,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e2169339f77d4d4faf4e243c7973b8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _powerUpCard: {fileID: 0}
+  _powerUpCard: {fileID: 11400000, guid: 9a79327527752224c971db06d5051c6c, type: 2}
   costTxt: {fileID: 1468240257}
   description: {fileID: 1903564592}
   namePowerUP: {fileID: 2062089490}
