@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Skull : Enemy
 {
+
     public override void Damage(float damageAmount)
     {
         base.Damage(damageAmount);
