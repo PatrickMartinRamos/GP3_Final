@@ -2,11 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum yPosType
+{
+    Random,
+    Unchanged,
+    Modified,
+}
+
 [CreateAssetMenu(fileName ="EnemyAtk - Move Forward", menuName ="Enemy Logic/Attack Logic/Move Forward")]
 public class EnemyAttackMoveForward : EnemyAttackSOBase
 {
     [SerializeField] public float Speed;
-    [SerializeField][Range(-5f, 5f)] public float yPos;
+    public yPosType ChooseType;
+    [SerializeField] [Range(-5,5)]float yPos;
     private Vector3 targetPos;
     private Vector3 direction;
     public override void DoAnimationTriggerEventLogic(Enemy.AnimationTriggerType triggerType)
@@ -17,6 +25,18 @@ public class EnemyAttackMoveForward : EnemyAttackSOBase
     public override void DoEnterLogic()
     {
         base.DoEnterLogic();
+        switch (ChooseType)
+        {
+            case yPosType.Random:
+                yPos = Random.Range(-5, 5);
+                break;
+            case yPosType.Unchanged:
+                yPos = enemy.transform.position.y;
+                break;
+            case yPosType.Modified:
+                break;
+            default: break;
+        }
         targetPos = new Vector2(-10, yPos);
     }
 

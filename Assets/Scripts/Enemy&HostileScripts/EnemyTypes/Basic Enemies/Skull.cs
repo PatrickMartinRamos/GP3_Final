@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ghost : Enemy
+public class Skull : Enemy
 {
+
     public override void Damage(float damageAmount)
     {
         base.Damage(damageAmount);
