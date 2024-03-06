@@ -383,7 +383,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 99104001}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ea29c8dfada4b384cb6dc5c331f0236c, type: 3}
   m_Name: 
@@ -395,7 +395,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 99104001}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6254e99da935fb248b65b083c6193569, type: 3}
   m_Name: 
@@ -618,6 +618,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f709506c4cd15074a9f5715cbcfb03f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  powerUpManager: {fileID: 0}
+  Player: {fileID: 0}
+  eWaves: {fileID: 0}
+  eSpawner: {fileID: 0}
+  bSpawner: {fileID: 0}
 --- !u!114 &1437788830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -711,6 +716,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Bosses:
+  - {fileID: 1623745169456014264, guid: 9652eda46c2770b49a5173557a15be6e, type: 3}
+  - {fileID: 1623745169456014264, guid: c5ebe76dad2e410489473602e76c53d8, type: 3}
   - {fileID: 1623745169456014264, guid: 8f6b4c3eaa579b242a5c4554027d09c0, type: 3}
   BossPrefab: {fileID: 0}
 --- !u!1 &1504771047
@@ -931,12 +938,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f02f0edaf5924d48bb9b0a6eeae64a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyPrefab: {fileID: -495243729212509167, guid: ab9241583d5a51a4bb9421551c67bae5, type: 3}
+  Enemylist:
+  - {fileID: 7196674856412517974, guid: 5a0db2af949d493448c5421c4aa0ac90, type: 3}
+  - {fileID: -495243729212509167, guid: ab9241583d5a51a4bb9421551c67bae5, type: 3}
+  - {fileID: 4327486144731409012, guid: ce7fde522c83a5a43bbd30f07c49fb23, type: 3}
+  EnemyPrefab: {fileID: 0}
   enemiesPerWave: 5
   enemiesSpawned: 0
   WaveNum: 0
   enemiesCreated: 0
   canSpawn: 0
+  fillingPool: 1
 --- !u!114 &1612029172
 MonoBehaviour:
   m_ObjectHideFlags: 0

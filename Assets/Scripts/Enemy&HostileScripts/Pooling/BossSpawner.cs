@@ -15,10 +15,10 @@ public class BossSpawner : MonoBehaviour
             Instantiate(boss,this.transform.position,this.transform.rotation, transform);
             boss.SetActive(false);
         }
+
     }
     public GameObject SpawnRandomBoss()
     {
-        BossPrefab = GetRandomChild(this.transform);
 
         if (BossPrefab != null)
         {
@@ -31,6 +31,11 @@ public class BossSpawner : MonoBehaviour
             Debug.LogError("No children found.");
             return null;
         }
+
+    }
+    public GameObject GetBossToSpawn()
+    {
+        return BossPrefab = GetRandomChild(this.transform);
     }
 
     GameObject GetRandomChild(Transform parent)

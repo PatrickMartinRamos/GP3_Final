@@ -7,6 +7,7 @@ public class BulletScript : MonoBehaviour
 
     bulletManager _bulletManager;
     public float bulletSpeed = 10f;
+    [SerializeField] private float damage = 50f;
     // Update is called once per frame
     private void Start()
     {
@@ -33,8 +34,8 @@ public class BulletScript : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            enemyScript enemy = collision.GetComponent<enemyScript>();
-            enemy.takeDamage(_bulletManager._bulletDamage);
+            Enemy enemy = collision.GetComponent<Enemy>();
+            enemy.Damage(damage);
 
             gameObject.SetActive(false);
         }

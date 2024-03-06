@@ -64,9 +64,13 @@ PrefabInstance:
       propertyPath: EnemyAttackSOBaseList.Array.data[2]
       value: 
       objectReference: {fileID: 11400000, guid: 37cc35e1f3a7ef746ac3ad8aa8a0bbb7, type: 2}
+    - target: {fileID: 7685867747709582625, guid: 5a0db2af949d493448c5421c4aa0ac90, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
     - target: {fileID: 8205732870715919606, guid: 5a0db2af949d493448c5421c4aa0ac90, type: 3}
       propertyPath: m_Name
-      value: Wave Enemies
+      value: EyeGroup
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7196674856412517974, guid: 5a0db2af949d493448c5421c4aa0ac90, type: 3}
