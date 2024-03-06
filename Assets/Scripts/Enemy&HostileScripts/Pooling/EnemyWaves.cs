@@ -7,12 +7,13 @@ public class EnemyWaves : MonoBehaviour
     private Enemy EnemyPrefab;
     private ObjectPool<Enemy>enemies;
     [SerializeField]
-    private int enemiesPerWave, enemiesSpawned, WaveNum;
+    private int enemiesPerWave, enemiesSpawned, WaveNum, enemiesCreated = 0;
     public bool canSpawn;
 
     private void Awake()
     {
-       enemies = new ObjectPool<Enemy>(CreateEnemy, OnEnemyGet, OnEnemyRelease, OnEnemyDestroy, true, 0, 10);
+       enemies = new ObjectPool<Enemy>(CreateEnemy, OnEnemyGet, OnEnemyRelease, OnEnemyDestroy, true, 20, 20);
+
     }
 
     private void OnDestroy()
@@ -21,7 +22,7 @@ public class EnemyWaves : MonoBehaviour
        enemies?.Dispose();
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         canSpawn = enemiesSpawned < enemiesPerWave ? true:false;
     }
@@ -42,7 +43,20 @@ public class EnemyWaves : MonoBehaviour
         WaveNum++;
         Debug.Log("WAVE NUMBER " + WaveNum);
         return null;
-
+    }
+    public Enemy Summon(int Number, Vector3 position, Quaternion rotation)
+    {
+        enemiesPerWave = Number;
+        while (canSpawn)
+        {
+            var enemy = enemies.Get();
+            if (enemy != null)
+            {
+                enemy.transform.SetPositionAndRotation(position, rotation);
+            }
+            return enemy;
+        }
+        return null;
     }
     public int ResetEnemyCount()
     {
@@ -53,6 +67,7 @@ public class EnemyWaves : MonoBehaviour
     private Enemy CreateEnemy()
     {
         var instance = Instantiate(EnemyPrefab);
+        instance.EnemyID = enemiesCreated++;
         instance.ObjectPool = enemies;
         return instance;  
     }

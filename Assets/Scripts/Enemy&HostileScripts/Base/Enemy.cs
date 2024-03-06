@@ -22,7 +22,8 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckea
     [SerializeField] private EnemyMoveSOBase EnemyMoveBase;
     public List<EnemyAttackSOBase> EnemyAttackSOBaseList;
     public int WaveNum { get; set; } = 1;
-/*    private EnemyAttackSOBase EnemyAttackBase;*/
+    public int EnemyID { get; set; } = 1;
+    /*    private EnemyAttackSOBase EnemyAttackBase;*/
     public EnemyMoveSOBase EnemyMoveBaseInstance { get; set; }
     public EnemyAttackSOBase EnemyAttackBaseInstance { get; set; }
     #endregion
@@ -32,8 +33,6 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckea
     #endregion
     void Awake() 
     {
-
-        EnemyMoveBaseInstance = Instantiate(EnemyMoveBase);
 
         initialPos = transform.position;
 
@@ -46,13 +45,11 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckea
         CurrentHealth = MaxHealth;
         rb = GetComponent<Rigidbody2D>();
 
-        EnemyAttackBaseInstance = Instantiate(EnemyAttackSOBaseList[WaveNum - 1]);
-        AttackState = new EnemyAttackState(this, StateMachine);
+        Attack();
 
-        EnemyMoveBaseInstance.Initialize(gameObject, this);
-        EnemyAttackBaseInstance.Initialize(gameObject, this);
+        EnemyMoveBaseInstance = Instantiate(EnemyMoveBase);
 
-        StateMachine.initialize(MoveState);
+        InitializeEnemy();
     }
     void OnDisable()
     {
@@ -67,6 +64,22 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckea
     {
         StateMachine.CurrentEnemyState.PhysicsUpdate();
     }
+
+    public virtual void InitializeEnemy()
+    {
+        EnemyMoveBaseInstance.Initialize(gameObject, this);
+        EnemyAttackBaseInstance.Initialize(gameObject, this);
+
+        StateMachine.initialize(MoveState);
+    }
+
+    #region Attack Function
+    public virtual void Attack()
+    {
+        EnemyAttackBaseInstance = Instantiate(EnemyAttackSOBaseList[WaveNum - 1]);
+        AttackState = new EnemyAttackState(this, StateMachine);
+    }
+    #endregion
 
     #region Health/Die Functions
     public virtual void Damage(float damageAmount)
@@ -89,7 +102,6 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckea
     {
         rb.velocity = velocity;
     }
-
     #endregion
 
     #region Location Checker

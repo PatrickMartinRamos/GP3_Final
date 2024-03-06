@@ -13,14 +13,21 @@ public class EnemySpawner : MonoBehaviour
     private int WaveNumber { get; set; }=1;
 
     [SerializeField]
-    private float SpawnRate = 1f;
+    private float SpawnRate;
 
-    private float spawnTime = 0f;
+    private float spawnTime;
+
+    private void Start()
+    {
+        SpawnRate = 10f;
+        spawnTime = 0;
+        Debug.Log(SpawnRate + " " + spawnTime);
+    }
 
     public void FixedUpdate()
     {
         spawnTime += Time.deltaTime;
-        if (spawnTime >= SpawnRate && WaveNumber <= 3)
+        if (spawnTime >= SpawnRate && WaveNumber <= 3 && WaveNumber > 0)
         {
             SpawnRate = 1f /WaveNumber;
             spawnTime = 0f;
@@ -28,7 +35,7 @@ public class EnemySpawner : MonoBehaviour
         }
         else if (WaveNumber == 4)
         {
-            SpawnRate = 5f;
+            SpawnRate = 7f;
             StartCoroutine(NextWave());
         }
         else if (EnemyWaves.canSpawn==false)
@@ -53,8 +60,10 @@ public class EnemySpawner : MonoBehaviour
         }
         else
         {
-            WaveNumber = 1;
+            WaveNumber = 0;
             GameObject Boss = GetComponentInChildren<BossSpawner>().SpawnRandomBoss();
+            yield return new WaitWhile(()=>(Boss.activeSelf));
+            WaveNumber = 1;
         }
     }
 }

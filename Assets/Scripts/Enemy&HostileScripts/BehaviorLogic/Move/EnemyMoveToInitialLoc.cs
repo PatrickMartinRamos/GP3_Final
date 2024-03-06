@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName ="Move-Initial Location", menuName ="Enemy Logic/Move Logic/Move to Start")]
 public class EnemyMoveToInitialLoc : EnemyMoveSOBase
 {
-    [SerializeField] public float Speed = 2f;
+    [SerializeField] float Speed = 2f;
 
     public override void DoAnimationTriggerEventLogic(Enemy.AnimationTriggerType triggerType)
     {
