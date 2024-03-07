@@ -79,14 +79,15 @@ public class shopPowerUpCards : ScriptableObject
     #region Damage buff
     void DamageBuff()
     {
-        Debug.Log("using Damage!");
+        playerPowerUPManager.activateDamageBuff(damageBuff);
+       // Debug.Log("using Damage!");
     }
     #endregion
 
     #region addMaxHealth
     void addMaxHealth()
     {
-        playerPowerUPManager.addMaxHealtBuff(healthToAdd);
+        playerPowerUPManager.activateAddMaxHealtBuff(healthToAdd);
         //Debug.Log("using addMaxHealth!");
     }
     #endregion
@@ -101,6 +102,7 @@ public class shopPowerUpCards : ScriptableObject
     #region scatterBullet
     void scatterBullet()
     {
+        playerPowerUPManager.activateScatterBulletBuff();
         Debug.Log("using scatterBullet!");
     }
 #endregion

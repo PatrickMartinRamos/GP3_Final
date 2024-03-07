@@ -6,18 +6,17 @@ public class BulletScript : MonoBehaviour
 {
 
     bulletManager _bulletManager;
-    public float bulletSpeed = 10f;
-    [SerializeField] private float damage = 50f;
     // Update is called once per frame
     private void Start()
     {
-        _bulletManager = GetComponentInChildren<bulletManager>();
+        _bulletManager = FindObjectOfType<bulletManager>();
     }
 
     void Update()
     {
-        transform.Translate(Vector2.right * bulletSpeed * Time.deltaTime);
+        transform.Translate(Vector2.right * _bulletManager._bulletSpeed * Time.deltaTime);
         CheckIfOutsideViewport();
+       // Debug.Log("bullet damage " + _bulletManager._bulletDamage);
     }
 
     private void CheckIfOutsideViewport()
@@ -35,8 +34,9 @@ public class BulletScript : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy"))
         {
             Enemy enemy = collision.GetComponent<Enemy>();
-            enemy.Damage(damage);
+            enemy.Damage(_bulletManager._bulletDamage);
 
+           
             gameObject.SetActive(false);
         }
     }

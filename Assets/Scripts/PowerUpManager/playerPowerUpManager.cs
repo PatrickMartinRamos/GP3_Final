@@ -3,6 +3,7 @@ using UnityEngine;
 public class playerPowerUpManager : MonoBehaviour
 {
     playerManagerScript _playerManager;
+    public bulletManager _bulletManager;
 
     [Header("Clone Wisp")]
     //clone(wisp) Var
@@ -11,23 +12,26 @@ public class playerPowerUpManager : MonoBehaviour
     public int _cloneLevel;
 
     //addMaxHealth
+    public int _addMaxHealthLevel;
 
     //Shield Var
 
     [Header("Scatter Bullet")]
     //Scatter Bullet Var
-    public GameObject _scatterBulletPOS_1;
-    public GameObject _scatterBulletPOS_2;
-    [HideInInspector] public bool _scatterBullet_1;
-    [HideInInspector]  public bool _scatterBullet_2;
+    public Transform _scatterBulletPOS_1;
+    public Transform _scatterBulletPOS_2;
+    [HideInInspector] public bool _scatterBullet_1 = false;
+    [HideInInspector]  public bool _scatterBullet_2 = false;
     public int _scatterBulletLevel;
 
     //Bullet Buff Var
+    public int _damageBuffLevel;
 
 
     private void Start()
     {
         _playerManager = playerManagerScript._playerManagerInstance;
+        _bulletManager = FindObjectOfType<bulletManager>();
     }
 
     #region activate clone(wisp)
@@ -69,23 +73,54 @@ public class playerPowerUpManager : MonoBehaviour
     #endregion
 
     #region scatterBulletBuff
-    public void scatterBulletBuff()
+    public void activateScatterBulletBuff()
     {
+        IncreaseScatterBulletLevel();
 
+        switch(_scatterBulletLevel)
+        {
+            case 1:
+                _scatterBullet_1 = true;
+                break;
+            case 2:
+                _scatterBullet_2 = true;
+                break;
+            case 3:
+                Debug.Log("power up 3");
+                break;
+        }
     }
+
+    public void IncreaseScatterBulletLevel()
+    {
+        _scatterBulletLevel++;
+    }
+
     #endregion
 
     #region addMaxHealtBuff
-    public void addMaxHealtBuff(int healthToAdd)
+    public void activateAddMaxHealtBuff(int healthToAdd)
     {
         IncreaseAddMaxHealthLevel();
 
         _playerManager.IncreaseMaxHealth(healthToAdd);
     }
-    // Method to increase the clone level
+
     public void IncreaseAddMaxHealthLevel()
     {
-        _scatterBulletLevel++;
+        _addMaxHealthLevel++;
+    }
+    #endregion
+
+    #region activateDamageBuff
+    public void activateDamageBuff(int damageBuff)
+    {
+        _bulletManager.increasedBulletDamage(damageBuff);
+        IncreaseDamageBuffLevel();
+    }
+    public void IncreaseDamageBuffLevel()
+    {
+        _damageBuffLevel++;
     }
     #endregion
 }

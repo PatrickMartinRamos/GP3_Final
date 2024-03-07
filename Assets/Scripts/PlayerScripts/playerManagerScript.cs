@@ -23,10 +23,11 @@ public class playerManagerScript : MonoBehaviour
         _playerCurrentHealth = _maxHealth;
     }
 
-    public void IncreaseMaxHealth(int amount)
+    public void IncreaseMaxHealth(int healthToAdd)
     {
-        _maxHealth += amount;
+        _maxHealth += healthToAdd;
         
+        //option kung irereset ba ung current health nag nag upgrade
        // _playerCurrentHealth += amount;
     }
 

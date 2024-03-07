@@ -19,7 +19,6 @@ public class PowerUpCardEditor : Editor
         showAddDamageBuffOption();
         showAddshieldBuffOption();
         showCurrencyMultiplierOption();
-        showBulletScatterOption();
     }
     #region show clone option inspector
     void showCloneOption()
@@ -95,18 +94,4 @@ public class PowerUpCardEditor : Editor
     }
     #endregion
 
-    #region show scatter bullet buff option inspector
-    void showBulletScatterOption()
-    {
-        shopPowerUpCards powerUpCard = (shopPowerUpCards)target;
-
-        if (powerUpCard.powerUpType == PowerUpType.scatterBullet)
-        {
-            EditorGUILayout.Space(); // Add some space
-
-            powerUpCard.bulletScatter_1 = EditorGUILayout.Toggle("Scatter Bullet 1", powerUpCard.bulletScatter_1);
-            powerUpCard.bulletScatter_2 = EditorGUILayout.Toggle("Scatter Bullet 2", powerUpCard.bulletScatter_2);
-        }
-    }
-    #endregion
 }
