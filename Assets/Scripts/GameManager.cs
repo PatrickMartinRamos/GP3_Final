@@ -18,4 +18,24 @@ public class GameManager : MonoBehaviour
             Debug.LogError("PowerUpManager reference is not set in the GameManager.");
         }
     }
+    public static GameManager instance { get; set; }
+
+    [Header("GameObjects")]
+    public GameObject Player;
+    public GameObject UpcomingBoss { get; set; }
+
+    [Header("Scripts")]
+    public EnemyWaves eWaves;
+    public EnemySpawner eSpawner;
+    public BossSpawner bSpawner;
+
+    public void Awake()
+    {
+        if (instance != null && instance != this) { Destroy(this); }
+        else { instance = this; }
+
+        eWaves = GetComponentInChildren<EnemyWaves>();
+        eSpawner = GetComponentInChildren<EnemySpawner>();
+        bSpawner = GetComponentInChildren<BossSpawner>();
+    }
 }

@@ -51,7 +51,6 @@ public class EnemyAttackMoveForward : EnemyAttackSOBase
 
         direction = (targetPos - enemy.transform.position).normalized;
         enemy.MoveEnemy(direction * Speed);
-        CheckIfOutsideViewport();
     }
 
     public override void DoPhysicsLogic()
@@ -68,14 +67,5 @@ public class EnemyAttackMoveForward : EnemyAttackSOBase
     {
         base.ResetValues();
     }
-    private void CheckIfOutsideViewport()
-    {
-        Vector3 viewportPos = Camera.main.WorldToViewportPoint(transform.position);
 
-        // If the bullet is outside the viewport, set it false
-        if (viewportPos.x < -0 || viewportPos.x > 2 || viewportPos.y < -2 || viewportPos.y > 2)
-        {
-            enemy.Die();
-        }
-    }
 }
