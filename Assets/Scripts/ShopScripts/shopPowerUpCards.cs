@@ -31,8 +31,6 @@ public class shopPowerUpCards : ScriptableObject
     [HideInInspector] public int addShield; //shield buff
     [HideInInspector] public int currencyMultiplierNumber; //currency multiplier
    
-    [HideInInspector] public bool bulletScatter_1 = false;  //bullet scatter
-    [HideInInspector] public bool bulletScatter_2 = false;  //bullet scatter
 
     [HideInInspector] public playerPowerUpManager playerPowerUPManager;
 
