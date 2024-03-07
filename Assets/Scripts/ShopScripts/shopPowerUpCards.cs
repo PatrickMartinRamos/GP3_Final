@@ -4,12 +4,12 @@ using UnityEngine;
 
 public enum PowerUpType
 {
-    Speed,
-    Damage,
-    Clone,
-    Naruto,
-    Elden,
-    x2
+    shield,
+    damageBuff,
+    spiritClone,
+    addMaxHealth,
+    currencyMultiplier,
+    scatterBullet
 }
 
 [CreateAssetMenu(fileName = "New Power UP", menuName = "Power Up")]
@@ -26,30 +26,38 @@ public class shopPowerUpCards : ScriptableObject
     [HideInInspector] public Sprite spiritClone_1;
     [HideInInspector] public Sprite spiritClone_2;
 
-    [HideInInspector] public playerPowerUpManager playerManager;
+    [HideInInspector] public int healthToAdd; //add sa max health
+    [HideInInspector] public int damageBuff; //damage buff
+    [HideInInspector] public int addShield; //shield buff
+    [HideInInspector] public int currencyMultiplierNumber; //currency multiplier
+   
+    [HideInInspector] public bool bulletScatter_1 = false;  //bullet scatter
+    [HideInInspector] public bool bulletScatter_2 = false;  //bullet scatter
+
+    [HideInInspector] public playerPowerUpManager playerPowerUPManager;
 
     public void ActivatePowerUp()
     { 
         //test lng ung mga name na to xD
         switch (powerUpType)
         {
-            case PowerUpType.Clone:
+            case PowerUpType.spiritClone:
                 spiritClone();
                 break;
-            case PowerUpType.Damage:
-                Damage();           
+            case PowerUpType.damageBuff:
+                DamageBuff();           
                 break;
-            case PowerUpType.Speed:
+            case PowerUpType.shield:
                 Speed();
                 break;
-            case PowerUpType.Naruto:
-                naruto();
+            case PowerUpType.addMaxHealth:
+                addMaxHealth();
                 break;
-            case PowerUpType.Elden:
-                elden();
+            case PowerUpType.currencyMultiplier:
+                currencyMultiplier();
                 break;
-            case PowerUpType.x2:
-                x2();
+            case PowerUpType.scatterBullet:
+                scatterBullet();
                 break;
         }
     }
@@ -57,42 +65,43 @@ public class shopPowerUpCards : ScriptableObject
     #region spirit clone
     void spiritClone()
     {
-        playerManager.ActivateClonePowerUp(spiritClone_1, spiritClone_2);
+        playerPowerUPManager.ActivateClonePowerUp(spiritClone_1, spiritClone_2);
     }
     #endregion
 
-    #region speed
+    #region shield
     void Speed()
     {
-        Debug.Log("using Speed!");
+        Debug.Log("using shield!");
     }
     #endregion
 
-    #region Damage
-    void Damage()
+    #region Damage buff
+    void DamageBuff()
     {
         Debug.Log("using Damage!");
     }
     #endregion
 
-    #region naruto
-    void naruto()
+    #region addMaxHealth
+    void addMaxHealth()
     {
-        Debug.Log("using naruto!");
+        playerPowerUPManager.addMaxHealtBuff(healthToAdd);
+        //Debug.Log("using addMaxHealth!");
     }
     #endregion
 
-    #region elden ring
-    void elden()
+    #region currencyMultiplier
+    void currencyMultiplier()
     {
-        Debug.Log("using elden!");
+        Debug.Log("using currencyMultiplier!");
     }
     #endregion
 
-    #region x2
-    void x2()
+    #region scatterBullet
+    void scatterBullet()
     {
-        Debug.Log("using x2!");
+        Debug.Log("using scatterBullet!");
     }
 #endregion
 }

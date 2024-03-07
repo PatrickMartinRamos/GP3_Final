@@ -22,6 +22,14 @@ public class playerManagerScript : MonoBehaviour
     {
         _playerCurrentHealth = _maxHealth;
     }
+
+    public void IncreaseMaxHealth(int amount)
+    {
+        _maxHealth += amount;
+        
+       // _playerCurrentHealth += amount;
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.collider.CompareTag("Enemy"))
@@ -31,7 +39,7 @@ public class playerManagerScript : MonoBehaviour
             _playerCurrentHealth -= damage; // dpat enemy damage - sa player current health
 
             currencyEarned++; //add currency para sa shop naten
-            Debug.Log("Player hit");
+            //Debug.Log("Player hit");
             Destroy(collision.gameObject); 
         }
     }

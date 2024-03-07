@@ -16,7 +16,7 @@ public class onBuyScript : MonoBehaviour
             if (powerUpCard.powerUpLVL < 3)
             {
                 // Assign the playerPowerUpManager reference
-                powerUpCard.playerManager = playerPowerUpManager;
+                powerUpCard.playerPowerUPManager = playerPowerUpManager;
 
                 // Increment the lvl count
                 powerUpCard.powerUpLVL++;

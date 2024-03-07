@@ -10,13 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 82df870968c87f24ba633f7481d28320, type: 3}
-  m_Name: x2
+  m_Name: Damage UP Buff
   m_EditorClassIdentifier: 
-  powerUPName: x2
-  description: x2 currency
-  artWork: {fileID: 21300000, guid: f8da56a977f67c640a5f6d7c40272cac, type: 3}
-  cost: 77
-  powerUpType: 5
+  powerUPName: Damage UP
+  description: Add +5 to your Bullets
+  artWork: {fileID: 21300000, guid: 4835212987e8ed24b9cfb6c0e1fb9b4c, type: 3}
+  cost: 5
+  powerUpType: 1
+  powerUpLVL: 0
   spiritClone_1: {fileID: 0}
   spiritClone_2: {fileID: 0}
+  healthToAdd: 0
+  damageBuff: 0
+  addShield: 0
   playerManager: {fileID: 0}

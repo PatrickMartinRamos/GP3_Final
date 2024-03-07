@@ -23,7 +23,7 @@ public class uiDisplayScripts : MonoBehaviour
 
     void uiDisplayHealth()
     {
-        _displayHealth.text = "Health: " + _playerManager._playerCurrentHealth.ToString();
+        _displayHealth.text = "Health: "+ _playerManager._playerCurrentHealth.ToString() + "/"  + _playerManager._maxHealth.ToString();
     }
 
     void uiDisplayCurrency()

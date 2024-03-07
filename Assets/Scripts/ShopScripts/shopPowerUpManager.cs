@@ -79,6 +79,7 @@ public class shopPowerUpManager : MonoBehaviour
     #region reset power-up levels
     public void ResetPowerUpLevels()
     {
+        Debug.Log("reset");
         foreach (var powerUp in allPowerUps)
         {
             powerUp.powerUpLVL = 0; // Reset power-up level to 0 for each power-up card

@@ -2,23 +2,40 @@ using UnityEngine;
 
 public class playerPowerUpManager : MonoBehaviour
 {
+    playerManagerScript _playerManager;
+
+    [Header("Clone Wisp")]
     //clone(wisp) Var
     public GameObject spiritClone_1;
     public GameObject spiritClone_2;
-    public int cloneLevel;
+    public int _cloneLevel;
+
+    //addMaxHealth
 
     //Shield Var
 
-    //Scatter Var
+    [Header("Scatter Bullet")]
+    //Scatter Bullet Var
+    public GameObject _scatterBulletPOS_1;
+    public GameObject _scatterBulletPOS_2;
+    [HideInInspector] public bool _scatterBullet_1;
+    [HideInInspector]  public bool _scatterBullet_2;
+    public int _scatterBulletLevel;
 
     //Bullet Buff Var
+
+
+    private void Start()
+    {
+        _playerManager = playerManagerScript._playerManagerInstance;
+    }
 
     #region activate clone(wisp)
     public void ActivateClonePowerUp(Sprite sprite1, Sprite sprite2)
     {
         IncreaseCloneLevel();
         // Activate the appropriate number of clones based on the level
-        switch (cloneLevel)
+        switch (_cloneLevel)
         {
             case 1:
                 spiritClone_1.SetActive(true); 
@@ -28,7 +45,9 @@ public class playerPowerUpManager : MonoBehaviour
                 spiritClone_1.SetActive(true);
                 spiritClone_2.SetActive(true);
                 break;
-                // Add more cases for higher levels 
+            case 3:
+                //add damaage to the spriti clone
+                break;
         }
 
         // Assign sprites
@@ -45,7 +64,28 @@ public class playerPowerUpManager : MonoBehaviour
     // Method to increase the clone level
     public void IncreaseCloneLevel()
     {
-        cloneLevel++;
+        _cloneLevel++;
+    }
+    #endregion
+
+    #region scatterBulletBuff
+    public void scatterBulletBuff()
+    {
+
+    }
+    #endregion
+
+    #region addMaxHealtBuff
+    public void addMaxHealtBuff(int healthToAdd)
+    {
+        IncreaseAddMaxHealthLevel();
+
+        _playerManager.IncreaseMaxHealth(healthToAdd);
+    }
+    // Method to increase the clone level
+    public void IncreaseAddMaxHealthLevel()
+    {
+        _scatterBulletLevel++;
     }
     #endregion
 }
