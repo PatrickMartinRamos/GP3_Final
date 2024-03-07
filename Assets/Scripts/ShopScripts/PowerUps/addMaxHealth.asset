@@ -10,13 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 82df870968c87f24ba633f7481d28320, type: 3}
-  m_Name: speed
+  m_Name: addMaxHealth
   m_EditorClassIdentifier: 
-  powerUPName: speed
-  description: the flash
-  artWork: {fileID: 21300000, guid: 7ae5d84f621d2634b92faee4ae4c9f31, type: 3}
-  cost: 555
-  powerUpType: 0
+  powerUPName: Add Health
+  description: +1 to Max Health
+  artWork: {fileID: 21300000, guid: b85c1d751aeba4e4c9acbb094f72a042, type: 3}
+  cost: 5
+  powerUpType: 3
+  powerUpLVL: 3
   spiritClone_1: {fileID: 0}
   spiritClone_2: {fileID: 0}
-  playerManager: {fileID: 0}
+  healthToAdd: 5
+  damageBuff: 0
+  addShield: 0
+  currencyMultiplierNumber: 0
+  bulletScatter_1: 0
+  bulletScatter_2: 0
+  playerPowerUPManager: {fileID: 0}

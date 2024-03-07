@@ -6,18 +6,6 @@ public class GameManager : MonoBehaviour
 {
     public shopPowerUpManager powerUpManager;
 
-    public void resetPowerUPLVL()
-    {
-        if (powerUpManager != null)
-        {
-            powerUpManager.ResetPowerUpLevels();
-            Debug.Log("PowerLVL reset");
-        }
-        else
-        {
-            Debug.LogError("PowerUpManager reference is not set in the GameManager.");
-        }
-    }
     public static GameManager instance { get; set; }
 
     [Header("GameObjects")]

@@ -15,15 +15,19 @@ public class PowerUpCardEditor : Editor
         base.OnInspectorGUI();
 
         showCloneOption();
+        showAddMaxHealthOption();
+        showAddDamageBuffOption();
+        showAddshieldBuffOption();
+        showCurrencyMultiplierOption();
     }
-
+    #region show clone option inspector
     void showCloneOption()
     {
         // Cast the target object to the appropriate type
         shopPowerUpCards powerUpCard = (shopPowerUpCards)target;
 
         // If powerUpType is Clone, show sprite options
-        if (powerUpCard.powerUpType == PowerUpType.Clone)
+        if (powerUpCard.powerUpType == PowerUpType.spiritClone)
         {
             EditorGUILayout.Space(); // Add some space
 
@@ -32,4 +36,62 @@ public class PowerUpCardEditor : Editor
             powerUpCard.spiritClone_2 = (Sprite)EditorGUILayout.ObjectField("Spirit Clone Sprite 2", powerUpCard.spiritClone_2, typeof(Sprite), false);
         }
     }
+    #endregion
+
+    #region  show add maxHealth option inspector
+    void showAddMaxHealthOption()
+    {
+        shopPowerUpCards powerUpCard = (shopPowerUpCards)target;
+
+        if (powerUpCard.powerUpType == PowerUpType.addMaxHealth)
+        {
+            EditorGUILayout.Space(); // Add some space
+
+            powerUpCard.healthToAdd = EditorGUILayout.IntField("Health to Add", powerUpCard.healthToAdd);
+        }
+    }
+    #endregion
+
+    #region show damage buff option inspector
+    void showAddDamageBuffOption()
+    {
+        shopPowerUpCards powerUpCard = (shopPowerUpCards)target;
+
+        if (powerUpCard.powerUpType == PowerUpType.damageBuff)
+        {
+            EditorGUILayout.Space(); // Add some space
+
+            powerUpCard.damageBuff = EditorGUILayout.IntField("Damage to Add", powerUpCard.damageBuff);
+        }
+    }
+    #endregion
+
+    #region show shield buff option inspector
+    void showAddshieldBuffOption()
+    {
+        shopPowerUpCards powerUpCard = (shopPowerUpCards)target;
+
+        if (powerUpCard.powerUpType == PowerUpType.shield)
+        {
+            EditorGUILayout.Space(); // Add some space
+
+            powerUpCard.addShield = EditorGUILayout.IntField("Shield to add", powerUpCard.addShield);
+        }
+    }
+    #endregion
+
+    #region show currency multiplier buff option inspector
+    void showCurrencyMultiplierOption()
+    {
+        shopPowerUpCards powerUpCard = (shopPowerUpCards)target;
+
+        if (powerUpCard.powerUpType == PowerUpType.currencyMultiplier)
+        {
+            EditorGUILayout.Space(); // Add some space
+
+            powerUpCard.currencyMultiplierNumber = EditorGUILayout.IntField("Currency Multiplier", powerUpCard.currencyMultiplierNumber);
+        }
+    }
+    #endregion
+
 }

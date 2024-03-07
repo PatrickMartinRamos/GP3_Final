@@ -10,13 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 82df870968c87f24ba633f7481d28320, type: 3}
-  m_Name: naruto
+  m_Name: Currency Multiplier
   m_EditorClassIdentifier: 
-  powerUPName: naruto
-  description: datebayoo
-  artWork: {fileID: 21300000, guid: 86d49f40545525047a02e67ea6df30ac, type: 3}
-  cost: 2
-  powerUpType: 3
+  powerUPName: Soul Multiplier
+  description: X2 the currency player per kill
+  artWork: {fileID: 21300000, guid: 25cef1bb73e99b346a44fba23bed55ea, type: 3}
+  cost: 6
+  powerUpType: 4
+  powerUpLVL: 0
   spiritClone_1: {fileID: 0}
   spiritClone_2: {fileID: 0}
-  playerManager: {fileID: 0}
+  healthToAdd: 0
+  damageBuff: 0
+  addShield: 0
+  currencyMultiplierNumber: 2
+  bulletScatter_1: 0
+  bulletScatter_2: 0
+  playerPowerUPManager: {fileID: 0}

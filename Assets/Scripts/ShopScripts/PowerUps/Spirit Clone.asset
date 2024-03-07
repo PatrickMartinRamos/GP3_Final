@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 82df870968c87f24ba633f7481d28320, type: 3}
-  m_Name: Clone
+  m_Name: Spirit Clone
   m_EditorClassIdentifier: 
-  powerUPName: Clone
+  powerUPName: Spirit Clone
   description: Spirit Clone add elden and flash to your group
   artWork: {fileID: 21300000, guid: b85c1d751aeba4e4c9acbb094f72a042, type: 3}
   cost: 55
@@ -20,4 +20,7 @@ MonoBehaviour:
   powerUpLVL: 3
   spiritClone_1: {fileID: 21300000, guid: 8fe28083c2a99fa498840cb9ea1ecd1e, type: 3}
   spiritClone_2: {fileID: 21300000, guid: 7ae5d84f621d2634b92faee4ae4c9f31, type: 3}
+  healthToAdd: 0
+  damageBuff: 0
+  addShield: 0
   playerManager: {fileID: 0}
