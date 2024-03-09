@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f33b6a0d71a12a24b949b08cc4386896, type: 3}
   m_Name: MoveForward(Random)
   m_EditorClassIdentifier: 
-  Speed: 5
+  Speed: 3
   ChooseType: 0
   yPos: 0
