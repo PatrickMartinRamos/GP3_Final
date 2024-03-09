@@ -20,7 +20,7 @@ public class EnemySpawner : MonoBehaviour
     private void Start()
     {
         EnemyWaves = GameManager.instance.eWaves;
-        SpawnRate = 10f;
+        SpawnRate = 5f;
         spawnTime = 0;
         Debug.Log(SpawnRate + " " + spawnTime);
     }
@@ -34,7 +34,7 @@ public class EnemySpawner : MonoBehaviour
             spawnTime = 0f;
             Spawn();
         }
-        else if (WaveNumber == 4)
+        else if (spawnTime >= SpawnRate && WaveNumber == 4)
         {
             SpawnRate = 10f;
             StartCoroutine(NextWave());
