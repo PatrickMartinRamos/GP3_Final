@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - Bullet
   - BattleArea
+  - Wall
   layers:
   - Default
   - TransparentFX
@@ -16,10 +17,10 @@ TagManager:
   - Water
   - UI
   - cardLayer
-  - 
-  - 
-  - 
-  - 
+  - gamescene
+  - Shop
+  - ShopBG
+  - shopeffects
   - 
   - 
   - 
@@ -50,4 +51,13 @@ TagManager:
     locked: 0
   - name: GamePlayScreen
     uniqueID: 2838610627
+    locked: 0
+  - name: ShopBG
+    uniqueID: 3715608387
+    locked: 0
+  - name: shopeffects
+    uniqueID: 1399182787
+    locked: 0
+  - name: cardLayer
+    uniqueID: 2094017663
     locked: 0

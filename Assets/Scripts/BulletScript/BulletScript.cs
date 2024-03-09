@@ -16,7 +16,6 @@ public class BulletScript : MonoBehaviour
     {
         transform.Translate(Vector2.right * _bulletManager._bulletSpeed * Time.deltaTime);
         CheckIfOutsideViewport();
-       // Debug.Log("bullet damage " + _bulletManager._bulletDamage);
     }
 
     private void CheckIfOutsideViewport()
