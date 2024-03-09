@@ -74,7 +74,7 @@ PrefabInstance:
       objectReference: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
     - target: {fileID: 8205732870715919606, guid: 5a0db2af949d493448c5421c4aa0ac90, type: 3}
       propertyPath: m_Name
-      value: Cube Variant
+      value: Boss3
       objectReference: {fileID: 0}
     - target: {fileID: 8205732870715919606, guid: 5a0db2af949d493448c5421c4aa0ac90, type: 3}
       propertyPath: m_IsActive
@@ -92,7 +92,7 @@ PrefabInstance:
       addedObject: {fileID: 6291912710505111358}
     - targetCorrespondingSourceObject: {fileID: 8205732870715919606, guid: 5a0db2af949d493448c5421c4aa0ac90, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 5937098707353319337}
+      addedObject: {fileID: -2948575837051026406}
   m_SourcePrefab: {fileID: 100100000, guid: 5a0db2af949d493448c5421c4aa0ac90, type: 3}
 --- !u!1 &1623745169456014264 stripped
 GameObject:
@@ -134,7 +134,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &5937098707353319337
+--- !u!114 &-2948575837051026406
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -143,10 +143,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1623745169456014264}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 956f818bbfaf302439bacceca60edc56, type: 3}
+  m_Script: {fileID: 11500000, guid: 67d676ce370c1a140abe4dfa96a9149a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   <CurrentHealth>k__BackingField: 0
   EnemyMoveBase: {fileID: 11400000, guid: 900d8344a2bb17a4999833454c49c02c, type: 2}
   EnemyAttackSOBaseList:
+  - {fileID: 11400000, guid: 4235f99ad3f81724a9c66e4796dca856, type: 2}
   - {fileID: 11400000, guid: 4235f99ad3f81724a9c66e4796dca856, type: 2}

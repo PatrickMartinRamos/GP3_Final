@@ -31,7 +31,7 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckea
     #region Moving Variables
     private Vector2 initialPos;
     #endregion
-    void Awake() 
+    public virtual void Awake() 
     {
 
         initialPos = transform.position;
@@ -58,7 +58,6 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckea
     private void Update()
     {
         StateMachine.CurrentEnemyState.FrameUpdate();
-        Debug.Log(StateMachine.CurrentEnemyState.ToString());
     }
     private void FixedUpdate()
     {
@@ -76,7 +75,7 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckea
     #region Attack Function
     public virtual void Attack()
     {
-        EnemyAttackBaseInstance = Instantiate(EnemyAttackSOBaseList[WaveNum - 1]);
+        EnemyAttackBaseInstance = Instantiate(EnemyAttackSOBaseList[0]);
         AttackState = new EnemyAttackState(this, StateMachine);
     }
     #endregion

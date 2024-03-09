@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f33b6a0d71a12a24b949b08cc4386896, type: 3}
   m_Name: MoveForward(Assigned)
   m_EditorClassIdentifier: 
-  Speed: 2
+  Speed: 1
   ChooseType: 2
   yPos: 2.1
