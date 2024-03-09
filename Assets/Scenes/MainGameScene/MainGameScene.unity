@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 1073203}
   - component: {fileID: 1073205}
   - component: {fileID: 1073204}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Description
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -616,7 +616,7 @@ GameObject:
   - component: {fileID: 105120846}
   - component: {fileID: 105120845}
   - component: {fileID: 105120844}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BuyBTN
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -748,7 +748,7 @@ GameObject:
   - component: {fileID: 128374220}
   - component: {fileID: 128374222}
   - component: {fileID: 128374221}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Name
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -882,7 +882,7 @@ GameObject:
   - component: {fileID: 159946943}
   - component: {fileID: 159946942}
   - component: {fileID: 159946941}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ArtWork
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1148,7 +1148,7 @@ GameObject:
   - component: {fileID: 219838094}
   - component: {fileID: 219838096}
   - component: {fileID: 219838095}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BUY
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1344,7 +1344,7 @@ GameObject:
   - component: {fileID: 280435527}
   - component: {fileID: 280435529}
   - component: {fileID: 280435528}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BUY
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1477,7 +1477,7 @@ GameObject:
   m_Component:
   - component: {fileID: 348716287}
   - component: {fileID: 348716288}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: shopCardsSlot_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1538,7 +1538,7 @@ GameObject:
   - component: {fileID: 355358668}
   - component: {fileID: 355358667}
   - component: {fileID: 355358666}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ArtWorkMask
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1628,7 +1628,7 @@ GameObject:
   - component: {fileID: 381461726}
   - component: {fileID: 381461728}
   - component: {fileID: 381461727}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ArtWork
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1781,7 +1781,9 @@ GameObject:
   m_Component:
   - component: {fileID: 528546702}
   - component: {fileID: 528546703}
-  m_Layer: 0
+  - component: {fileID: 528546704}
+  - component: {fileID: 528546705}
+  m_Layer: 6
   m_Name: shopCardsSlot_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1830,6 +1832,96 @@ MonoBehaviour:
   description: {fileID: 1252450557}
   namePowerUP: {fileID: 128374221}
   artWork: {fileID: 1329309288}
+--- !u!61 &528546704
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 528546701}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
+--- !u!61 &528546705
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 528546701}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &533772164
 GameObject:
   m_ObjectHideFlags: 0
@@ -1842,7 +1934,7 @@ GameObject:
   - component: {fileID: 533772168}
   - component: {fileID: 533772167}
   - component: {fileID: 533772166}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BuyBTN
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1974,7 +2066,7 @@ GameObject:
   - component: {fileID: 587841791}
   - component: {fileID: 587841792}
   - component: {fileID: 587841793}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Name
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2216,7 +2308,7 @@ GameObject:
   - component: {fileID: 676669022}
   - component: {fileID: 676669024}
   - component: {fileID: 676669023}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2453,7 +2545,7 @@ GameObject:
   - component: {fileID: 773760116}
   - component: {fileID: 773760118}
   - component: {fileID: 773760117}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ArtWork
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2795,7 +2887,7 @@ GameObject:
   - component: {fileID: 845145754}
   - component: {fileID: 845145756}
   - component: {fileID: 845145755}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ArtWork
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2870,7 +2962,7 @@ GameObject:
   - component: {fileID: 854013507}
   - component: {fileID: 854013509}
   - component: {fileID: 854013508}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ArtWork
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3292,7 +3384,7 @@ GameObject:
   - component: {fileID: 979623587}
   - component: {fileID: 979623589}
   - component: {fileID: 979623588}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CardTemplate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3367,7 +3459,7 @@ GameObject:
   - component: {fileID: 994240062}
   - component: {fileID: 994240064}
   - component: {fileID: 994240063}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Name
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3501,7 +3593,7 @@ GameObject:
   - component: {fileID: 1003297666}
   - component: {fileID: 1003297667}
   - component: {fileID: 1003297668}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Description
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3641,7 +3733,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1133737622
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3710,7 +3802,7 @@ GameObject:
   - component: {fileID: 1140687555}
   - component: {fileID: 1140687557}
   - component: {fileID: 1140687556}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CardTemplate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4130,7 +4222,7 @@ GameObject:
   - component: {fileID: 1252450556}
   - component: {fileID: 1252450558}
   - component: {fileID: 1252450557}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Description
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4455,7 +4547,7 @@ GameObject:
   - component: {fileID: 1329309287}
   - component: {fileID: 1329309289}
   - component: {fileID: 1329309288}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ArtWork
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4530,7 +4622,7 @@ GameObject:
   - component: {fileID: 1334586909}
   - component: {fileID: 1334586911}
   - component: {fileID: 1334586910}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BUY
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9963,7 +10055,7 @@ GameObject:
   - component: {fileID: 1685379966}
   - component: {fileID: 1685379968}
   - component: {fileID: 1685379967}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10097,7 +10189,7 @@ GameObject:
   - component: {fileID: 1706929260}
   - component: {fileID: 1706929261}
   - component: {fileID: 1706929262}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cost
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10335,7 +10427,7 @@ GameObject:
   - component: {fileID: 1888136276}
   - component: {fileID: 1888136275}
   - component: {fileID: 1888136274}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ArtWorkMask
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10473,7 +10565,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1972012568}
   - component: {fileID: 1972012567}
-  m_Layer: 0
+  - component: {fileID: 1972012569}
+  - component: {fileID: 1972012570}
+  m_Layer: 6
   m_Name: shopCardsSlot_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10522,6 +10616,96 @@ RectTransform:
   m_AnchoredPosition: {x: 450, y: 50}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!61 &1972012569
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1972012566}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
+--- !u!61 &1972012570
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1972012566}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &2003437746
 GameObject:
   m_ObjectHideFlags: 0
@@ -10676,7 +10860,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2011791392
 Transform:
   m_ObjectHideFlags: 0
@@ -10742,10 +10926,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54b73484a2b80aa43baaf0e9ba0f2426, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _powerCard:
-  - {fileID: 348716286}
-  - {fileID: 528546701}
-  - {fileID: 1972012566}
+  cardLayer:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!1 &2066946562
 GameObject:
   m_ObjectHideFlags: 0
@@ -10892,7 +11075,7 @@ GameObject:
   - component: {fileID: 2103223078}
   - component: {fileID: 2103223077}
   - component: {fileID: 2103223076}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ArtWorkMask
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10982,7 +11165,7 @@ GameObject:
   - component: {fileID: 2114071777}
   - component: {fileID: 2114071779}
   - component: {fileID: 2114071778}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: CardTemplate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11058,7 +11241,7 @@ GameObject:
   - component: {fileID: 2146285871}
   - component: {fileID: 2146285870}
   - component: {fileID: 2146285872}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BuyBTN
   m_TagString: Untagged
   m_Icon: {fileID: 0}
