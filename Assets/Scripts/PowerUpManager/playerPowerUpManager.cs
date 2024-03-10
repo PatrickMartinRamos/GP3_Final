@@ -39,6 +39,7 @@ public class playerPowerUpManager : MonoBehaviour
 
     private void Start()
     {
+        _explosionDamage = 10;
         _playerManager = playerManagerScript._playerManagerInstance;
         _bulletManager = FindObjectOfType<bulletManager>();
     }
@@ -152,6 +153,8 @@ public class playerPowerUpManager : MonoBehaviour
             case 3:
                 _explosionChance = 1f;
                 _explosionDamage = 5;
+                break;
+            default:
                 break;
         }
 

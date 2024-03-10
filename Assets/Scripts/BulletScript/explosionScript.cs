@@ -20,6 +20,7 @@ public class explosionScript : MonoBehaviour
             Enemy enemy = other.GetComponent<Enemy>();
 
             enemy.Damage(_playerPowerUPManager._explosionDamage);
+            Debug.Log("Explosion Damage = "+ _playerPowerUPManager._explosionDamage+ " Enemy HP = "+ enemy.CurrentHealth);
         }
     }
 }
