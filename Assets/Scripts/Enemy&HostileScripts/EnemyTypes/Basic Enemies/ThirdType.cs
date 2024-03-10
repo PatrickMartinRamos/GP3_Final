@@ -5,11 +5,6 @@ using UnityEngine;
 
 public class ThirdType : BaseEnemies
 {
-    public override void Damage(float damageAmount)
-    {
-        base.Damage(damageAmount);
-    }
-
     public override void Attack()
     {
         float rand;

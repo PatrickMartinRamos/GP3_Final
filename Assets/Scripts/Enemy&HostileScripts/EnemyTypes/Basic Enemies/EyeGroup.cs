@@ -5,10 +5,6 @@ using UnityEngine;
 
 public class EyeGroup : BaseEnemies
 {
-    public override void Damage(float damageAmount)
-    {
-        base.Damage(damageAmount);
-    }
 
     public override void Attack()
     {

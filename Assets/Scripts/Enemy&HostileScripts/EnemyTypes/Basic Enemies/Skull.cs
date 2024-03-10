@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class Skull : BaseEnemies
 {
-    public override void Damage(float damageAmount)
+    public override void Attack()
     {
-        base.Damage(damageAmount);
+        EnemyAttackBaseInstance = Instantiate(EnemyAttackSOBaseList[WaveNum - 1]);
+        AttackState = new EnemyAttackState(this, StateMachine);
     }
 
 }

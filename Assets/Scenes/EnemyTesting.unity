@@ -383,7 +383,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 99104001}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ea29c8dfada4b384cb6dc5c331f0236c, type: 3}
   m_Name: 
@@ -395,7 +395,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 99104001}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6254e99da935fb248b65b083c6193569, type: 3}
   m_Name: 
@@ -918,6 +918,7 @@ MonoBehaviour:
   enemiesCreated: 0
   canSpawn: 0
   fillingPool: 1
+  ActiveEnemies: 0
 --- !u!114 &1612029172
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -15,6 +15,7 @@ public class EnemyWaves : MonoBehaviour
     private int enemiesPerWave, enemiesSpawned, WaveNum, enemiesCreated = 0;
     public bool canSpawn;
     public bool fillingPool;
+    public int ActiveEnemies=0;
 
     private void Awake()
     {
@@ -149,11 +150,16 @@ public class EnemyWaves : MonoBehaviour
         enemy.WaveNum = WaveNum;
         enemy.rb.velocity = Vector3.zero;
         enemiesSpawned++;
+        ActiveEnemies++;
         Debug.Log($"Total Number Spawned = {enemiesSpawned}");
         enemy.gameObject.SetActive(true);
     }
 
-    private void OnEnemyRelease(Enemy enemy) => enemy.gameObject.SetActive(false);
+    private void OnEnemyRelease(Enemy enemy)
+    {
+        enemy.gameObject.SetActive(false);
+        ActiveEnemies--;
+    }
 
     private void OnEnemyDestroy(Enemy enemy) => Destroy(enemy.gameObject);
 }

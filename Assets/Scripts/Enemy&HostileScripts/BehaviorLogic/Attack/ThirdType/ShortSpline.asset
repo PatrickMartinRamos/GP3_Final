@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   splineGO: {fileID: 6092343621192426545, guid: 887993cd0cc1b2b4394a2ac45f101eca, type: 3}
   spline: {fileID: 0}
-  speed: 3
+  speed: 4

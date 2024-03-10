@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: BottomMoveForward
   m_EditorClassIdentifier: 
   Speed: 2
-  ChooseType: 0
+  ChooseType: 2
   yPos: -4.5
