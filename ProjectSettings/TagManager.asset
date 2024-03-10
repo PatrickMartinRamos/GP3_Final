@@ -9,6 +9,7 @@ TagManager:
   - Bullet
   - BattleArea
   - Wall
+  - explosionParticle
   layers:
   - Default
   - TransparentFX
@@ -22,7 +23,7 @@ TagManager:
   - ShopBG
   - shopeffects
   - enemyLayer
-  - 
+  - particleLayer
   - 
   - 
   - 

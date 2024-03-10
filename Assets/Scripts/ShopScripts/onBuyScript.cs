@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class onBuyScript : MonoBehaviour
@@ -5,6 +6,7 @@ public class onBuyScript : MonoBehaviour
     public shopPowerUpManager shopPowerUpManager;
     public playerPowerUpManager playerPowerUpManager;
 
+    public GameObject _powerUpShop;
 
     public void OnBuyButtonClick(int cardIndex)
     {
@@ -18,13 +20,16 @@ public class onBuyScript : MonoBehaviour
                 // Assign the playerPowerUpManager reference
                 powerUpCard.playerPowerUPManager = playerPowerUpManager;
 
-                // Increment the lvl count
+                // Increment the level count
                 powerUpCard.powerUpLVL++;
 
                 Debug.Log("Power-Up Name: " + powerUpCard.powerUPName + "\n level " + powerUpCard.powerUpLVL);
 
                 // Activate the power-up
                 powerUpCard.ActivatePowerUp();
+
+                // _powerUpShop.SetActive(false); //para one time lng makabili si player pag bumili i-close ung shop
+
             }
             else
             {

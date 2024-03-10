@@ -8,7 +8,6 @@ public class powerCardDisplay : MonoBehaviour
 {
     public shopPowerUpCards _powerUpCard;
 
-    public TextMeshProUGUI costTxt;
     public TextMeshProUGUI description;
     public TextMeshProUGUI namePowerUP;
 
@@ -22,12 +21,11 @@ public class powerCardDisplay : MonoBehaviour
             namePowerUP.text = _powerUpCard.name;
             description.text = _powerUpCard.description;
             artWork.sprite = _powerUpCard.artWork;
-            costTxt.text = _powerUpCard.cost.ToString();
+
         }
         else
         {
             Debug.LogError("No shopPowerUpCards assigned to powerCardDisplay.");
         }
     }
-
 }

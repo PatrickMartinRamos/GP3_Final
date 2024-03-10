@@ -9,6 +9,12 @@ public class playerPowerUpManager : MonoBehaviour
     //clone(wisp) Var
     public GameObject spiritClone_1;
     public GameObject spiritClone_2;
+
+    public Transform _bulletWispSpawnPoint_1;
+    public Transform _bulletWispSpawnPoint_2;
+
+    [HideInInspector] public bool _wispBullet_1 = false;
+    [HideInInspector] public bool _wispBullet_2 = false;
     public int _cloneLevel;
 
     //addMaxHealth
@@ -54,8 +60,12 @@ public class playerPowerUpManager : MonoBehaviour
             case 1:
                 spiritClone_1.SetActive(true); 
                 spiritClone_2.SetActive(false);
+                _bulletManager._bulletInterval = .2f;
+                _wispBullet_1 = true;
                 break;
             case 2:
+                _bulletManager._bulletInterval = .15f;
+                _wispBullet_2 = true;
                 spiritClone_1.SetActive(true);
                 spiritClone_2.SetActive(true);
                 break;

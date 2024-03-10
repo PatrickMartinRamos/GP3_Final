@@ -19,6 +19,7 @@ public class PowerUpCardEditor : Editor
         showAddDamageBuffOption();
         showAddshieldBuffOption();
     }
+
     #region show clone option inspector
     void showCloneOption()
     {
@@ -33,6 +34,8 @@ public class PowerUpCardEditor : Editor
             // Display the fields for spiritClone_1 and spiritClone_2 sprites
             powerUpCard.spiritClone_1 = (Sprite)EditorGUILayout.ObjectField("Spirit Clone Sprite 1", powerUpCard.spiritClone_1, typeof(Sprite), false);
             powerUpCard.spiritClone_2 = (Sprite)EditorGUILayout.ObjectField("Spirit Clone Sprite 2", powerUpCard.spiritClone_2, typeof(Sprite), false);
+
+            powerUpCard._wispBullet = (GameObject)EditorGUILayout.ObjectField("Spirit Clone Bullet ", powerUpCard._wispBullet, typeof(GameObject), false);
         }
     }
     #endregion

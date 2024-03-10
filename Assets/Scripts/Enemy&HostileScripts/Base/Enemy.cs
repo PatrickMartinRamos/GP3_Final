@@ -98,7 +98,9 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckea
         if(randomVal < _playerPowerUpManager._explosionChance)
         {
             Debug.Log("explosion");
-            Instantiate(explosionEffect, transform.position, Quaternion.identity);
+            GameObject explosionInstance = Instantiate(explosionEffect, transform.position, Quaternion.identity);
+            // Destroy the explosion effect after a specified duration
+            Destroy(explosionInstance, explosionInstance.GetComponent<ParticleSystem>().main.duration);
         }
     }
     public virtual void Die()

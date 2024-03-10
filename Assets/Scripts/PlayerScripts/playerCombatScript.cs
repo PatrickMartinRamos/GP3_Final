@@ -10,6 +10,7 @@ public class playerCombatScript : MonoBehaviour
 
     public Transform bulletSpawnPoint;
 
+
     private float lastShootTime;
 
     private void Start()
@@ -25,6 +26,7 @@ public class playerCombatScript : MonoBehaviour
         {
             shootBullet();
             shootScatterBullet();
+            shootWispBullet();
             lastShootTime = Time.time;
         }
     }
@@ -67,6 +69,33 @@ public class playerCombatScript : MonoBehaviour
                 bullet2.transform.position = _playerPowerUpManager._scatterBulletPOS_2.position;
                 bullet2.transform.rotation = _playerPowerUpManager._scatterBulletPOS_2.rotation;
                 bullet2.SetActive(true);
+            }
+        }
+    }
+    #endregion
+
+    #region shoot wisp bullet
+    void shootWispBullet()
+    {
+        if (_playerPowerUpManager._wispBullet_1)
+        {
+            GameObject wispBullet1 = bulletPool.GetPooledObject(true); // Set isWisp to true
+            if (wispBullet1 != null)
+            {
+                wispBullet1.transform.position = _playerPowerUpManager._bulletWispSpawnPoint_1.position;
+                wispBullet1.transform.rotation = _playerPowerUpManager._bulletWispSpawnPoint_1.rotation;
+                wispBullet1.SetActive(true);
+            }
+        }
+
+        if (_playerPowerUpManager._wispBullet_2)
+        {
+            GameObject wispBullet2 = bulletPool.GetPooledObject(true); // Set isWisp to true
+            if (wispBullet2 != null)
+            {
+                wispBullet2.transform.position = _playerPowerUpManager._bulletWispSpawnPoint_2.position;
+                wispBullet2.transform.rotation = _playerPowerUpManager._bulletWispSpawnPoint_2.rotation;
+                wispBullet2.SetActive(true);
             }
         }
     }
