@@ -1,15 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "EnemyAtk - Move Forward", menuName = "Enemy Logic/Attack Logic/SpecterBoss")]
+[CreateAssetMenu(fileName = "SpecterBoss Atk", menuName = "Enemy Logic/Attack Logic/SpecterBoss")]
 public class SpecterBoss : EnemyAttackSOBase
 {
     [SerializeField] public float Speed;
-    public yPosType ChooseType;
-    [SerializeField][Range(-5, 5)] float yPos;
-    private Vector3 targetPos;
-    private Vector3 direction;
+    float SkullSpawned = 0, spawnTime = 0, SpawnRate = 0.5f;
+    bool canMove, canSkill;
+
     public override void DoAnimationTriggerEventLogic(Enemy.AnimationTriggerType triggerType)
     {
         base.DoAnimationTriggerEventLogic(triggerType);
@@ -18,6 +18,8 @@ public class SpecterBoss : EnemyAttackSOBase
     public override void DoEnterLogic()
     {
         base.DoEnterLogic();
+        canSkill = true;
+        canMove = true;
     }
 
     public override void DoExitLogic()
@@ -28,8 +30,16 @@ public class SpecterBoss : EnemyAttackSOBase
     public override void DoFrameUpdateLogic()
     {
         base.DoFrameUpdateLogic();
+        spawnTime += Time.deltaTime;
+        if (spawnTime > 5) { canSkill= true; }
 
-        enemy.transform.position = new Vector2(enemy.transform.position.x,Mathf.Lerp(-4, 4, Mathf.PingPong(Time.time, 1)));
+        if (canMove) MoveUpDown();
+
+        if(enemy.CurrentHealth <= (enemy.MaxHealth * 0.80) && canSkill)
+        {
+            SpecialSkill();
+        }
+
     }
 
     public override void DoPhysicsLogic()
@@ -46,6 +56,35 @@ public class SpecterBoss : EnemyAttackSOBase
     {
         base.ResetValues();
     }
+    private void MoveUpDown()
+    {
+        if (enemy.transform.position.y > 3.5f)
+        {
+            enemy.MoveEnemy(Vector2.down * Speed);
+        }
+        else if (enemy.transform.position.y < -3.5f)
+        {
+            enemy.MoveEnemy(Vector2.up * Speed);
+        }
+    }
+    private void SpecialSkill()
+    {
+        canSkill= false;
+        enemy.transform.position = Vector2.MoveTowards(enemy.transform.position, new Vector2(3, 0),0.3f);
+        canMove = false;
 
+        Summon();
+    }
+    //Skull SP Skill
+    public void Summon()
+    {
+        if (spawnTime >= SpawnRate && SkullSpawned < 6)
+        {
+            spawnTime = 0f;
+            GameManager.instance.eWaves.Summon(6,enemy.transform.position, Quaternion.Euler(0, 0, -60 * SkullSpawned));
+            SkullSpawned++;
+        }
+        else if(SkullSpawned==6)canMove= true;
+    }
 }
 

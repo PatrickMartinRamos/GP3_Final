@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4473379023635801363, guid: 5a0db2af949d493448c5421c4aa0ac90, type: 3}
+      propertyPath: m_BodyType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6477540294765620864, guid: 5a0db2af949d493448c5421c4aa0ac90, type: 3}
       propertyPath: m_LocalScale.x
       value: 4
@@ -147,7 +151,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <CurrentHealth>k__BackingField: 0
-  EnemyMoveBase: {fileID: 11400000, guid: 900d8344a2bb17a4999833454c49c02c, type: 2}
+  EnemyMoveBase: {fileID: 11400000, guid: 5737faec6f8a2e046aec5fe2b2afd5ae, type: 2}
   EnemyAttackSOBaseList:
-  - {fileID: 11400000, guid: 4235f99ad3f81724a9c66e4796dca856, type: 2}
-  - {fileID: 11400000, guid: 4235f99ad3f81724a9c66e4796dca856, type: 2}
+  - {fileID: 11400000, guid: 2ceaf39090a742f4b9ee2b5b68e107e0, type: 2}

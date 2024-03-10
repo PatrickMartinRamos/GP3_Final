@@ -6,7 +6,14 @@ public class Skull : BaseEnemies
 {
     public override void Attack()
     {
-        EnemyAttackBaseInstance = Instantiate(EnemyAttackSOBaseList[WaveNum - 1]);
+        if(WaveNum == 0)
+        {
+            EnemyAttackBaseInstance = Instantiate(EnemyAttackSOBaseList[WaveNum]);
+        }
+        else
+        {
+            EnemyAttackBaseInstance = Instantiate(EnemyAttackSOBaseList[WaveNum - 1]);
+        }
         AttackState = new EnemyAttackState(this, StateMachine);
     }
 

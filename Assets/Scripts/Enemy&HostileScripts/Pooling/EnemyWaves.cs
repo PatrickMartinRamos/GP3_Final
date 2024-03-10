@@ -91,8 +91,9 @@ public class EnemyWaves : MonoBehaviour
     }
     public Enemy Summon(int Number, Vector3 position, Quaternion rotation)
     {
+        ObjectPool<Enemy> pool = GetPool();
         enemiesPerWave = Number;
-        return GetEnemy(skull, position, rotation);
+        return GetEnemy(pool, position, rotation);
     }
     private Enemy GetEnemy(ObjectPool<Enemy> pool, Vector3 position, Quaternion rotation)
     {
@@ -119,7 +120,12 @@ public class EnemyWaves : MonoBehaviour
     }
     ObjectPool<Enemy> GetPool()
     {
-        if (GameManager.instance.UpcomingBoss.name == "Boss 1(Clone)")
+        if (GameManager.instance.UpcomingBoss == null)
+        {
+            EnemyPrefab = Enemylist[0];
+            return skull;
+        }
+        else if (GameManager.instance.UpcomingBoss.name == "Boss 1(Clone)")
         {
             EnemyPrefab = Enemylist[0];
             return skull;

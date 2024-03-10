@@ -45,9 +45,6 @@ public override void DoAnimationTriggerEventLogic(Enemy.AnimationTriggerType tri
             distancePercentage = 0f;
         }
 
-        Vector3 nextPosition = spline.EvaluatePosition(distancePercentage + 0.05f);
-        Vector3 direction = nextPosition - currentPosition;
-        transform.rotation = Quaternion.LookRotation(direction, transform.up);
     }
 
     public override void DoPhysicsLogic()
