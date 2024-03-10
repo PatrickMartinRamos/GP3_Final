@@ -150,7 +150,7 @@ public class playerPowerUpManager : MonoBehaviour
                 _explosionDamage = 3;
                 break;
             case 3:
-                _explosionChance = 1f;
+                _explosionChance = .30f;
                 _explosionDamage = 5;
                 break;
         }
