@@ -8,7 +8,7 @@ public enum PowerUpType
     damageBuff,
     spiritClone,
     addMaxHealth,
-    currencyMultiplier,
+    explodeEnemy,
     scatterBullet
 }
 
@@ -29,14 +29,14 @@ public class shopPowerUpCards : ScriptableObject
     [HideInInspector] public int healthToAdd; //add sa max health
     [HideInInspector] public int damageBuff; //damage buff
     [HideInInspector] public int addShield; //shield buff
-    [HideInInspector] public int currencyMultiplierNumber; //currency multiplier
+    [HideInInspector] public float chanceOfExplostion; //explosion buff
+
    
 
     [HideInInspector] public playerPowerUpManager playerPowerUPManager;
 
     public void ActivatePowerUp()
     { 
-        //test lng ung mga name na to xD
         switch (powerUpType)
         {
             case PowerUpType.spiritClone:
@@ -51,8 +51,8 @@ public class shopPowerUpCards : ScriptableObject
             case PowerUpType.addMaxHealth:
                 addMaxHealth();
                 break;
-            case PowerUpType.currencyMultiplier:
-                currencyMultiplier();
+            case PowerUpType.explodeEnemy:
+                explodeEnemy();
                 break;
             case PowerUpType.scatterBullet:
                 scatterBullet();
@@ -90,10 +90,12 @@ public class shopPowerUpCards : ScriptableObject
     }
     #endregion
 
-    #region currencyMultiplier
-    void currencyMultiplier()
+    #region explodeEnemy
+    void explodeEnemy()
     {
-        Debug.Log("using currencyMultiplier!");
+        playerPowerUPManager.activateExplosionBuff();
+        Debug.Log("explosion chance is " +playerPowerUPManager._explosionChance);
+       // Debug.Log("using currencyMultiplier!");
     }
     #endregion
 

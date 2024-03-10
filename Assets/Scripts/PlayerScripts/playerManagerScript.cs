@@ -11,8 +11,6 @@ public class playerManagerScript : MonoBehaviour
     public int _playerCurrentHealth;
     public float playerMoveSpeed = 10f;
 
-    public int currencyEarned; //dito ko muna lagay pero lipat naten sa enemy pag na destroy
-
     public void Awake()
     {
         _playerManagerInstance = this;
@@ -38,9 +36,7 @@ public class playerManagerScript : MonoBehaviour
             int damage = 1; //place holder muna para sa enemy damage
 
             _playerCurrentHealth -= damage; // dpat enemy damage - sa player current health
-
-            currencyEarned++; //add currency para sa shop naten
-            //Debug.Log("Player hit");
+            Debug.Log("Player hit");
             Destroy(collision.gameObject); 
         }
     }

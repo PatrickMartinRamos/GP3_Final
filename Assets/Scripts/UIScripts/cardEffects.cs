@@ -24,7 +24,7 @@ public class cardEffects : MonoBehaviour
             RectTransform rectTransform = card.GetComponent<RectTransform>();
             if (RectTransformUtility.RectangleContainsScreenPoint(rectTransform, Input.mousePosition))
             {
-                Debug.Log("card");
+                //Debug.Log("card");
                 rectTransform.DOScale(_hoverScale, _duration);
             }
             else

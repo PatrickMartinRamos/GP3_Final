@@ -1,6 +1,4 @@
-using System;
 using System.Collections.Generic;
-using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
 using UnityEngine.Pool;
 
@@ -10,6 +8,9 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckea
     [field: SerializeField] public float CurrentHealth { get; set; }
     public IObjectPool<Enemy> ObjectPool { get; set; }
     public Rigidbody2D rb { get; set; }
+
+    playerPowerUpManager _playerPowerUpManager;
+    public GameObject explosionEffect;
 
     #region State Machine Variables
     public EnemyStateMachine StateMachine { get; set; }
@@ -33,9 +34,7 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckea
     #endregion
     public virtual void Awake() 
     {
-
         initialPos = transform.position;
-
         StateMachine = new EnemyStateMachine();
         MoveState = new EnemyMovingState(this, StateMachine);
 
@@ -44,8 +43,10 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckea
     {
         CurrentHealth = MaxHealth;
         rb = GetComponent<Rigidbody2D>();
-
+        _playerPowerUpManager = FindObjectOfType<playerPowerUpManager>();
         Attack();
+
+
 
         EnemyMoveBaseInstance = Instantiate(EnemyMoveBase);
 
@@ -86,10 +87,20 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckea
         CurrentHealth -= damageAmount;
         if(CurrentHealth <= 0)
         {
+            explosion();
             Die();
         }
     }
 
+    void explosion()
+    {
+        float randomVal = Random.value;
+        if(randomVal < _playerPowerUpManager._explosionChance)
+        {
+            Debug.Log("explosion");
+            Instantiate(explosionEffect, transform.position, Quaternion.identity);
+        }
+    }
     public virtual void Die()
     {
         this.gameObject.SetActive(false);

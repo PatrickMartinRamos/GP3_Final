@@ -18,7 +18,6 @@ public class PowerUpCardEditor : Editor
         showAddMaxHealthOption();
         showAddDamageBuffOption();
         showAddshieldBuffOption();
-        showCurrencyMultiplierOption();
     }
     #region show clone option inspector
     void showCloneOption()
@@ -76,20 +75,6 @@ public class PowerUpCardEditor : Editor
             EditorGUILayout.Space(); // Add some space
 
             powerUpCard.addShield = EditorGUILayout.IntField("Shield to add", powerUpCard.addShield);
-        }
-    }
-    #endregion
-
-    #region show currency multiplier buff option inspector
-    void showCurrencyMultiplierOption()
-    {
-        shopPowerUpCards powerUpCard = (shopPowerUpCards)target;
-
-        if (powerUpCard.powerUpType == PowerUpType.currencyMultiplier)
-        {
-            EditorGUILayout.Space(); // Add some space
-
-            powerUpCard.currencyMultiplierNumber = EditorGUILayout.IntField("Currency Multiplier", powerUpCard.currencyMultiplierNumber);
         }
     }
     #endregion

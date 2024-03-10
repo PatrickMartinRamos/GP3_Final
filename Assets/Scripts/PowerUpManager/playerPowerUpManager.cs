@@ -16,6 +16,13 @@ public class playerPowerUpManager : MonoBehaviour
 
     //Shield Var
 
+    [Header("Explosion")]
+    //Explotion var
+    public int _explotsionLevel;
+    [HideInInspector] public float _explosionChance;
+    [HideInInspector] public int _explosionDamage;
+
+
     [Header("Scatter Bullet")]
     //Scatter Bullet Var
     public Transform _scatterBulletPOS_1;
@@ -27,6 +34,8 @@ public class playerPowerUpManager : MonoBehaviour
     //Bullet Buff Var
     public int _damageBuffLevel;
 
+    //Currency Multiplier Buff
+    public int _addMaxCurrencyMultiplierLevel;
 
     private void Start()
     {
@@ -123,4 +132,35 @@ public class playerPowerUpManager : MonoBehaviour
         _damageBuffLevel++;
     }
     #endregion
+
+
+    #region activate explosion buff
+    public void activateExplosionBuff()
+    {
+        IncreaseExplosionLevel();
+
+        switch(_explotsionLevel)
+        {
+            case 1:
+                _explosionChance = .15f;
+                _explosionDamage = 1;
+                break;
+            case 2:
+                _explosionChance = .20f;
+                _explosionDamage = 3;
+                break;
+            case 3:
+                _explosionChance = 1f;
+                _explosionDamage = 5;
+                break;
+        }
+
+    }
+
+    public void IncreaseExplosionLevel()
+    {
+        _explotsionLevel++;
+    }
+    #endregion
+
 }

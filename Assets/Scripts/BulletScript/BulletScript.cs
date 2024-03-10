@@ -39,5 +39,5 @@ public class BulletScript : MonoBehaviour
             gameObject.SetActive(false);
         }
     }
-
+    
 }

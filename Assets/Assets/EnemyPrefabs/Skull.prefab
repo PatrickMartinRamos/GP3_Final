@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4473379023635801363}
   - component: {fileID: 1205622218021339772}
   - component: {fileID: 7196674856412517974}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Skull
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 8205732870715919606}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.87, y: 3.81, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -171,6 +171,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <CurrentHealth>k__BackingField: 0
+  explosionEffect: {fileID: 1406867520371413771, guid: a46d7ac104cb5204491ab165b1d054f5, type: 3}
   EnemyMoveBase: {fileID: 11400000, guid: 900d8344a2bb17a4999833454c49c02c, type: 2}
   EnemyAttackSOBaseList:
   - {fileID: 11400000, guid: f42109ba42c2292428b7639df6717fa5, type: 2}
