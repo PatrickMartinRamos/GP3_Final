@@ -103,6 +103,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <CurrentHealth>k__BackingField: 0
+  explosionEffect: {fileID: 1406867520371413771, guid: a46d7ac104cb5204491ab165b1d054f5, type: 3}
   EnemyMoveBase: {fileID: 11400000, guid: 900d8344a2bb17a4999833454c49c02c, type: 2}
   EnemyAttackSOBaseList:
   - {fileID: 11400000, guid: 37cc35e1f3a7ef746ac3ad8aa8a0bbb7, type: 2}

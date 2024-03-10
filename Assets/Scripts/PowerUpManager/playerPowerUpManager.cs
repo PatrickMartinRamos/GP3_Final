@@ -9,12 +9,25 @@ public class playerPowerUpManager : MonoBehaviour
     //clone(wisp) Var
     public GameObject spiritClone_1;
     public GameObject spiritClone_2;
+
+    public Transform _bulletWispSpawnPoint_1;
+    public Transform _bulletWispSpawnPoint_2;
+
+    [HideInInspector] public bool _wispBullet_1 = false;
+    [HideInInspector] public bool _wispBullet_2 = false;
     public int _cloneLevel;
 
     //addMaxHealth
     public int _addMaxHealthLevel;
 
     //Shield Var
+
+    [Header("Explosion")]
+    //Explotion var
+    public int _explotsionLevel;
+    [HideInInspector] public float _explosionChance;
+    [HideInInspector] public int _explosionDamage;
+
 
     [Header("Scatter Bullet")]
     //Scatter Bullet Var
@@ -27,9 +40,12 @@ public class playerPowerUpManager : MonoBehaviour
     //Bullet Buff Var
     public int _damageBuffLevel;
 
+    //Currency Multiplier Buff
+    public int _addMaxCurrencyMultiplierLevel;
 
     private void Start()
     {
+        _explosionDamage = 10;
         _playerManager = playerManagerScript._playerManagerInstance;
         _bulletManager = FindObjectOfType<bulletManager>();
     }
@@ -44,8 +60,12 @@ public class playerPowerUpManager : MonoBehaviour
             case 1:
                 spiritClone_1.SetActive(true); 
                 spiritClone_2.SetActive(false);
+                _bulletManager._bulletInterval = .2f;
+                _wispBullet_1 = true;
                 break;
             case 2:
+                _bulletManager._bulletInterval = .15f;
+                _wispBullet_2 = true;
                 spiritClone_1.SetActive(true);
                 spiritClone_2.SetActive(true);
                 break;
@@ -123,4 +143,37 @@ public class playerPowerUpManager : MonoBehaviour
         _damageBuffLevel++;
     }
     #endregion
+
+
+    #region activate explosion buff
+    public void activateExplosionBuff()
+    {
+        IncreaseExplosionLevel();
+
+        switch(_explotsionLevel)
+        {
+            case 1:
+                _explosionChance = .15f;
+                _explosionDamage = 1;
+                break;
+            case 2:
+                _explosionChance = .20f;
+                _explosionDamage = 3;
+                break;
+            case 3:
+                _explosionChance = .30f;
+                _explosionDamage = 5;
+                break;
+            default:
+                break;
+        }
+
+    }
+
+    public void IncreaseExplosionLevel()
+    {
+        _explotsionLevel++;
+    }
+    #endregion
+
 }

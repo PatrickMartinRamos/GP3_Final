@@ -8,7 +8,7 @@ public enum PowerUpType
     damageBuff,
     spiritClone,
     addMaxHealth,
-    currencyMultiplier,
+    explodeEnemy,
     scatterBullet
 }
 
@@ -25,36 +25,39 @@ public class shopPowerUpCards : ScriptableObject
     //clone sprite
     [HideInInspector] public Sprite spiritClone_1;
     [HideInInspector] public Sprite spiritClone_2;
+    [HideInInspector] public GameObject _wispBullet;
+    //ibahin naten ung image nng wisp bullet wag ung bullet nga gamit ni player
+    
 
     [HideInInspector] public int healthToAdd; //add sa max health
     [HideInInspector] public int damageBuff; //damage buff
     [HideInInspector] public int addShield; //shield buff
-    [HideInInspector] public int currencyMultiplierNumber; //currency multiplier
+    [HideInInspector] public float chanceOfExplostion; //explosion buff
+
    
 
     [HideInInspector] public playerPowerUpManager playerPowerUPManager;
 
     public void ActivatePowerUp()
     { 
-        //test lng ung mga name na to xD
         switch (powerUpType)
         {
             case PowerUpType.spiritClone:
                 spiritClone();
                 break;
-            case PowerUpType.damageBuff:
+            case PowerUpType.damageBuff://done
                 DamageBuff();           
                 break;
             case PowerUpType.shield:
                 Speed();
                 break;
-            case PowerUpType.addMaxHealth:
+            case PowerUpType.addMaxHealth://done
                 addMaxHealth();
                 break;
-            case PowerUpType.currencyMultiplier:
-                currencyMultiplier();
+            case PowerUpType.explodeEnemy://done
+                explodeEnemy();
                 break;
-            case PowerUpType.scatterBullet:
+            case PowerUpType.scatterBullet://done
                 scatterBullet();
                 break;
         }
@@ -90,10 +93,12 @@ public class shopPowerUpCards : ScriptableObject
     }
     #endregion
 
-    #region currencyMultiplier
-    void currencyMultiplier()
+    #region explodeEnemy
+    void explodeEnemy()
     {
-        Debug.Log("using currencyMultiplier!");
+        playerPowerUPManager.activateExplosionBuff();
+        Debug.Log("explosion chance is " +playerPowerUPManager._explosionChance);
+       // Debug.Log("using currencyMultiplier!");
     }
     #endregion
 

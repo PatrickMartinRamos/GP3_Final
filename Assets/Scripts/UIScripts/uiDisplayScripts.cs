@@ -7,7 +7,6 @@ public class uiDisplayScripts : MonoBehaviour
 {
     //public var
     public TextMeshProUGUI _displayHealth;
-    public TextMeshProUGUI _displayCurrency;
 
     public playerManagerScript _playerManager;
 
@@ -18,16 +17,10 @@ public class uiDisplayScripts : MonoBehaviour
     private void Update()
     {
         uiDisplayHealth();
-        uiDisplayCurrency();
     }
 
     void uiDisplayHealth()
     {
         _displayHealth.text = "Health: "+ _playerManager._playerCurrentHealth.ToString() + "/"  + _playerManager._maxHealth.ToString();
-    }
-
-    void uiDisplayCurrency()
-    {
-        _displayCurrency.text = "Currency: " + _playerManager.currencyEarned.ToString();
     }
 }

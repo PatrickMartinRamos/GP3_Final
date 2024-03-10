@@ -1,17 +1,16 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class bulletPool : MonoBehaviour
 {
-    // eto ginamit ko na guide para sa pooling check nyo nlng if my problem -pat
-    //https://www.kodeco.com/847-object-pooling-in-unity
-
-    //public var
     public static bulletPool _SharedInstance;
+
     public List<GameObject> _pooledBullets;
+    public List<GameObject> _pooledWispBullets;
     public GameObject _bulletToPool;
+    public GameObject _wispBulletToPool;
     public int _amountToPool;
+    public int _amountToPoolWisp; // New variable for wisp bullet pool size
 
     private void Awake()
     {
@@ -21,21 +20,45 @@ public class bulletPool : MonoBehaviour
     private void Start()
     {
         _pooledBullets = new List<GameObject>();
-        for(int i = 0; i < _amountToPool; i++)
+        _pooledWispBullets = new List<GameObject>();
+
+        // Pool regular bullets
+        for (int i = 0; i < _amountToPool; i++)
         {
-            GameObject obj = (GameObject)Instantiate(_bulletToPool);
+            GameObject obj = Instantiate(_bulletToPool);
             obj.SetActive(false);
             _pooledBullets.Add(obj);
         }
+
+        // Pool wisp bullets
+        for (int i = 0; i < _amountToPoolWisp; i++) // Use _amountToPoolWisp for wisp bullets
+        {
+            GameObject obj = Instantiate(_wispBulletToPool);
+            obj.SetActive(false);
+            _pooledWispBullets.Add(obj);
+        }
     }
 
-    public GameObject GetPooledObject()
+    public GameObject GetPooledObject(bool isWisp = false)
     {
-        for (int i = 0; i < _pooledBullets.Count; i++)
+        if (!isWisp)
         {
-            if (!_pooledBullets[i].activeInHierarchy)
+            for (int i = 0; i < _pooledBullets.Count; i++)
             {
-                return _pooledBullets[i];
+                if (!_pooledBullets[i].activeInHierarchy)
+                {
+                    return _pooledBullets[i];
+                }
+            }
+        }
+        else
+        {
+            for (int i = 0; i < _pooledWispBullets.Count; i++)
+            {
+                if (!_pooledWispBullets[i].activeInHierarchy)
+                {
+                    return _pooledWispBullets[i];
+                }
             }
         }
         return null;

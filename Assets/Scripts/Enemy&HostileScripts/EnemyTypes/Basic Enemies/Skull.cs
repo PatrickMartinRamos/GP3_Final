@@ -9,5 +9,4 @@ public class Skull : BaseEnemies
         EnemyAttackBaseInstance = Instantiate(EnemyAttackSOBaseList[WaveNum - 1]);
         AttackState = new EnemyAttackState(this, StateMachine);
     }
-
 }

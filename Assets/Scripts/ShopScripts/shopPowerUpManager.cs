@@ -5,8 +5,9 @@ using UnityEngine;
 public class shopPowerUpManager : MonoBehaviour
 {
     public List<shopPowerUpCards> allPowerUps;
-
     public List<powerCardDisplay> powerUpCardDisplays;
+
+
 
     private const int requiredCardCount = 3;
 
@@ -19,7 +20,7 @@ public class shopPowerUpManager : MonoBehaviour
             return;
 
         Shuffle(allPowerUps);
-
+        ResetPowerUpLevels();
         AssignRandomPowerUpsToCards();
     }
     #region validation check
