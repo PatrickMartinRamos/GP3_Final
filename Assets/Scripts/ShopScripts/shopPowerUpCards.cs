@@ -22,19 +22,31 @@ public class shopPowerUpCards : ScriptableObject
     public PowerUpType powerUpType;
     [HideInInspector] public int powerUpLVL;
 
+    #region _clone buff
     //clone sprite
     [HideInInspector] public Sprite spiritClone_1;
     [HideInInspector] public Sprite spiritClone_2;
     [HideInInspector] public GameObject _wispBullet;
     //ibahin naten ung image nng wisp bullet wag ung bullet nga gamit ni player
-    
+    #endregion
 
+    #region _health
     [HideInInspector] public int healthToAdd; //add sa max health
-    [HideInInspector] public int damageBuff; //damage buff
-    [HideInInspector] public int addShield; //shield buff
-    [HideInInspector] public float chanceOfExplostion; //explosion buff
+    #endregion
 
-   
+    #region _damge buff
+    [HideInInspector] public int damageBuff; //damage buff
+    #endregion
+
+    #region explosion buff
+   [HideInInspector] public float chanceOfExplostion; //explosion buff
+    #endregion
+
+    #region
+    [HideInInspector]public int[] shieldHealthLevels = new int[3]; // Array to store shield health levels
+    [HideInInspector]public int[] shieldCooldownLevels = new int[3];
+    #endregion
+
 
     [HideInInspector] public playerPowerUpManager playerPowerUPManager;
 
@@ -49,7 +61,7 @@ public class shopPowerUpCards : ScriptableObject
                 DamageBuff();           
                 break;
             case PowerUpType.shield:
-                Speed();
+                shieldBuff();
                 break;
             case PowerUpType.addMaxHealth://done
                 addMaxHealth();
@@ -71,8 +83,9 @@ public class shopPowerUpCards : ScriptableObject
     #endregion
 
     #region shield
-    void Speed()
+    void shieldBuff()
     {
+        playerPowerUPManager.activateShieldBuff(shieldHealthLevels, shieldCooldownLevels);
         Debug.Log("using shield!");
     }
     #endregion

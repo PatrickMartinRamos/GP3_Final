@@ -12,6 +12,8 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckea
     playerPowerUpManager _playerPowerUpManager;
     public GameObject explosionEffect;
 
+    public int enemyDamage;
+
     #region State Machine Variables
     public EnemyStateMachine StateMachine { get; set; }
     public EnemyMovingState MoveState { get; set; }
@@ -34,6 +36,7 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckea
     #endregion
     public virtual void Awake() 
     {
+        enemyDamage = 1;
         initialPos = transform.position;
         StateMachine = new EnemyStateMachine();
         MoveState = new EnemyMovingState(this, StateMachine);
