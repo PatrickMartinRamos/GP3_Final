@@ -77,7 +77,16 @@ public class PowerUpCardEditor : Editor
         {
             EditorGUILayout.Space(); // Add some space
 
-            powerUpCard.addShield = EditorGUILayout.IntField("Shield to add", powerUpCard.addShield);
+            for (int i = 0; i < powerUpCard.shieldHealthLevels.Length; i++)
+            {
+                powerUpCard.shieldHealthLevels[i] = EditorGUILayout.IntField($"Shield Health level {i + 1}", powerUpCard.shieldHealthLevels[i]);
+            }
+
+            // Display each element of the shieldCooldownLevels array
+            for (int i = 0; i < powerUpCard.shieldCooldownLevels.Length; i++)
+            {
+                powerUpCard.shieldCooldownLevels[i] = EditorGUILayout.IntField($"Shield Cooldown level {i + 1}", powerUpCard.shieldCooldownLevels[i]);
+            }
         }
     }
     #endregion

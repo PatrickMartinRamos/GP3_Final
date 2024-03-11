@@ -3,32 +3,42 @@ using UnityEngine;
 public class playerPowerUpManager : MonoBehaviour
 {
     playerManagerScript _playerManager;
-    public bulletManager _bulletManager;
+    bulletManager _bulletManager;
 
+    #region  wisp clone
     [Header("Clone Wisp")]
     //clone(wisp) Var
     public GameObject spiritClone_1;
     public GameObject spiritClone_2;
-
     public Transform _bulletWispSpawnPoint_1;
     public Transform _bulletWispSpawnPoint_2;
-
     [HideInInspector] public bool _wispBullet_1 = false;
     [HideInInspector] public bool _wispBullet_2 = false;
-    public int _cloneLevel;
+    public int _wispCloneLevel;
+    #endregion
 
+    #region max health
     //addMaxHealth
     public int _addMaxHealthLevel;
+    #endregion
 
+    #region shield
+    [Header("Shield")]
     //Shield Var
+    public int _shieldBuffLevel;
 
+    public GameObject _shieldBuffObject;
+    #endregion
+
+    #region explosion
     [Header("Explosion")]
     //Explotion var
     public int _explotsionLevel;
     [HideInInspector] public float _explosionChance;
     [HideInInspector] public int _explosionDamage;
+    #endregion
 
-
+    #region Scatter bullet
     [Header("Scatter Bullet")]
     //Scatter Bullet Var
     public Transform _scatterBulletPOS_1;
@@ -36,6 +46,7 @@ public class playerPowerUpManager : MonoBehaviour
     [HideInInspector] public bool _scatterBullet_1 = false;
     [HideInInspector]  public bool _scatterBullet_2 = false;
     public int _scatterBulletLevel;
+    #endregion
 
     //Bullet Buff Var
     public int _damageBuffLevel;
@@ -48,6 +59,8 @@ public class playerPowerUpManager : MonoBehaviour
         _explosionDamage = 10;
         _playerManager = playerManagerScript._playerManagerInstance;
         _bulletManager = FindObjectOfType<bulletManager>();
+
+        _shieldBuffObject.SetActive(false);
     }
 
     #region activate clone(wisp)
@@ -55,7 +68,7 @@ public class playerPowerUpManager : MonoBehaviour
     {
         IncreaseCloneLevel();
         // Activate the appropriate number of clones based on the level
-        switch (_cloneLevel)
+        switch (_wispCloneLevel)
         {
             case 1:
                 spiritClone_1.SetActive(true); 
@@ -88,9 +101,9 @@ public class playerPowerUpManager : MonoBehaviour
     // Method to increase the clone level
     public void IncreaseCloneLevel()
     {
-        _cloneLevel++;
+        _wispCloneLevel++;
     }
-    #endregion
+    #endregion // 
 
     #region scatterBulletBuff
     public void activateScatterBulletBuff()
@@ -144,7 +157,6 @@ public class playerPowerUpManager : MonoBehaviour
     }
     #endregion
 
-
     #region activate explosion buff
     public void activateExplosionBuff()
     {
@@ -175,5 +187,36 @@ public class playerPowerUpManager : MonoBehaviour
         _explotsionLevel++;
     }
     #endregion
+
+    public void activateShieldBuff(int[] shieldHealthLevel, int[] shieldCooldownLevel)
+    {
+        IncreaseShieldBuffLevel();
+
+        switch (_shieldBuffLevel)
+        {
+            case 1:
+                _shieldBuffObject.SetActive(true);
+                _playerManager.isUsingShield = true;
+
+                _playerManager.IncreasedMaxShield(shieldHealthLevel[0], shieldCooldownLevel[0]);
+                Debug.Log("shield max health " + shieldHealthLevel[0] + " shield cooldown " + shieldCooldownLevel[0]);
+                break;
+            case 2:
+                _playerManager.IncreasedMaxShield(shieldHealthLevel[1], shieldCooldownLevel[1]);
+                Debug.Log("shield max health " + shieldHealthLevel[1] + " shield cooldown " + shieldCooldownLevel[1]);
+                break;                
+            case 3:
+                _playerManager.IncreasedMaxShield(shieldHealthLevel[2], shieldCooldownLevel[2]);
+                Debug.Log("shield max health " + shieldHealthLevel[2] + " shield cooldown " + shieldCooldownLevel[2]);
+                break;
+        }
+       
+    }
+    
+
+    public void IncreaseShieldBuffLevel()
+    {
+        _shieldBuffLevel++;
+    }
 
 }
