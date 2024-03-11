@@ -18,6 +18,8 @@ public class playerManagerScript : MonoBehaviour
     public float _shieldCooldown;
     public float _shieldColliderRadius;
     public bool isUsingShield = false;
+    public bool isShieldCooldown = false;
+    private Coroutine shieldCooldownCoroutine;
 
     [Header("Move Speed")]
     public float playerMoveSpeed = 10f; 
@@ -40,6 +42,7 @@ public class playerManagerScript : MonoBehaviour
     private void Update()
     {
         switchToShield();
+        shieldCooldown();
     }
 
     void switchToShield()
@@ -52,8 +55,23 @@ public class playerManagerScript : MonoBehaviour
         {
             circleCollider.radius = _originalShieldRadius;
         }
-    }
 
+        if(_playerCurrentShield <= 0)
+        {
+            isUsingShield = false;
+        }
+    }
+    /// <summary>
+    /// di gumagana ung cooldown paki ayos pag uwe thnks
+    /// </summary>
+    void shieldCooldown()
+    {
+        if (_playerCurrentShield < _playerMaxShield && !isShieldCooldown)
+        {
+            isShieldCooldown = true;
+            StartCoroutine(shieldCooldownTimer());
+        }
+    }
     public void IncreaseMaxHealth(int healthToAdd)
     {
         _maxHealth += healthToAdd;
@@ -63,6 +81,20 @@ public class playerManagerScript : MonoBehaviour
     {
         _playerMaxShield += shieldMaxHealth;
         _playerCurrentShield += shieldMaxHealth; //reset ung current health pag bumili ng shield power up
+
+        _shieldCooldown = shieldCooldown;
+    }
+    IEnumerator shieldCooldownTimer()
+    {
+        while (isShieldCooldown)
+        {
+            yield return new WaitForSeconds(_shieldCooldown);
+
+            _playerCurrentShield = Mathf.Min(_playerCurrentShield + 1);
+
+            // Shield cooldown is over
+            isShieldCooldown = false;
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
