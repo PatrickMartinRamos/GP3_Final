@@ -7,25 +7,35 @@ public class playerManagerScript : MonoBehaviour
     public static playerManagerScript _playerManagerInstance;
     public playerPowerUpManager _powerUpManager;
 
+    #region health
     //public var
     [Header("Health")]
     public int _maxHealth;
     public int _playerCurrentHealth;
+    #endregion
 
+    #region Shield
     [Header("Shield")]
     public int _playerMaxShield;
     public int _playerCurrentShield;
-    public float _shieldCooldown;
     public float _shieldColliderRadius;
     public bool isUsingShield = false;
     public bool isShieldCooldown = false;
-    private Coroutine shieldCooldownCoroutine;
+    public float _shieldCooldown;
+    [HideInInspector]public float timeSinceShieldDamage = 0f;
+    #endregion
 
+    #region player move speed
     [Header("Move Speed")]
-    public float playerMoveSpeed = 10f; 
+    public float playerMoveSpeed = 10f;
+    #endregion
 
+    #region collider2D
     private CircleCollider2D circleCollider;
     private float _originalShieldRadius = 7f;
+    #endregion
+
+    #region update/start/awake
     public void Awake()
     {
         _playerManagerInstance = this;
@@ -33,18 +43,21 @@ public class playerManagerScript : MonoBehaviour
         _playerCurrentHealth = _maxHealth;
         _playerCurrentShield = _playerMaxShield;
     }
-
+  
     private void Start()
     {
         circleCollider = GetComponent<CircleCollider2D>();
+        
     }
 
     private void Update()
     {
         switchToShield();
-        shieldCooldown();
+        startShieldCooldown();
     }
+    #endregion
 
+    #region shield logic
     void switchToShield()
     {      
         if(isUsingShield)
@@ -55,69 +68,76 @@ public class playerManagerScript : MonoBehaviour
         {
             circleCollider.radius = _originalShieldRadius;
         }
+    }
 
-        if(_playerCurrentShield <= 0)
-        {
-            isUsingShield = false;
-        }
-    }
-    /// <summary>
-    /// di gumagana ung cooldown paki ayos pag uwe thnks
-    /// </summary>
-    void shieldCooldown()
+    public void startShieldCooldown()
     {
-        if (_playerCurrentShield < _playerMaxShield && !isShieldCooldown)
+        if (isUsingShield && _playerCurrentShield < _playerMaxShield)
         {
-            isShieldCooldown = true;
-            StartCoroutine(shieldCooldownTimer());
+            timeSinceShieldDamage += Time.deltaTime;
+            if (timeSinceShieldDamage >= _shieldCooldown)
+            {
+                timeSinceShieldDamage = 0f;
+                RegenerateShield();
+            }
+            isShieldCooldown = true; // Set isShieldCooldown to true when shield is regenerating
+        }
+        else
+        {
+            isShieldCooldown = false; // Set isShieldCooldown to false when shield is not regenerating
         }
     }
+
+    void RegenerateShield()
+    {
+        if (_playerCurrentShield < _playerMaxShield)
+        {
+            _playerCurrentShield++;
+        }
+        else
+        {
+           timeSinceShieldDamage = 0f;
+        }
+    }
+    #endregion
+
+    #region increase max health and increase max shield/decrease shield cooldown
     public void IncreaseMaxHealth(int healthToAdd)
     {
         _maxHealth += healthToAdd;
         _playerCurrentHealth += healthToAdd; //reset ung current health pag bumili ng max health power up
     }
-    public void IncreasedMaxShield(int shieldMaxHealth, int shieldCooldown)
+    public void IncreasedMaxShieldandDecreaseCooldown(int shieldMaxHealth, int shieldCooldown)
     {
         _playerMaxShield += shieldMaxHealth;
         _playerCurrentShield += shieldMaxHealth; //reset ung current health pag bumili ng shield power up
 
         _shieldCooldown = shieldCooldown;
     }
-    IEnumerator shieldCooldownTimer()
-    {
-        while (isShieldCooldown)
-        {
-            yield return new WaitForSeconds(_shieldCooldown);
+    #endregion
 
-            _playerCurrentShield = Mathf.Min(_playerCurrentShield + 1);
-
-            // Shield cooldown is over
-            isShieldCooldown = false;
-        }
-    }
-
+    #region handle enemy collision
     private void OnCollisionEnter2D(Collision2D collision)
     {
         int damage = collision.gameObject.GetComponent<Enemy>().enemyDamage; //place holder muna para sa enemy damage
 
         if (collision.collider.CompareTag("Enemy"))
         {
-            if (!isUsingShield)
+            if (!isUsingShield || _playerCurrentShield <= 0) 
             {             
-                _playerCurrentHealth -= damage; // dpat enemy damage - sa player current health
+                _playerCurrentHealth -= damage;
                 Debug.Log("collide with player");
                 Destroy(collision.gameObject);
             }
             else
             {
                 _playerCurrentShield -= damage;
+                isShieldCooldown = true;
                 Debug.Log("collide with shield");
                 Destroy(collision.gameObject);
             }
 
         }
     }
-
-
+    #endregion
 }

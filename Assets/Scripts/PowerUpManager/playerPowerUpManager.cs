@@ -198,15 +198,15 @@ public class playerPowerUpManager : MonoBehaviour
                 _shieldBuffObject.SetActive(true);
                 _playerManager.isUsingShield = true;
 
-                _playerManager.IncreasedMaxShield(shieldHealthLevel[0], shieldCooldownLevel[0]);
+                _playerManager.IncreasedMaxShieldandDecreaseCooldown(shieldHealthLevel[0], shieldCooldownLevel[0]);
                 Debug.Log("shield max health " + shieldHealthLevel[0] + " shield cooldown " + shieldCooldownLevel[0]);
                 break;
             case 2:
-                _playerManager.IncreasedMaxShield(shieldHealthLevel[1], shieldCooldownLevel[1]);
+                _playerManager.IncreasedMaxShieldandDecreaseCooldown(shieldHealthLevel[1], shieldCooldownLevel[1]);
                 Debug.Log("shield max health " + shieldHealthLevel[1] + " shield cooldown " + shieldCooldownLevel[1]);
                 break;                
             case 3:
-                _playerManager.IncreasedMaxShield(shieldHealthLevel[2], shieldCooldownLevel[2]);
+                _playerManager.IncreasedMaxShieldandDecreaseCooldown(shieldHealthLevel[2], shieldCooldownLevel[2]);
                 Debug.Log("shield max health " + shieldHealthLevel[2] + " shield cooldown " + shieldCooldownLevel[2]);
                 break;
         }
