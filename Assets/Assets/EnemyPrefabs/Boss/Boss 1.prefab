@@ -8,6 +8,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2956728817940855676, guid: 5a0db2af949d493448c5421c4aa0ac90, type: 3}
+      propertyPath: m_LocalBounds.m_Center.x
+      value: -0.09595001
+      objectReference: {fileID: 0}
+    - target: {fileID: 2956728817940855676, guid: 5a0db2af949d493448c5421c4aa0ac90, type: 3}
+      propertyPath: m_LocalBounds.m_Center.y
+      value: 0.106949985
+      objectReference: {fileID: 0}
+    - target: {fileID: 2956728817940855676, guid: 5a0db2af949d493448c5421c4aa0ac90, type: 3}
+      propertyPath: m_LocalBounds.m_Extent.x
+      value: 0.71055
+      objectReference: {fileID: 0}
+    - target: {fileID: 2956728817940855676, guid: 5a0db2af949d493448c5421c4aa0ac90, type: 3}
+      propertyPath: m_LocalBounds.m_Extent.y
+      value: 0.81615
+      objectReference: {fileID: 0}
+    - target: {fileID: 3062174524263661480, guid: 5a0db2af949d493448c5421c4aa0ac90, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -925538145, guid: 44ae93e1652418948967a054b554c1cf, type: 3}
     - target: {fileID: 4302620893548425326, guid: 5a0db2af949d493448c5421c4aa0ac90, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -16,17 +36,21 @@ PrefabInstance:
       propertyPath: m_BodyType
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5350829312470100177, guid: 5a0db2af949d493448c5421c4aa0ac90, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6477540294765620864, guid: 5a0db2af949d493448c5421c4aa0ac90, type: 3}
       propertyPath: m_LocalScale.x
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6477540294765620864, guid: 5a0db2af949d493448c5421c4aa0ac90, type: 3}
       propertyPath: m_LocalScale.y
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6477540294765620864, guid: 5a0db2af949d493448c5421c4aa0ac90, type: 3}
       propertyPath: m_LocalScale.z
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6477540294765620864, guid: 5a0db2af949d493448c5421c4aa0ac90, type: 3}
       propertyPath: m_LocalPosition.x
@@ -93,9 +117,6 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 8205732870715919606, guid: 5a0db2af949d493448c5421c4aa0ac90, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 6291912710505111358}
-    - targetCorrespondingSourceObject: {fileID: 8205732870715919606, guid: 5a0db2af949d493448c5421c4aa0ac90, type: 3}
-      insertIndex: -1
       addedObject: {fileID: -6429894905268834283}
   m_SourcePrefab: {fileID: 100100000, guid: 5a0db2af949d493448c5421c4aa0ac90, type: 3}
 --- !u!1 &1623745169456014264 stripped
@@ -103,41 +124,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8205732870715919606, guid: 5a0db2af949d493448c5421c4aa0ac90, type: 3}
   m_PrefabInstance: {fileID: 7451255272496590670}
   m_PrefabAsset: {fileID: 0}
---- !u!58 &6291912710505111358
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1623745169456014264}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
 --- !u!114 &-6429894905268834283
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -151,6 +137,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <CurrentHealth>k__BackingField: 0
+  explosionEffect: {fileID: 0}
+  enemyDamage: 0
   EnemyMoveBase: {fileID: 11400000, guid: 5737faec6f8a2e046aec5fe2b2afd5ae, type: 2}
   EnemyAttackSOBaseList:
   - {fileID: 11400000, guid: 2ceaf39090a742f4b9ee2b5b68e107e0, type: 2}
