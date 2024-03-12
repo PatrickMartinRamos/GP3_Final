@@ -12,17 +12,21 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4473379023635801363, guid: 5a0db2af949d493448c5421c4aa0ac90, type: 3}
+      propertyPath: m_BodyType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6477540294765620864, guid: 5a0db2af949d493448c5421c4aa0ac90, type: 3}
       propertyPath: m_LocalScale.x
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6477540294765620864, guid: 5a0db2af949d493448c5421c4aa0ac90, type: 3}
       propertyPath: m_LocalScale.y
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6477540294765620864, guid: 5a0db2af949d493448c5421c4aa0ac90, type: 3}
       propertyPath: m_LocalScale.z
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6477540294765620864, guid: 5a0db2af949d493448c5421c4aa0ac90, type: 3}
       propertyPath: m_LocalPosition.x
@@ -89,9 +93,6 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 8205732870715919606, guid: 5a0db2af949d493448c5421c4aa0ac90, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 6291912710505111358}
-    - targetCorrespondingSourceObject: {fileID: 8205732870715919606, guid: 5a0db2af949d493448c5421c4aa0ac90, type: 3}
-      insertIndex: -1
       addedObject: {fileID: -2948575837051026406}
   m_SourcePrefab: {fileID: 100100000, guid: 5a0db2af949d493448c5421c4aa0ac90, type: 3}
 --- !u!1 &1623745169456014264 stripped
@@ -99,41 +100,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8205732870715919606, guid: 5a0db2af949d493448c5421c4aa0ac90, type: 3}
   m_PrefabInstance: {fileID: 7451255272496590670}
   m_PrefabAsset: {fileID: 0}
---- !u!58 &6291912710505111358
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1623745169456014264}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
 --- !u!114 &-2948575837051026406
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147,7 +113,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <CurrentHealth>k__BackingField: 0
-  EnemyMoveBase: {fileID: 11400000, guid: 900d8344a2bb17a4999833454c49c02c, type: 2}
+  explosionEffect: {fileID: 0}
+  enemyDamage: 0
+  EnemyMoveBase: {fileID: 11400000, guid: 5737faec6f8a2e046aec5fe2b2afd5ae, type: 2}
   EnemyAttackSOBaseList:
-  - {fileID: 11400000, guid: 4235f99ad3f81724a9c66e4796dca856, type: 2}
-  - {fileID: 11400000, guid: 4235f99ad3f81724a9c66e4796dca856, type: 2}
+  - {fileID: 11400000, guid: 2ceaf39090a742f4b9ee2b5b68e107e0, type: 2}
+  EnemyMoveToPointBase: {fileID: 11400000, guid: d99c4da8fe171994989d9f618456fc97, type: 2}
+  HalfHPBossAtkBase: {fileID: 11400000, guid: 72bc993d598b8c8459f20d75d14a66ec, type: 2}

@@ -12,10 +12,10 @@ public class EnemyWaves : MonoBehaviour
     private ObjectPool<Enemy> eyeGroup;
     private ObjectPool<Enemy> enemyType3;
     [SerializeField]
-    private int enemiesPerWave, enemiesSpawned, WaveNum, enemiesCreated = 0;
+    private int enemiesPerWave, enemiesSpawned, WaveNum, enemiesCreated = 1;
     public bool canSpawn, summoning=false;
     public bool fillingPool;
-    public int ActiveEnemies=0;
+    public int ActiveEnemies;
 
     private void Awake()
     {
@@ -23,6 +23,7 @@ public class EnemyWaves : MonoBehaviour
         skull = new ObjectPool<Enemy>(CreateEnemy, OnEnemyGet, OnEnemyRelease, OnEnemyDestroy, true, 0, 20);
         eyeGroup = new ObjectPool<Enemy>(CreateEnemy, OnEnemyGet, OnEnemyRelease, OnEnemyDestroy, true, 0, 20);
         enemyType3 = new ObjectPool<Enemy>(CreateEnemy, OnEnemyGet, OnEnemyRelease, OnEnemyDestroy, true, 0, 20);
+        ActiveEnemies = 0;
     }
 
     private void OnDestroy()
@@ -66,7 +67,7 @@ public class EnemyWaves : MonoBehaviour
                     GameManager.instance.UpcomingBoss = GameManager.instance.bSpawner.GetBossToSpawn();
                     fillingPool = false;
                 }
-                enemiesSpawned = 0;
+                enemiesSpawned = 1;
             }
         }
 
@@ -103,6 +104,9 @@ public class EnemyWaves : MonoBehaviour
             var enemy = pool.Get();
             if (enemy != null)
             {
+                enemiesSpawned++;
+                ActiveEnemies++;
+                Debug.Log($"Total Number Spawned = {enemiesSpawned}");
                 enemy.transform.SetPositionAndRotation(position, rotation);
             }
             return enemy;
@@ -152,9 +156,6 @@ public class EnemyWaves : MonoBehaviour
     {
         enemy.WaveNum = WaveNum;
         enemy.rb.velocity = Vector3.zero;
-        enemiesSpawned++;
-        ActiveEnemies++;
-        Debug.Log($"Total Number Spawned = {enemiesSpawned}");
         enemy.gameObject.SetActive(true);
     }
 
@@ -164,5 +165,8 @@ public class EnemyWaves : MonoBehaviour
         ActiveEnemies--;
     }
 
-    private void OnEnemyDestroy(Enemy enemy) => Destroy(enemy.gameObject);
+    private void OnEnemyDestroy(Enemy enemy)
+    {
+        Destroy(enemy.gameObject);
+    }
 }

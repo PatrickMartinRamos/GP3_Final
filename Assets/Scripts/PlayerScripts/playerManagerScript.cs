@@ -127,14 +127,14 @@ public class playerManagerScript : MonoBehaviour
             {             
                 _playerCurrentHealth -= damage;
                 Debug.Log("collide with player");
-                Destroy(collision.gameObject);
+                collision.gameObject.GetComponent<Enemy>().Die();
             }
             else
             {
                 _playerCurrentShield -= damage;
                 isShieldCooldown = true;
                 Debug.Log("collide with shield");
-                Destroy(collision.gameObject);
+                collision.gameObject.GetComponent<Enemy>().Die();
             }
 
         }
