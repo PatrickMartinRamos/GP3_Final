@@ -697,7 +697,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 99104001}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6254e99da935fb248b65b083c6193569, type: 3}
   m_Name: 
@@ -8115,8 +8115,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.11929989, y: 0.07749987, z: 0}
-    m_Extent: {x: 8.6785, y: 11.1768, z: 0}
+    m_Center: {x: 0.12864971, y: 0.07494974, z: 0}
+    m_Extent: {x: 8.67745, y: 11.18755, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0.2
@@ -8932,8 +8932,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.12914991, y: 0.07704973, z: 0}
-    m_Extent: {x: 8.67695, y: 11.188049, z: 0}
+    m_Center: {x: 0.12354994, y: 0.08004999, z: 0}
+    m_Extent: {x: 8.669849, y: 11.17675, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0.2
