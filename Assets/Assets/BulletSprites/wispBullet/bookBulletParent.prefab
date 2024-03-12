@@ -4992,7 +4992,7 @@ GameObject:
   - component: {fileID: 8753583072819636227}
   - component: {fileID: 8434098948517722408}
   m_Layer: 8
-  m_Name: wispBulletParent
+  m_Name: bookBulletParent
   m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

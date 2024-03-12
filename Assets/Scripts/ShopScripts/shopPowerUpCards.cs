@@ -18,7 +18,6 @@ public class shopPowerUpCards : ScriptableObject
     public string powerUPName;
     public string description;
     public Sprite artWork;
-    public int cost;
     public PowerUpType powerUpType;
     [HideInInspector] public int powerUpLVL;
 

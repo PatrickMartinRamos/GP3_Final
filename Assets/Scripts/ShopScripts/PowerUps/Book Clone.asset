@@ -10,18 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 82df870968c87f24ba633f7481d28320, type: 3}
-  m_Name: Spirit Clone
+  m_Name: Book Clone
   m_EditorClassIdentifier: 
-  powerUPName: Spirit Wisp
-  description: Add a wisp the will shoot projectile also improve attack speed
+  powerUPName: Book Clone
+  description: Add a flying book the will shoot projectile also improve attack speed
   artWork: {fileID: 21300000, guid: b85c1d751aeba4e4c9acbb094f72a042, type: 3}
   cost: 55
   powerUpType: 2
-  powerUpLVL: 2
-  spiritClone_1: {fileID: 259930096, guid: f52083cceb50d8c4b9677e920a218b35, type: 3}
-  spiritClone_2: {fileID: 259930096, guid: f52083cceb50d8c4b9677e920a218b35, type: 3}
+  powerUpLVL: 0
+  spiritClone_1: {fileID: 442441609, guid: 64329bc28b8cc00428f9d83c972259b7, type: 3}
+  spiritClone_2: {fileID: 442441609, guid: 64329bc28b8cc00428f9d83c972259b7, type: 3}
+  _wispBullet: {fileID: 3016842468874879282, guid: ba20dba39e44b8c41904856ee2bac640, type: 3}
   healthToAdd: 0
   damageBuff: 0
-  addShield: 0
   chanceOfExplostion: 0
+  shieldHealthLevels: 000000000000000000000000
+  shieldCooldownLevels: 000000000000000000000000
   playerPowerUPManager: {fileID: 0}
