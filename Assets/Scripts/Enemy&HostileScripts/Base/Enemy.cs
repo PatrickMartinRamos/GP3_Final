@@ -4,6 +4,7 @@ using UnityEngine.Pool;
 
 public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckeable
 {
+
     public float MaxHealth { get; set; } = 50f;
     [field: SerializeField] public float CurrentHealth { get; set; }
     public IObjectPool<Enemy> ObjectPool { get; set; }
@@ -42,7 +43,7 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckea
         MoveState = new EnemyMovingState(this, StateMachine);
 
     }
-    void OnEnable()
+    public virtual void OnEnable()
     {
         CurrentHealth = MaxHealth;
         rb = GetComponent<Rigidbody2D>();

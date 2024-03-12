@@ -15,7 +15,7 @@ public class EnemySpawner : MonoBehaviour
     private float SpawnRate;
 
     private float spawnTime;
-    private GameObject Boss;
+    public GameObject Boss;
 
     private void Start()
     {
@@ -72,4 +72,6 @@ public class EnemySpawner : MonoBehaviour
             GameManager.instance.UpcomingBoss = temp;
         }
     }
+
+
 }

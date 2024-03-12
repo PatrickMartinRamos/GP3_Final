@@ -13,7 +13,7 @@ public class EnemyWaves : MonoBehaviour
     private ObjectPool<Enemy> enemyType3;
     [SerializeField]
     private int enemiesPerWave, enemiesSpawned, WaveNum, enemiesCreated = 0;
-    public bool canSpawn;
+    public bool canSpawn, summoning=false;
     public bool fillingPool;
     public int ActiveEnemies=0;
 
@@ -91,8 +91,10 @@ public class EnemyWaves : MonoBehaviour
     }
     public Enemy Summon(int Number, Vector3 position, Quaternion rotation)
     {
+        EnemyPrefab = Enemylist[0];
+        ObjectPool<Enemy> pool = skull;
         enemiesPerWave = Number;
-        return GetEnemy(skull, position, rotation);
+        return GetEnemy(pool, position, rotation);
     }
     private Enemy GetEnemy(ObjectPool<Enemy> pool, Vector3 position, Quaternion rotation)
     {
@@ -105,7 +107,7 @@ public class EnemyWaves : MonoBehaviour
             }
             return enemy;
         }
-        if (!fillingPool)
+        if (!fillingPool && !summoning)
         {
             WaveNum++;
             Debug.Log("WAVE NUMBER " + WaveNum);
@@ -119,6 +121,7 @@ public class EnemyWaves : MonoBehaviour
     }
     ObjectPool<Enemy> GetPool()
     {
+
         if (GameManager.instance.UpcomingBoss.name == "Boss 1(Clone)")
         {
             EnemyPrefab = Enemylist[0];

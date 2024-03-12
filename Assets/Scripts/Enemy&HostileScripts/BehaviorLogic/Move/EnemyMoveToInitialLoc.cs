@@ -1,12 +1,20 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
+public enum StartLocation
+{
+    None,
+    Assign,
+}
 
 [CreateAssetMenu(fileName ="Move-Initial Location", menuName ="Enemy Logic/Move Logic/Move to Start")]
 public class EnemyMoveToInitialLoc : EnemyMoveSOBase
 {
     [SerializeField] float Speed = 2f;
-
+    [SerializeField] StartLocation InitialPos;
+    [SerializeField] Vector3 InitialLocation;
     public override void DoAnimationTriggerEventLogic(Enemy.AnimationTriggerType triggerType)
     {
         base.DoAnimationTriggerEventLogic(triggerType);
@@ -25,8 +33,17 @@ public class EnemyMoveToInitialLoc : EnemyMoveSOBase
     public override void DoFrameUpdateLogic()
     {
         base.DoFrameUpdateLogic();
-
-        enemy.MoveEnemy(Vector2.left * Speed);
+        switch (InitialPos)
+        {
+            case StartLocation.None:
+                enemy.MoveEnemy(Vector2.left * Speed);
+                break;
+            case StartLocation.Assign:
+                Vector3 direction = (InitialLocation - enemy.transform.position).normalized;
+                enemy.MoveEnemy(direction * Speed);
+                break;
+            default: break;
+        }
 
     }
 
