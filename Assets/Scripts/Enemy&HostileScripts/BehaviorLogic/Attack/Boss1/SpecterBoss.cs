@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "SpecterBoss Atk", menuName = "Enemy Logic/Attack Logic/SpecterBoss")]
+[CreateAssetMenu(fileName = "MoveUpDown", menuName = "Enemy Logic/Attack Logic/MoveUpDown")]
 public class SpecterBoss : EnemyAttackSOBase
 {
     [SerializeField] public float Speed;
-    float SkullSpawned = 0, spawnTime = 0, SpawnRate = 0.5f;
-    bool canMove, canSkill;
+    private BossBase boss;
+    float timer = 0;
 
     public override void DoAnimationTriggerEventLogic(Enemy.AnimationTriggerType triggerType)
     {
@@ -18,33 +18,50 @@ public class SpecterBoss : EnemyAttackSOBase
     public override void DoEnterLogic()
     {
         base.DoEnterLogic();
-        canSkill = true;
-        canMove = true;
+        boss = enemy.gameObject.GetComponent<BossBase>();
+        if(enemy.transform.position.y > 0)
+        enemy.MoveEnemy(Vector2.up * Speed);
+        else
+        enemy.MoveEnemy(Vector2.down * Speed);
     }
 
     public override void DoExitLogic()
     {
         base.DoExitLogic();
+        enemy.SetInPlaceStatus(false);
     }
 
     public override void DoFrameUpdateLogic()
     {
         base.DoFrameUpdateLogic();
-        spawnTime += Time.deltaTime;
-        if (spawnTime > 5) { canSkill= true; }
+        timer += Time.deltaTime;
+        float spawnTime = 0;
+        if (boss.CurrentHealth >= (boss.MaxHealth * 0.40f)) spawnTime = 10;
+        else if (boss.CurrentHealth >= (boss.MaxHealth * 0.20f)) spawnTime = 8;
+        else if (boss.CurrentHealth == (boss.MaxHealth * 0.10f)) spawnTime = 5;
 
-        if (canMove) MoveUpDown();
-
-        if(enemy.CurrentHealth <= (enemy.MaxHealth * 0.80) && canSkill)
+        if (boss.CurrentHealth == (boss.MaxHealth * 0.50f) && !boss.canSkill)
         {
-            SpecialSkill();
+            boss.canSkill = true;
+            timer = 0;
+            enemy.StateMachine.ChangeState(boss.MoveState2);
         }
+
+        else if ((boss.CurrentHealth < (boss.MaxHealth * 0.50f)) && (timer >= spawnTime) && !boss.canSkill)
+        {
+            boss.canSkill = true;
+            Debug.Log(boss.canSkill.ToString());
+            timer = 0;
+            enemy.StateMachine.ChangeState(boss.MoveState2);
+        }
+        else Move();
 
     }
 
     public override void DoPhysicsLogic()
     {
         base.DoPhysicsLogic();
+
     }
 
     public override void Initialize(GameObject gameObject, Enemy enemy)
@@ -56,35 +73,16 @@ public class SpecterBoss : EnemyAttackSOBase
     {
         base.ResetValues();
     }
-    private void MoveUpDown()
+    void Move()
     {
         if (enemy.transform.position.y > 3.5f)
         {
-            enemy.MoveEnemy(Vector2.down * Speed);
+            boss.MoveEnemy(Vector2.down * Speed);
         }
-        else if (enemy.transform.position.y < -3.5f)
+        else if (boss.transform.position.y < -3.5f)
         {
             enemy.MoveEnemy(Vector2.up * Speed);
         }
-    }
-    private void SpecialSkill()
-    {
-        canSkill= false;
-        enemy.transform.position = Vector2.MoveTowards(enemy.transform.position, new Vector2(3, 0),0.3f);
-        canMove = false;
-
-        Summon();
-    }
-    //Skull SP Skill
-    public void Summon()
-    {
-        if (spawnTime >= SpawnRate && SkullSpawned < 6)
-        {
-            spawnTime = 0f;
-            GameManager.instance.eWaves.Summon(6,enemy.transform.position, Quaternion.Euler(0, 0, -60 * SkullSpawned));
-            SkullSpawned++;
-        }
-        else if(SkullSpawned==6)canMove= true;
     }
 }
 
