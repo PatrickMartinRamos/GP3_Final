@@ -18,7 +18,6 @@ public class BossBase : Enemy
         AttackState2 = new EnemyAttackState2(this, StateMachine);
         MoveState2 = new EnemyMoveState2(this, StateMachine);
         MaxHealth *= 10;
-        canSkill= false;
     }
     public override void Attack()
     {
@@ -46,4 +45,9 @@ public class BossBase : Enemy
         HalfHPBossAtkInstance.Initialize(gameObject, this);
     }
 
+    public override void OnEnable()
+    {
+        base.OnEnable();
+        canSkill = false;
+    }
 }

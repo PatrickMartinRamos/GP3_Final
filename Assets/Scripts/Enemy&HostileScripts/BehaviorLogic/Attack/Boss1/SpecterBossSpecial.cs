@@ -37,7 +37,7 @@ public class SpecterBossSpecial : EnemyAttackSOBase
             {
                 spawnTime = 0f;
                 GameManager.instance.eWaves.summoning = true;
-                GameManager.instance.eWaves.Summon(6, enemy.transform.position, Quaternion.Euler(0, 0, (30 * SkullSpawned)+(60)));
+                GameManager.instance.eWaves.Summon(6, enemy.transform.position, Quaternion.Euler(0, 0, (30 * SkullSpawned)+(-30)));
                 SkullSpawned++;
                 Debug.Log(SkullSpawned);
             }
