@@ -27,7 +27,7 @@ TagManager:
   - BGLayer
   - ShopLayer
   - CardTextLayer
-  - 
+  - EnemyLayer
   - 
   - 
   - 
@@ -52,6 +52,9 @@ TagManager:
     locked: 0
   - name: GamePlayScreen
     uniqueID: 2838610627
+    locked: 0
+  - name: EnemyLayer
+    uniqueID: 947146729
     locked: 0
   - name: ShopLayer
     uniqueID: 3043014503

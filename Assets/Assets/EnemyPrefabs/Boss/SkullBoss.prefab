@@ -10,11 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1226688465681419239}
   - component: {fileID: 5337465866908456119}
-  - component: {fileID: 7271930212435486518}
   - component: {fileID: 3353238042012683569}
   - component: {fileID: 1839351616420083933}
+  - component: {fileID: 7307310306621514373}
   m_Layer: 11
-  m_Name: skullBoss 1
+  m_Name: SkullBoss
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31,7 +31,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -87,26 +87,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7271930212435486518
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3463173832266714493}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67d676ce370c1a140abe4dfa96a9149a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <CurrentHealth>k__BackingField: 0
-  explosionEffect: {fileID: 1406867520371413771, guid: a46d7ac104cb5204491ab165b1d054f5, type: 3}
-  enemyDamage: 0
-  EnemyMoveBase: {fileID: 11400000, guid: d99c4da8fe171994989d9f618456fc97, type: 2}
-  EnemyAttackSOBaseList:
-  - {fileID: 11400000, guid: 2ceaf39090a742f4b9ee2b5b68e107e0, type: 2}
-  EnemyMoveToPointBase: {fileID: 11400000, guid: d99c4da8fe171994989d9f618456fc97, type: 2}
-  HalfHPBossAtkBase: {fileID: 11400000, guid: 72bc993d598b8c8459f20d75d14a66ec, type: 2}
 --- !u!50 &3353238042012683569
 Rigidbody2D:
   serializedVersion: 4
@@ -169,3 +149,24 @@ CapsuleCollider2D:
   m_Offset: {x: -0.056929708, y: -0.6169299}
   m_Size: {x: 3.5261405, y: 3.5261405}
   m_Direction: 0
+--- !u!95 &7307310306621514373
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3463173832266714493}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d07981ce9023f9941af8a18721f7f769, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

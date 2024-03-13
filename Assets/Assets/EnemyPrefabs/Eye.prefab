@@ -64,7 +64,7 @@ GameObject:
   - component: {fileID: 2284264126364553582}
   - component: {fileID: 5675553909142251578}
   m_Layer: 11
-  m_Name: EyeGroup
+  m_Name: Eye
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -80,7 +80,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 10.87, y: 3.81, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 9203961136888859830}
@@ -252,7 +252,7 @@ GameObject:
   - component: {fileID: 1747091041382707414}
   - component: {fileID: 4471564768612341828}
   m_Layer: 11
-  m_Name: bookLightFrontCricle
+  m_Name: EyeBat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -288,9 +288,9 @@ MonoBehaviour:
   m_ComponentVersion: 1
   m_LightType: 3
   m_BlendStyleIndex: 0
-  m_FalloffIntensity: 0.245
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
-  m_Intensity: 5
+  m_FalloffIntensity: 0.27
+  m_Color: {r: 0.735849, g: 0.19020998, b: 0.19020998, a: 1}
+  m_Intensity: 4.33
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
   m_ApplyToSortingLayers: 000000005f65634bc3c231a9
@@ -312,7 +312,7 @@ MonoBehaviour:
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
-  m_PointLightOuterRadius: 0.65
+  m_PointLightOuterRadius: 1.78
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1

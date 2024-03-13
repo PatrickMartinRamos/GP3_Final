@@ -12,11 +12,18 @@ public class uiDisplayScripts : MonoBehaviour
 
     public playerManagerScript _playerManager;
 
+    // Array to hold all health objects
+    public GameObject[] healthObjects;
+
     #region start/update
     private void Start()
     {
         _playerManager = playerManagerScript._playerManagerInstance;
+
+        // Populate the healthObjects array with all the health objects in the scene
+        healthObjects = GameObject.FindGameObjectsWithTag("Health");
     }
+
     private void Update()
     {
         uiDisplay();
@@ -37,6 +44,12 @@ public class uiDisplayScripts : MonoBehaviour
         else
         {
             _displayCooldown.text = "Shield Cooldown: Ready";
+        }
+
+        // Activate or deactivate health objects based on player's current health
+        for (int i = 0; i < healthObjects.Length; i++)
+        {
+            healthObjects[i].SetActive(i < _playerManager._playerCurrentHealth);
         }
     }
     #endregion
