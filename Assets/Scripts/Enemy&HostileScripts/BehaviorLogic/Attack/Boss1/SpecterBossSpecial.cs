@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "SpecterSpecial", menuName = "Enemy Logic/Attack Logic/SpecterSpecial")]
+[CreateAssetMenu(fileName = "BossSpecial", menuName = "Enemy Logic/Attack Logic/BossSpecial")]
 public class SpecterBossSpecial : EnemyAttackSOBase
 {
     float SkullSpawned = 0, spawnTime = 0, SpawnRate = 0.5f;
@@ -33,20 +33,16 @@ public class SpecterBossSpecial : EnemyAttackSOBase
 
         if (boss.canSkill)
         {
-            if (spawnTime >= SpawnRate && SkullSpawned < 6)
+            switch(boss.Type) 
             {
-                spawnTime = 0f;
-                GameManager.instance.eWaves.summoning = true;
-                GameManager.instance.eWaves.Summon(6, enemy.transform.position, Quaternion.Euler(0, 0, (30 * SkullSpawned)+(-30)));
-                SkullSpawned++;
-                Debug.Log(SkullSpawned);
-            }
-            else if (SkullSpawned == 6)
-            {
-                boss.canSkill = false;
-                GameManager.instance.eWaves.summoning = false;
-                SkullSpawned = 0;
-                int wave = GameManager.instance.eWaves.ResetEnemyCount();
+                case BossType.SkullBoss:
+                    Summon();
+                    break;
+                case BossType.EyeBoss:
+                    break;
+                case BossType.SpiritBoss:
+                    break;
+                default: break;
             }
         }
 
@@ -69,6 +65,30 @@ public class SpecterBossSpecial : EnemyAttackSOBase
     public override void ResetValues()
     {
         base.ResetValues();
+    }
+
+    void Summon()
+    {
+        if (spawnTime >= SpawnRate && SkullSpawned < 6)
+        {
+            spawnTime = 0f;
+            GameManager.instance.eWaves.summoning = true;
+            GameManager.instance.eWaves.Summon(6, enemy.transform.position, Quaternion.Euler(0, 0, (30 * SkullSpawned) + (-30)));
+            SkullSpawned++;
+            Debug.Log(SkullSpawned);
+        }
+        else if (SkullSpawned == 6)
+        {
+            boss.canSkill = false;
+            GameManager.instance.eWaves.summoning = false;
+            SkullSpawned = 0;
+            int wave = GameManager.instance.eWaves.ResetEnemyCount();
+        }
+    }
+
+    void Multiply()
+    {
+
     }
 
 }

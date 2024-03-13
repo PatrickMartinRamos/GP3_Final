@@ -9,6 +9,7 @@ public class SpecterBoss : EnemyAttackSOBase
     [SerializeField] public float Speed;
     private BossBase boss;
     float timer = 0;
+    float spawnTime = 0;
 
     public override void DoAnimationTriggerEventLogic(Enemy.AnimationTriggerType triggerType)
     {
@@ -35,10 +36,9 @@ public class SpecterBoss : EnemyAttackSOBase
     {
         base.DoFrameUpdateLogic();
         timer += Time.deltaTime;
-        float spawnTime = 0;
-        if (boss.CurrentHealth >= (boss.MaxHealth * 0.40f)) spawnTime = 10;
-        else if (boss.CurrentHealth >= (boss.MaxHealth * 0.20f)) spawnTime = 8;
-        else if (boss.CurrentHealth == (boss.MaxHealth * 0.10f)) spawnTime = 5;
+        if (boss.CurrentHealth <= (boss.MaxHealth * 0.50f)) spawnTime = 10;
+        else if (boss.CurrentHealth <= (boss.MaxHealth * 0.30f)) spawnTime = 8;
+        else if (boss.CurrentHealth <= (boss.MaxHealth * 0.10f)) spawnTime = 5;
 
         if (boss.CurrentHealth == (boss.MaxHealth * 0.50f) && !boss.canSkill)
         {
@@ -50,7 +50,6 @@ public class SpecterBoss : EnemyAttackSOBase
         else if ((boss.CurrentHealth < (boss.MaxHealth * 0.50f)) && (timer >= spawnTime) && !boss.canSkill)
         {
             boss.canSkill = true;
-            Debug.Log(boss.canSkill.ToString());
             timer = 0;
             enemy.StateMachine.ChangeState(boss.MoveState2);
         }

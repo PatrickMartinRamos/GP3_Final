@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3353238042012683569}
   - component: {fileID: 1839351616420083933}
   - component: {fileID: 7307310306621514373}
+  - component: {fileID: 6161577283805330866}
   m_Layer: 11
   m_Name: SkullBoss
   m_TagString: Enemy
@@ -95,7 +96,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3463173832266714493}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -170,3 +171,23 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &6161577283805330866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3463173832266714493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67d676ce370c1a140abe4dfa96a9149a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <CurrentHealth>k__BackingField: 0
+  explosionEffect: {fileID: 0}
+  enemyDamage: 0
+  EnemyMoveBase: {fileID: 11400000, guid: 5737faec6f8a2e046aec5fe2b2afd5ae, type: 2}
+  EnemyAttackSOBaseList:
+  - {fileID: 11400000, guid: 2ceaf39090a742f4b9ee2b5b68e107e0, type: 2}
+  EnemyMoveToPointBase: {fileID: 11400000, guid: d99c4da8fe171994989d9f618456fc97, type: 2}
+  HalfHPBossAtkBase: {fileID: 11400000, guid: 72bc993d598b8c8459f20d75d14a66ec, type: 2}

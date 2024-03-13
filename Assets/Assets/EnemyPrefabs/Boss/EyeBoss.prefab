@@ -11,13 +11,16 @@ GameObject:
   - component: {fileID: 3729369744725531533}
   - component: {fileID: 5338772118080578620}
   - component: {fileID: 3069894973454740443}
+  - component: {fileID: 4677509690601042785}
+  - component: {fileID: 7120105251003336274}
+  - component: {fileID: -6765477585858233870}
   m_Layer: 0
   m_Name: EyeBoss
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3729369744725531533
 Transform:
   m_ObjectHideFlags: 0
@@ -106,3 +109,85 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!70 &4677509690601042785
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4525077976084330987}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.03935371, y: -0.013412378}
+  m_Size: {x: 1.2584901, y: 0.88410455}
+  m_Direction: 1
+--- !u!114 &7120105251003336274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4525077976084330987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67d676ce370c1a140abe4dfa96a9149a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <CurrentHealth>k__BackingField: 0
+  explosionEffect: {fileID: 0}
+  enemyDamage: 0
+  EnemyMoveBase: {fileID: 11400000, guid: 5737faec6f8a2e046aec5fe2b2afd5ae, type: 2}
+  EnemyAttackSOBaseList:
+  - {fileID: 11400000, guid: 2ceaf39090a742f4b9ee2b5b68e107e0, type: 2}
+  EnemyMoveToPointBase: {fileID: 11400000, guid: d99c4da8fe171994989d9f618456fc97, type: 2}
+  HalfHPBossAtkBase: {fileID: 11400000, guid: 72bc993d598b8c8459f20d75d14a66ec, type: 2}
+--- !u!50 &-6765477585858233870
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4525077976084330987}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
