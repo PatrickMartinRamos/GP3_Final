@@ -1,7 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
+using DG.Tweening;
+using System.Threading;
 
 [CreateAssetMenu(fileName = "BossSpecial", menuName = "Enemy Logic/Attack Logic/BossSpecial")]
 public class SpecterBossSpecial : EnemyAttackSOBase
@@ -24,6 +23,7 @@ public class SpecterBossSpecial : EnemyAttackSOBase
     public override void DoExitLogic()
     {
         base.DoExitLogic();
+        enemy.SetInPlaceStatus(false);
     }
 
     public override void DoFrameUpdateLogic()
@@ -39,8 +39,10 @@ public class SpecterBossSpecial : EnemyAttackSOBase
                     Summon();
                     break;
                 case BossType.EyeBoss:
+                    Summon();
                     break;
                 case BossType.SpiritBoss:
+                    Enlarge();
                     break;
                 default: break;
             }
@@ -86,9 +88,16 @@ public class SpecterBossSpecial : EnemyAttackSOBase
         }
     }
 
-    void Multiply()
+    async void Enlarge()
     {
-
+        Sequence seq = DOTween.Sequence();
+        seq.Append(enemy.gameObject.GetComponent<SpriteRenderer>().DOFade(1f, 0.1f));
+        seq.Join(enemy.gameObject.transform.DOScale(4f, 0.1f));
+        seq.AppendInterval(2f);
+        
+        await seq.AsyncWaitForCompletion();
+        enemy.gameObject.transform.DOScale(1.5f, 0.1f);
+        boss.canSkill = false;
     }
 
 }

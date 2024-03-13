@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f33b6a0d71a12a24b949b08cc4386896, type: 3}
-  m_Name: MoveForward(Assigned)
+  m_Script: {fileID: 11500000, guid: 2f4d450a6bfeb754b933487e561da052, type: 3}
+  m_Name: SpiritBossMove2
   m_EditorClassIdentifier: 
-  Speed: 1
-  ChooseType: 2
-  yPos: -3
+  Speed: 7
+  direction: {x: -9, y: 0, z: 0}
+  range: 11.5

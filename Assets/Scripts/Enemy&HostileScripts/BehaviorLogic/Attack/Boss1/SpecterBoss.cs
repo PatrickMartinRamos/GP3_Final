@@ -20,34 +20,38 @@ public class SpecterBoss : EnemyAttackSOBase
     {
         base.DoEnterLogic();
         boss = enemy.gameObject.GetComponent<BossBase>();
-        if(enemy.transform.position.y > 0)
-        enemy.MoveEnemy(Vector2.up * Speed);
-        else
-        enemy.MoveEnemy(Vector2.down * Speed);
     }
 
     public override void DoExitLogic()
     {
         base.DoExitLogic();
         enemy.SetInPlaceStatus(false);
+
     }
 
     public override void DoFrameUpdateLogic()
     {
         base.DoFrameUpdateLogic();
         timer += Time.deltaTime;
+
+        if (enemy.isInPlace)
+        {
+            enemy.MoveEnemy(Vector2.up * Speed);
+            enemy.SetInPlaceStatus(false);
+        }
+
         if (boss.CurrentHealth <= (boss.MaxHealth * 0.50f)) spawnTime = 10;
         else if (boss.CurrentHealth <= (boss.MaxHealth * 0.30f)) spawnTime = 8;
         else if (boss.CurrentHealth <= (boss.MaxHealth * 0.10f)) spawnTime = 5;
 
-        if (boss.CurrentHealth == (boss.MaxHealth * 0.50f) && !boss.canSkill)
+        if (boss.CurrentHealth == (boss.MaxHealth * 0.50f))
         {
             boss.canSkill = true;
             timer = 0;
             enemy.StateMachine.ChangeState(boss.MoveState2);
         }
 
-        else if ((boss.CurrentHealth < (boss.MaxHealth * 0.50f)) && (timer >= spawnTime) && !boss.canSkill)
+        else if ((boss.CurrentHealth < (boss.MaxHealth * 0.50f)) && (timer >= spawnTime))
         {
             boss.canSkill = true;
             timer = 0;

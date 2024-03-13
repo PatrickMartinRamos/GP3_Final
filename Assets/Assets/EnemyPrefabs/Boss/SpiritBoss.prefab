@@ -162,7 +162,8 @@ MonoBehaviour:
   EnemyMoveBase: {fileID: 11400000, guid: 5737faec6f8a2e046aec5fe2b2afd5ae, type: 2}
   EnemyAttackSOBaseList:
   - {fileID: 11400000, guid: 2ceaf39090a742f4b9ee2b5b68e107e0, type: 2}
-  EnemyMoveToPointBase: {fileID: 11400000, guid: d99c4da8fe171994989d9f618456fc97, type: 2}
+  Type: 0
+  EnemyMoveToPointBase: {fileID: 11400000, guid: 40cfe82c5182d53418c273efa3bb5e75, type: 2}
   HalfHPBossAtkBase: {fileID: 11400000, guid: 72bc993d598b8c8459f20d75d14a66ec, type: 2}
 --- !u!50 &5653935242380787160
 Rigidbody2D:
