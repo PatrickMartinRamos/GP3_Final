@@ -2,34 +2,49 @@ using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 
-public class cardEffects : MonoBehaviour
+public class CardEffects : MonoBehaviour
 {
-    //public var
-    public GameObject[] _cards;
-    public Vector3 _hoverScale = new Vector3(1.2f, 1.2f, 1.2f);
-    public float _duration = 0.3f;
+    // Public variables
+    public GameObject[] cards;
+    public Vector3 hoverScale = new Vector3(1.2f, 1.2f, 1.2f);
+    public float duration = 0.3f;
+    public Camera uiCamera; // Reference to the UI camera
 
-    //system var
+    // Private variables
     private Vector3 originalScale;
 
     void Start()
     {
-        originalScale = _cards[0].GetComponent<RectTransform>().localScale;
+        originalScale = cards[0].GetComponent<RectTransform>().localScale;
     }
 
-    private void Update()
+    void Update()
     {
-        foreach (GameObject card in _cards)
+        foreach (GameObject card in cards)
         {
             RectTransform rectTransform = card.GetComponent<RectTransform>();
-            if (RectTransformUtility.RectangleContainsScreenPoint(rectTransform, Input.mousePosition))
+
+            // Convert mouse position to canvas space
+            Vector2 localPoint;
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(rectTransform, Input.mousePosition, uiCamera, out localPoint);
+
+            if (rectTransform.rect.Contains(localPoint))
             {
-                //Debug.Log("card");
-                rectTransform.DOScale(_hoverScale, _duration);
+                Debug.Log("card");
+                rectTransform.DOScale(hoverScale, duration);
+
+                // Activate particle effect and adjust its scale
+                GameObject particleEffect = card.transform.Find("ParticleEffect").gameObject;
+                particleEffect.SetActive(true);
+                particleEffect.transform.localScale = card.transform.localScale;
             }
             else
             {
-                rectTransform.DOScale(originalScale, _duration);
+                rectTransform.DOScale(originalScale, duration);
+
+                // Deactivate particle effect
+                GameObject particleEffect = card.transform.Find("ParticleEffect").gameObject;
+                particleEffect.SetActive(false);
             }
         }
     }

@@ -15,7 +15,7 @@ public class EnemySpawner : MonoBehaviour
     private float SpawnRate;
 
     private float spawnTime;
-    private GameObject Boss;
+    public GameObject Boss;
 
     private void Start()
     {
@@ -30,7 +30,7 @@ public class EnemySpawner : MonoBehaviour
         spawnTime += Time.deltaTime;
         if (spawnTime >= SpawnRate && WaveNumber <= 3 && WaveNumber > 0 && !GameManager.instance.eWaves.fillingPool)
         {
-            SpawnRate = 3f / WaveNumber;
+            SpawnRate = 2f / WaveNumber;
             spawnTime = 0f;
             Spawn();
         }
@@ -41,7 +41,7 @@ public class EnemySpawner : MonoBehaviour
         }
         else if (EnemyWaves.canSpawn == false && EnemyWaves.ActiveEnemies == 0)
         {
-            SpawnRate = 9f / WaveNumber;
+            SpawnRate = 3f / WaveNumber;
             StartCoroutine(NextWave());
         }
     }
@@ -72,4 +72,6 @@ public class EnemySpawner : MonoBehaviour
             GameManager.instance.UpcomingBoss = temp;
         }
     }
+
+
 }
