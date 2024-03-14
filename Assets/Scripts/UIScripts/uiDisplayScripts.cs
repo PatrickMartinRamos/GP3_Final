@@ -14,19 +14,18 @@ public class uiDisplayScripts : MonoBehaviour
 
     // Array to hold all health objects
     public GameObject[] healthObjects;
+    public GameObject[] shieldSprite;
 
     #region start/update
     private void Start()
     {
         _playerManager = playerManagerScript._playerManagerInstance;
-
-        // Populate the healthObjects array with all the health objects in the scene
-        healthObjects = GameObject.FindGameObjectsWithTag("Health");
     }
 
     private void Update()
     {
         uiDisplay();
+
     }
     #endregion
 
@@ -34,23 +33,63 @@ public class uiDisplayScripts : MonoBehaviour
     void uiDisplay()
     {
         _displayHealth.text = "Health: " + _playerManager._playerCurrentHealth.ToString() + "/" + _playerManager._maxHealth.ToString();
-        _displayShield.text = "Shield: " + _playerManager._playerCurrentShield.ToString() + "/" + _playerManager._playerMaxShield.ToString();
 
-        if (_playerManager.isShieldCooldown)
+        if (_playerManager.isUsingShield)
         {
-            float remainingCooldown = Mathf.Max(0, _playerManager._shieldCooldown - _playerManager.timeSinceShieldDamage);
-            _displayCooldown.text = "Shield Cooldown: " + remainingCooldown.ToString("F1") + "s";
+            _displayShield.text = "Shield: " + _playerManager._playerCurrentShield.ToString() + "/" + _playerManager._playerMaxShield.ToString();
+
+            if (_playerManager.isShieldCooldown)
+            {
+                float remainingCooldown = Mathf.Max(0, _playerManager._shieldCooldown - _playerManager.timeSinceShieldDamage);
+                _displayCooldown.text = "Shield Cooldown: " + remainingCooldown.ToString("F1") + "s";
+
+                // Calculate the alpha based on the shield cooldown
+                float alpha = Mathf.Clamp01(1.0f - (remainingCooldown / _playerManager._shieldCooldown));
+
+                // Set alpha for each shield sprite
+                for (int i = 0; i < shieldSprite.Length; i++)
+                {
+                    if (i < _playerManager._playerCurrentShield)
+                    {
+                        Color color = shieldSprite[i].GetComponent<SpriteRenderer>().color;
+                        color.a = (i == _playerManager._playerCurrentShield - 1) ? alpha : 1.0f;
+                        shieldSprite[i].GetComponent<SpriteRenderer>().color = color;
+                    }
+                }
+            }
+            else
+            {
+                _displayCooldown.text = "Shield Cooldown: Ready";
+
+                // Reset alpha for all shield sprites
+                for (int i = 0; i < shieldSprite.Length; i++)
+                {
+                    if (i < _playerManager._playerCurrentShield)
+                    {
+                        Color color = shieldSprite[i].GetComponent<SpriteRenderer>().color;
+                        color.a = 1.0f;
+                        shieldSprite[i].GetComponent<SpriteRenderer>().color = color;
+                    }
+                }
+            }
         }
         else
         {
-            _displayCooldown.text = "Shield Cooldown: Ready";
+            _displayShield.text = "";
+            _displayCooldown.text = "";
         }
 
-        // Activate or deactivate health objects based on player's current health
         for (int i = 0; i < healthObjects.Length; i++)
         {
             healthObjects[i].SetActive(i < _playerManager._playerCurrentHealth);
         }
+
+        for (int i = 0; i < shieldSprite.Length; i++)
+        {
+            shieldSprite[i].SetActive(i < _playerManager._playerCurrentShield);
+        }
     }
+
+
     #endregion
 }
