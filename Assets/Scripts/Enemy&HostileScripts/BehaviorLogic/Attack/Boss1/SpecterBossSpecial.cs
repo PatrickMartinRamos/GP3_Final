@@ -39,7 +39,7 @@ public class SpecterBossSpecial : EnemyAttackSOBase
                     Summon();
                     break;
                 case BossType.EyeBoss:
-                    Summon();
+                    LaserBeam();
                     break;
                 case BossType.SpiritBoss:
                     Enlarge();
@@ -75,7 +75,7 @@ public class SpecterBossSpecial : EnemyAttackSOBase
         {
             spawnTime = 0f;
             GameManager.instance.eWaves.summoning = true;
-            GameManager.instance.eWaves.Summon(6, enemy.transform.position, Quaternion.Euler(0, 0, (30 * SkullSpawned) + (-30)));
+            GameManager.instance.eWaves.Summon(6, enemy.transform.position, Quaternion.Euler(0, 0,boss.transform.rotation.z));
             SkullSpawned++;
             Debug.Log(SkullSpawned);
         }
@@ -100,4 +100,16 @@ public class SpecterBossSpecial : EnemyAttackSOBase
         boss.canSkill = false;
     }
 
+    void LaserBeam()
+    {
+        boss.transform.GetChild(0).gameObject.SetActive(true);
+
+        if (spawnTime > 2)
+        {
+            boss.transform.GetChild(0).gameObject.SetActive(false);
+            spawnTime = 0;
+            boss.canSkill = false;
+        }
+
+    }
 }

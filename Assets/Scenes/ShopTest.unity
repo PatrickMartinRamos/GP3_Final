@@ -184,7 +184,8 @@ MonoBehaviour:
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_fontSharedMaterials: []
+  m_fontSharedMaterials:
+  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
@@ -538,7 +539,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpawnPoint: {fileID: 1504771048}
-  shootInterval: 0.1
 --- !u!114 &99104007
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -551,9 +551,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37bafc88436521146865102db48913cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spiritClone_1: {fileID: 1216842817}
-  spiritClone_2: {fileID: 1623005728}
-  cloneLevel: 0
+  _bookClone_1: {fileID: 0}
+  _booktClone_2: {fileID: 0}
+  _bulletBookSpawnPoint_1: {fileID: 0}
+  _bulletBookSpawnPoint_2: {fileID: 0}
+  _bookBullet_1: 0
+  _bookBullet_2: 0
+  _bookLevel: 0
+  _addMaxHealthLevel: 0
+  _shieldBuffLevel: 0
+  _shieldBuffObject: {fileID: 0}
+  _explotsionLevel: 0
+  _explosionChance: 0
+  _explosionDamage: 0
+  _scatterBulletPOS_1: {fileID: 0}
+  _scatterBulletPOS_2: {fileID: 0}
+  _scatterBullet_1: 0
+  _scatterBullet_2: 0
+  _scatterBulletLevel: 0
+  _damageBuffLevel: 0
+  _addMaxCurrencyMultiplierLevel: 0
 --- !u!114 &99104008
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -566,10 +583,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16fb0f176dcc21947bc50d98602a487d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _powerUpManager: {fileID: 0}
   _maxHealth: 0
   _playerCurrentHealth: 0
+  _playerMaxShield: 0
+  _playerCurrentShield: 0
+  _shieldColliderRadius: 0
+  isUsingShield: 0
+  isShieldCooldown: 0
+  _shieldCooldown: 0
+  timeSinceShieldDamage: 0
   playerMoveSpeed: 10
-  currencyEarned: 0
 --- !u!1 &104256735
 GameObject:
   m_ObjectHideFlags: 0
@@ -625,7 +649,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _powerUpCard: {fileID: 11400000, guid: 9a79327527752224c971db06d5051c6c, type: 2}
-  costTxt: {fileID: 570785243}
   description: {fileID: 2089531638}
   namePowerUP: {fileID: 1661552467}
   artWork: {fileID: 775539300}
@@ -765,7 +788,8 @@ MonoBehaviour:
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_fontSharedMaterials: []
+  m_fontSharedMaterials:
+  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
@@ -1051,7 +1075,8 @@ MonoBehaviour:
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_fontSharedMaterials: []
+  m_fontSharedMaterials:
+  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
@@ -1179,7 +1204,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _powerUpCard: {fileID: 11400000, guid: 9a79327527752224c971db06d5051c6c, type: 2}
-  costTxt: {fileID: 676669023}
   description: {fileID: 1073204}
   namePowerUP: {fileID: 994240063}
   artWork: {fileID: 381461727}
@@ -1409,7 +1433,8 @@ MonoBehaviour:
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_fontSharedMaterials: []
+  m_fontSharedMaterials:
+  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
@@ -1651,7 +1676,8 @@ MonoBehaviour:
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_fontSharedMaterials: []
+  m_fontSharedMaterials:
+  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
@@ -2157,7 +2183,8 @@ MonoBehaviour:
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_fontSharedMaterials: []
+  m_fontSharedMaterials:
+  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
@@ -2487,7 +2514,8 @@ MonoBehaviour:
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_fontSharedMaterials: []
+  m_fontSharedMaterials:
+  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
@@ -3070,8 +3098,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _pooledBullets: []
+  _pooledWispBullets: []
   _bulletToPool: {fileID: 3016842468874879282, guid: a9953c7ed6a3fe340a16d066c7dd0a6e, type: 3}
+  _wispBulletToPool: {fileID: 0}
   _amountToPool: 25
+  _amountToPoolWisp: 0
 --- !u!1 &1453954432
 GameObject:
   m_ObjectHideFlags: 0
@@ -3297,7 +3328,8 @@ MonoBehaviour:
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_fontSharedMaterials: []
+  m_fontSharedMaterials:
+  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
@@ -3431,7 +3463,8 @@ MonoBehaviour:
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_fontSharedMaterials: []
+  m_fontSharedMaterials:
+  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
@@ -3793,7 +3826,8 @@ MonoBehaviour:
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_fontSharedMaterials: []
+  m_fontSharedMaterials:
+  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
@@ -4196,7 +4230,8 @@ MonoBehaviour:
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_fontSharedMaterials: []
+  m_fontSharedMaterials:
+  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
@@ -4361,7 +4396,8 @@ MonoBehaviour:
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_fontSharedMaterials: []
+  m_fontSharedMaterials:
+  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
@@ -4497,7 +4533,8 @@ MonoBehaviour:
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_fontSharedMaterials: []
+  m_fontSharedMaterials:
+  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
@@ -4618,6 +4655,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shopPowerUpManager: {fileID: 2011791395}
   playerPowerUpManager: {fileID: 99104007}
+  _powerUpShop: {fileID: 0}
 --- !u!114 &2011791395
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4702,7 +4740,8 @@ MonoBehaviour:
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_fontSharedMaterials: []
+  m_fontSharedMaterials:
+  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
@@ -4830,7 +4869,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _powerUpCard: {fileID: 11400000, guid: 9a79327527752224c971db06d5051c6c, type: 2}
-  costTxt: {fileID: 1468240257}
   description: {fileID: 1903564592}
   namePowerUP: {fileID: 2062089490}
   artWork: {fileID: 1889627990}
@@ -4895,7 +4933,8 @@ MonoBehaviour:
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_fontSharedMaterials: []
+  m_fontSharedMaterials:
+  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using DG.Tweening;
 
 [CreateAssetMenu(fileName = "MoveUpDown", menuName = "Enemy Logic/Attack Logic/MoveUpDown")]
 public class SpecterBoss : EnemyAttackSOBase
@@ -36,13 +37,14 @@ public class SpecterBoss : EnemyAttackSOBase
 
         if (enemy.isInPlace)
         {
+            enemy.gameObject.GetComponent<SpriteRenderer>().DOFade(1f, 0.1f);
             enemy.MoveEnemy(Vector2.up * Speed);
             enemy.SetInPlaceStatus(false);
         }
 
-        if (boss.CurrentHealth <= (boss.MaxHealth * 0.50f)) spawnTime = 10;
-        else if (boss.CurrentHealth <= (boss.MaxHealth * 0.30f)) spawnTime = 8;
-        else if (boss.CurrentHealth <= (boss.MaxHealth * 0.10f)) spawnTime = 5;
+        if (boss.CurrentHealth <= (boss.MaxHealth * 0.50f)) spawnTime = 6;
+        else if (boss.CurrentHealth <= (boss.MaxHealth * 0.30f)) spawnTime = 4;
+        else if (boss.CurrentHealth <= (boss.MaxHealth * 0.10f)) spawnTime = 2;
 
         if (boss.CurrentHealth == (boss.MaxHealth * 0.50f))
         {
