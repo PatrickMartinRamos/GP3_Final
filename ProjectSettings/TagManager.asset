@@ -24,10 +24,10 @@ TagManager:
   - shopeffects
   - enemyLayer
   - particleLayer
-  - 
-  - 
-  - 
-  - 
+  - BGLayer
+  - ShopLayer
+  - CardTextLayer
+  - EnemyLayer
   - 
   - 
   - 
@@ -53,6 +53,12 @@ TagManager:
   - name: GamePlayScreen
     uniqueID: 2838610627
     locked: 0
+  - name: EnemyLayer
+    uniqueID: 947146729
+    locked: 0
+  - name: ShopLayer
+    uniqueID: 3043014503
+    locked: 0
   - name: ShopBG
     uniqueID: 3715608387
     locked: 0
@@ -61,4 +67,7 @@ TagManager:
     locked: 0
   - name: cardLayer
     uniqueID: 2094017663
+    locked: 0
+  - name: cardTextLayer
+    uniqueID: 2197035531
     locked: 0

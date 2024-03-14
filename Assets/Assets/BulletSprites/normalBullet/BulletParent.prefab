@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &9165400094148024106
 Transform:
   m_ObjectHideFlags: 0
@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 2050712587296099764}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.3775153, y: 0.03027007, z: 0.6362111}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4947,9 +4947,9 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -1456356669
+  m_SortingLayer: 2
+  m_SortingOrder: 1
   m_RenderMode: 0
   m_MeshDistribution: 0
   m_SortMode: 0
@@ -10076,7 +10076,7 @@ Transform:
   m_GameObject: {fileID: 5555726642918794511}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.9961947, z: -0, w: -0.08715578}
-  m_LocalPosition: {x: -1.03, y: -0.29, z: -0.18}
+  m_LocalPosition: {x: 0, y: 0, z: -0.18}
   m_LocalScale: {x: 6.6666646, y: 6.6666665, z: 6.6666646}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10095,11 +10095,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ComponentVersion: 1
-  m_LightType: 3
+  m_LightType: 1
   m_BlendStyleIndex: 0
-  m_FalloffIntensity: 0.463
-  m_Color: {r: 0.25955856, g: 0.35146844, b: 0.4339623, a: 1}
-  m_Intensity: 0.82
+  m_FalloffIntensity: 0.28
+  m_Color: {r: 0, g: 0.4436648, b: 0.764151, a: 1}
+  m_Intensity: 2.59
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
   m_ApplyToSortingLayers: 000000005f65634bc3c231a9
@@ -10116,8 +10116,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0, y: -0.00000011920929, z: 0}
-    m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
+    m_Center: {x: -0.0033499599, y: -0.00020003319, z: 0}
+    m_Extent: {x: 1.48785, y: 1.1509, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0.5
@@ -10125,13 +10125,17 @@ MonoBehaviour:
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
-  m_ShapeLightFalloffSize: 0.5
+  m_ShapeLightFalloffSize: 1
   m_ShapeLightFalloffOffset: {x: 0, y: 0}
   m_ShapePath:
-  - {x: -0.5, y: -0.5, z: 0}
-  - {x: 0.5, y: -0.5, z: 0}
-  - {x: 0.5, y: 0.5, z: 0}
-  - {x: -0.5, y: 0.5, z: 0}
+  - {x: -0.42343774, y: -0.026506301, z: -0.0000000017662684}
+  - {x: 0.094606705, y: -0.084169745, z: 0.00000005384421}
+  - {x: 0.3507456, y: -0.15797502, z: 0.00000005002744}
+  - {x: 0.49182847, y: -0.077899665, z: -5.0363624e-10}
+  - {x: 0.47034377, y: 0.0721332, z: -1.8348914e-10}
+  - {x: 0.32019433, y: 0.14570308, z: 0.00000005048269}
+  - {x: -0.13721262, y: 0.14124058, z: 0.00000005729859}
+  - {x: -0.4989734, y: 0.099785805, z: -6.4069905e-10}
 --- !u!1 &7210715874886493273
 GameObject:
   m_ObjectHideFlags: 0
@@ -10355,7 +10359,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1456356669
   m_SortingLayer: 2
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -1597417117, guid: 8ec8ad249c22f8649a2d835cc0fe04cb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
