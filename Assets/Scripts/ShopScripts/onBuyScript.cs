@@ -35,4 +35,4 @@ public class onBuyScript : MonoBehaviour
             }   
         }
     }
-}
+}//dd
