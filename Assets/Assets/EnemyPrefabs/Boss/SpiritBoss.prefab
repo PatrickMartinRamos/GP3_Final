@@ -11,16 +11,13 @@ GameObject:
   - component: {fileID: 5492870161900211017}
   - component: {fileID: 1598288486990568922}
   - component: {fileID: 3696118289039603939}
-  - component: {fileID: 6320405509128500882}
-  - component: {fileID: 1898640658658249436}
-  - component: {fileID: 5653935242380787160}
   m_Layer: 7
   m_Name: SpiritBoss
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5492870161900211017
 Transform:
   m_ObjectHideFlags: 0
@@ -109,86 +106,3 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!70 &6320405509128500882
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6809621161401789891}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.000000084379636, y: -0.041160908}
-  m_Size: {x: 1.8078144, y: 1.6020107}
-  m_Direction: 1
---- !u!114 &1898640658658249436
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6809621161401789891}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67d676ce370c1a140abe4dfa96a9149a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <CurrentHealth>k__BackingField: 0
-  explosionEffect: {fileID: 0}
-  enemyDamage: 0
-  EnemyMoveBase: {fileID: 11400000, guid: 5737faec6f8a2e046aec5fe2b2afd5ae, type: 2}
-  EnemyAttackSOBaseList:
-  - {fileID: 11400000, guid: 2ceaf39090a742f4b9ee2b5b68e107e0, type: 2}
-  Type: 0
-  EnemyMoveToPointBase: {fileID: 11400000, guid: 40cfe82c5182d53418c273efa3bb5e75, type: 2}
-  HalfHPBossAtkBase: {fileID: 11400000, guid: 72bc993d598b8c8459f20d75d14a66ec, type: 2}
---- !u!50 &5653935242380787160
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6809621161401789891}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4

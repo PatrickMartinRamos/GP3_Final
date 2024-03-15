@@ -13,5 +13,4 @@ MonoBehaviour:
   m_Name: SpectorBoss-Move2
   m_EditorClassIdentifier: 
   Speed: 2
-  direction: {x: 0, y: 0, z: 0}
-  range: 3
+  targetLocation: {x: -3, y: 0, z: 0}

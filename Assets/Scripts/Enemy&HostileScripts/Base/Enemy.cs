@@ -19,7 +19,7 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckea
     public EnemyStateMachine StateMachine { get; set; }
     public EnemyMovingState MoveState { get; set; }
     public EnemyAttackState AttackState { get; set; }
-    public bool isInPlace { get; set; } = false;
+    public bool isInPlace { get; set; }
     #endregion
 
     #region ScriptableObject Variable
@@ -49,6 +49,8 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckea
         rb = GetComponent<Rigidbody2D>();
         _playerPowerUpManager = FindObjectOfType<playerPowerUpManager>();
         Attack();
+
+
 
         EnemyMoveBaseInstance = Instantiate(EnemyMoveBase);
 

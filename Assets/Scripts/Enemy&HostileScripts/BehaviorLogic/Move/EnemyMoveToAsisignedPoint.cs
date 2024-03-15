@@ -3,14 +3,12 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using Unity.VisualScripting;
 using UnityEngine;
-using DG.Tweening;
 
-[CreateAssetMenu(fileName = "MoveToDirected", menuName = "Enemy Logic/Move Logic/Directed Move")]
+[CreateAssetMenu(fileName = "Move-Assigned Point", menuName = "Enemy Logic/Move Logic/Move to Point")]
 public class EnemyMoveToAssignedPoint : EnemyMoveSOBase
 {
     [SerializeField] float Speed = 2f;
-    [SerializeField] Vector3 direction;
-    [SerializeField] float range;
+    [SerializeField] Vector3 targetLocation;
     Vector3 initialLocation;
     public override void DoAnimationTriggerEventLogic(Enemy.AnimationTriggerType triggerType)
     {
@@ -26,7 +24,6 @@ public class EnemyMoveToAssignedPoint : EnemyMoveSOBase
     public override void DoExitLogic()
     {
         base.DoExitLogic();
-        enemy.SetInPlaceStatus(true);
 
     }
 
@@ -34,14 +31,10 @@ public class EnemyMoveToAssignedPoint : EnemyMoveSOBase
     {
         base.DoFrameUpdateLogic();
         BossBase boss = enemy.GetComponent<BossBase>();
-
-        if (boss.Type == BossType.SpiritBoss)
-            enemy.gameObject.GetComponent<SpriteRenderer>().DOFade(0.5f, 0.1f);
-
         if (boss.canSkill)
         {
-            enemy.MoveEnemy(direction - initialLocation.normalized * Speed);
-            if (Vector2.Distance(transform.position, initialLocation) >= range)
+            enemy.MoveEnemy(targetLocation - initialLocation.normalized * Speed);
+            if (Vector2.Distance(transform.position, initialLocation) >= 3f)
             {
                 enemy.MoveEnemy(enemy.transform.position * 0);
                 enemy.StateMachine.ChangeState(boss.AttackState2);
@@ -52,10 +45,9 @@ public class EnemyMoveToAssignedPoint : EnemyMoveSOBase
         else
         {
             enemy.MoveEnemy(Vector2.right * Speed);
-            if (enemy.transform.position.x >= initialLocation.x+range)
+            if (enemy.transform.position.x >= initialLocation.x+3)
             {
                 enemy.MoveEnemy(enemy.transform.position * 0);
-                enemy.gameObject.GetComponent<SpriteRenderer>().DOFade(0.5f, 0.1f);
                 enemy.StateMachine.ChangeState(boss.AttackState);
             }
         }

@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 019fde5c435eaec4d92cf057c3f7a554, type: 3}
   m_Name: SpecterBoss
   m_EditorClassIdentifier: 
-  Speed: 1
+  Speed: 4
   InitialPos: 1
-  InitialLocation: {x: -6, y: 0, z: 0}
+  InitialLocation: {x: 6, y: 4, z: 0}

@@ -126,17 +126,17 @@ public class EnemyWaves : MonoBehaviour
     ObjectPool<Enemy> GetPool()
     {
 
-        if (GameManager.instance.UpcomingBoss.name == "SkullBoss(Clone)")
+        if (GameManager.instance.UpcomingBoss.name == "Boss 1(Clone)")
         {
             EnemyPrefab = Enemylist[0];
             return skull;
         }
-        else if (GameManager.instance.UpcomingBoss.name == "EyeBoss(Clone)")
+        else if (GameManager.instance.UpcomingBoss.name == "Boss 2(Clone)")
         {
             EnemyPrefab = Enemylist[1];
             return eyeGroup;
         }
-        else if (GameManager.instance.UpcomingBoss.name == "SpiritBoss(Clone)")
+        else if (GameManager.instance.UpcomingBoss.name == "Boss3(Clone)")
         {
             EnemyPrefab = Enemylist[2];
             return enemyType3;

@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-using DG.Tweening;
 
 [CreateAssetMenu(fileName = "MoveUpDown", menuName = "Enemy Logic/Attack Logic/MoveUpDown")]
 public class SpecterBoss : EnemyAttackSOBase
@@ -10,7 +9,6 @@ public class SpecterBoss : EnemyAttackSOBase
     [SerializeField] public float Speed;
     private BossBase boss;
     float timer = 0;
-    float spawnTime = 0;
 
     public override void DoAnimationTriggerEventLogic(Enemy.AnimationTriggerType triggerType)
     {
@@ -21,41 +19,38 @@ public class SpecterBoss : EnemyAttackSOBase
     {
         base.DoEnterLogic();
         boss = enemy.gameObject.GetComponent<BossBase>();
+        if(enemy.transform.position.y > 0)
+        enemy.MoveEnemy(Vector2.up * Speed);
+        else
+        enemy.MoveEnemy(Vector2.down * Speed);
     }
 
     public override void DoExitLogic()
     {
         base.DoExitLogic();
         enemy.SetInPlaceStatus(false);
-
     }
 
     public override void DoFrameUpdateLogic()
     {
         base.DoFrameUpdateLogic();
         timer += Time.deltaTime;
+        float spawnTime = 0;
+        if (boss.CurrentHealth >= (boss.MaxHealth * 0.40f)) spawnTime = 10;
+        else if (boss.CurrentHealth >= (boss.MaxHealth * 0.20f)) spawnTime = 8;
+        else if (boss.CurrentHealth == (boss.MaxHealth * 0.10f)) spawnTime = 5;
 
-        if (enemy.isInPlace)
-        {
-            enemy.gameObject.GetComponent<SpriteRenderer>().DOFade(1f, 0.1f);
-            enemy.MoveEnemy(Vector2.up * Speed);
-            enemy.SetInPlaceStatus(false);
-        }
-
-        if (boss.CurrentHealth <= (boss.MaxHealth * 0.50f)) spawnTime = 6;
-        else if (boss.CurrentHealth <= (boss.MaxHealth * 0.30f)) spawnTime = 4;
-        else if (boss.CurrentHealth <= (boss.MaxHealth * 0.10f)) spawnTime = 2;
-
-        if (boss.CurrentHealth == (boss.MaxHealth * 0.50f))
+        if (boss.CurrentHealth == (boss.MaxHealth * 0.50f) && !boss.canSkill)
         {
             boss.canSkill = true;
             timer = 0;
             enemy.StateMachine.ChangeState(boss.MoveState2);
         }
 
-        else if ((boss.CurrentHealth < (boss.MaxHealth * 0.50f)) && (timer >= spawnTime))
+        else if ((boss.CurrentHealth < (boss.MaxHealth * 0.50f)) && (timer >= spawnTime) && !boss.canSkill)
         {
             boss.canSkill = true;
+            Debug.Log(boss.canSkill.ToString());
             timer = 0;
             enemy.StateMachine.ChangeState(boss.MoveState2);
         }
