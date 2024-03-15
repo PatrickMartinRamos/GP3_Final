@@ -1484,9 +1484,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Bosses:
-  - {fileID: 3463173832266714493, guid: b39d1026db4f2f54d96ac29f5e4306e9, type: 3}
-  - {fileID: 1623745169456014264, guid: c5ebe76dad2e410489473602e76c53d8, type: 3}
-  - {fileID: 1623745169456014264, guid: 8f6b4c3eaa579b242a5c4554027d09c0, type: 3}
+  - {fileID: 3601941360063180422, guid: b426e4abc8d8bd242bdf76cd0ffa4229, type: 3}
+  - {fileID: 4525077976084330987, guid: d475900f0da498f42a188dac3f6c3f58, type: 3}
+  - {fileID: 6809621161401789891, guid: 27975fff83abb054189e81db7e3a4b9a, type: 3}
   BossPrefab: {fileID: 3463173832266714493, guid: b39d1026db4f2f54d96ac29f5e4306e9, type: 3}
 --- !u!1 &234428148
 GameObject:
@@ -12938,8 +12938,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 16.3073, y: 0.14050007, z: 0}
-    m_Extent: {x: 10.9869, y: 14.4432, z: 0}
+    m_Center: {x: 16.305351, y: 0.14485025, z: 0}
+    m_Extent: {x: 10.990251, y: 14.450251, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -18242,8 +18242,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 1.2145004, y: 0.3599, z: 0}
-    m_Extent: {x: 18.8192, y: 13.0166, z: 0}
+    m_Center: {x: 1.2147999, y: 0.35409975, z: 0}
+    m_Extent: {x: 18.8214, y: 13.0116005, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0.2
@@ -18327,8 +18327,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 6.7332506, y: -13.14545, z: 0}
-    m_Extent: {x: 30.582752, y: 7.9677496, z: 0}
+    m_Center: {x: 6.736701, y: -13.144051, z: 0}
+    m_Extent: {x: 30.5849, y: 7.97505, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -25452,8 +25452,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 16.5237, y: 1.0004997, z: 0}
-    m_Extent: {x: 11.2086, y: 14.9987, z: 0}
+    m_Center: {x: 16.52805, y: 0.9949498, z: 0}
+    m_Extent: {x: 11.21045, y: 15.00355, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -32587,7 +32587,7 @@ MonoBehaviour:
   EnemyPrefab: {fileID: 0}
   enemiesPerWave: 0
   enemiesSpawned: 0
-  WaveNum: 4
+  WaveNum: 1
   enemiesCreated: 0
   canSpawn: 0
   summoning: 0
@@ -33391,8 +33391,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 16.5294, y: 0.9923997, z: 0}
-    m_Extent: {x: 11.2036, y: 14.987801, z: 0}
+    m_Center: {x: 16.5293, y: 0.9970002, z: 0}
+    m_Extent: {x: 11.2041, y: 14.9932995, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
