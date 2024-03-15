@@ -66,8 +66,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.023899972, y: 0.78965, z: 0}
-    m_Extent: {x: 1.0929999, y: 1.4672501, z: 0}
+    m_Center: {x: 0.025299966, y: 0.78945005, z: 0}
+    m_Extent: {x: 1.0922, y: 1.47625, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -95,13 +95,16 @@ GameObject:
   - component: {fileID: 1808960606035544184}
   - component: {fileID: 7714706854297290936}
   - component: {fileID: 3476661485429322756}
+  - component: {fileID: 1573179639947012872}
+  - component: {fileID: 7704149533320742919}
+  - component: {fileID: 5693100846577591050}
   m_Layer: 7
   m_Name: PhantaSkullBoss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1808960606035544184
 Transform:
   m_ObjectHideFlags: 0
@@ -192,6 +195,170 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!50 &1573179639947012872
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3601941360063180422}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
+--- !u!60 &7704149533320742919
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3601941360063180422}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.89, y: 3.6}
+    newSize: {x: 1.89, y: 3.6}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.36499998, y: -1.24}
+      - {x: 0.42499998, y: -1.22}
+      - {x: 0.435, y: -1.3299999}
+      - {x: 0.545, y: -1.43}
+      - {x: 0.60499996, y: -1.43}
+      - {x: 0.60499996, y: -0.87}
+      - {x: 0.585, y: -0.79999995}
+      - {x: 0.445, y: -0.66999996}
+      - {x: 0.435, y: -0.53999996}
+      - {x: 0.49499997, y: -0.48999998}
+      - {x: 0.48499998, y: -0.29999998}
+      - {x: 0.475, y: -0.28}
+      - {x: 0.45499998, y: -0.14}
+      - {x: 0.375, y: 0.01}
+      - {x: 0.315, y: 0.06}
+      - {x: 0.305, y: 0.26999998}
+      - {x: 0.295, y: 0.29}
+      - {x: 0.275, y: 0.45}
+      - {x: 0.24499999, y: 0.52}
+      - {x: 0.205, y: 0.7}
+      - {x: 0.295, y: 0.72999996}
+      - {x: 0.345, y: 0.77}
+      - {x: 0.405, y: 0.89}
+      - {x: 0.39499998, y: 1.09}
+      - {x: 0.345, y: 1.18}
+      - {x: 0.225, y: 1.3399999}
+      - {x: 0.095, y: 1.3399999}
+      - {x: 0.055, y: 1.3299999}
+      - {x: -0.065, y: 1.3399999}
+      - {x: -0.195, y: 1.3399999}
+      - {x: -0.295, y: 1.3199999}
+      - {x: -0.415, y: 1.26}
+      - {x: -0.45499998, y: 1.2099999}
+      - {x: -0.45499998, y: 1.13}
+      - {x: -0.435, y: 1.01}
+      - {x: -0.465, y: 0.91999996}
+      - {x: -0.48499998, y: 0.71}
+      - {x: -0.375, y: 0.58}
+      - {x: -0.39499998, y: 0.19}
+      - {x: -0.45499998, y: 0.04}
+      - {x: -0.48499998, y: -0.26}
+      - {x: -0.48499998, y: -0.48}
+      - {x: -0.45499998, y: -0.61}
+      - {x: -0.42499998, y: -0.65999997}
+      - {x: -0.505, y: -0.69}
+      - {x: -0.635, y: -0.87}
+      - {x: -0.66499996, y: -0.91999996}
+      - {x: -0.66499996, y: -1.02}
+      - {x: -0.625, y: -1.09}
+      - {x: -0.53499997, y: -1.09}
+      - {x: -0.435, y: -1.16}
+      - {x: -0.39499998, y: -1.16}
+      - {x: -0.205, y: -1.25}
+      - {x: -0.185, y: -1.42}
+      - {x: -0.145, y: -1.4599999}
+      - {x: -0.095, y: -1.4699999}
+      - {x: -0.044999998, y: -1.39}
+      - {x: 0.005, y: -1.24}
+      - {x: 0.055, y: -1.36}
+      - {x: 0.085, y: -1.4699999}
+      - {x: 0.105, y: -1.54}
+      - {x: 0.205, y: -1.7099999}
+      - {x: 0.255, y: -1.73}
+      - {x: 0.33499998, y: -1.73}
+      - {x: 0.345, y: -1.7199999}
+      - {x: 0.345, y: -1.55}
+      - {x: 0.33499998, y: -1.4699999}
+    - - {x: -0.015, y: -1.04}
+      - {x: -0.015, y: -1.05}
+      - {x: -0.005, y: -1.06}
+      - {x: -0.015, y: -1.05}
+  m_UseDelaunayMesh: 0
+--- !u!114 &5693100846577591050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3601941360063180422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67d676ce370c1a140abe4dfa96a9149a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <CurrentHealth>k__BackingField: 0
+  explosionEffect: {fileID: 0}
+  enemyDamage: 0
+  EnemyMoveBase: {fileID: 11400000, guid: 5737faec6f8a2e046aec5fe2b2afd5ae, type: 2}
+  EnemyAttackSOBaseList:
+  - {fileID: 11400000, guid: 2ceaf39090a742f4b9ee2b5b68e107e0, type: 2}
+  Type: 0
+  EnemyMoveToPointBase: {fileID: 11400000, guid: d99c4da8fe171994989d9f618456fc97, type: 2}
+  HalfHPBossAtkBase: {fileID: 11400000, guid: 72bc993d598b8c8459f20d75d14a66ec, type: 2}
 --- !u!1 &7118165865720226394
 GameObject:
   m_ObjectHideFlags: 0
