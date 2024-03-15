@@ -6,6 +6,7 @@ public class onBuyScript : MonoBehaviour
     public shopPowerUpManager shopPowerUpManager;
     public playerPowerUpManager playerPowerUpManager;
 
+    public GameObject[] particleEffect; 
     public GameObject _powerUpShop;
 
     public void OnBuyButtonClick(int cardIndex)
@@ -27,14 +28,11 @@ public class onBuyScript : MonoBehaviour
 
                 // Activate the power-up
                 powerUpCard.ActivatePowerUp();
-
-                // _powerUpShop.SetActive(false); //para one time lng makabili si player pag bumili i-close ung shop
-
             }
             else
             {
                 Debug.Log("You have already purchased this power-up three times.");
-            }
+            }   
         }
     }
 }

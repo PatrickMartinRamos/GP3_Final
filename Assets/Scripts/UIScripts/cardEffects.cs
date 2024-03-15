@@ -10,6 +10,7 @@ public class CardEffects : MonoBehaviour
     public float duration = 0.3f;
     public Camera uiCamera; // Reference to the UI camera
 
+
     // Private variables
     private Vector3 originalScale;
 
@@ -34,17 +35,19 @@ public class CardEffects : MonoBehaviour
                 rectTransform.DOScale(hoverScale, duration);
 
                 // Activate particle effect and adjust its scale
-                GameObject particleEffect = card.transform.Find("ParticleEffect").gameObject;
-                particleEffect.SetActive(true);
-                particleEffect.transform.localScale = card.transform.localScale;
+
+                //GameObject particleEffect = card.transform.Find("ParticleEffect").gameObject;
+                //particleEffect.SetActive(true);
+                //particleEffect.transform.localScale = card.transform.localScale;
             }
             else
             {
                 rectTransform.DOScale(originalScale, duration);
 
                 // Deactivate particle effect
-                GameObject particleEffect = card.transform.Find("ParticleEffect").gameObject;
-                particleEffect.SetActive(false);
+
+                //GameObject particleEffect = card.transform.Find("ParticleEffect").gameObject;
+                //particleEffect.SetActive(false);
             }
         }
     }

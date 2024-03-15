@@ -14,8 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   powerUPName: Book Clone
   description: Add a flying book the will shoot projectile also improve attack speed
-  artWork: {fileID: 21300000, guid: b85c1d751aeba4e4c9acbb094f72a042, type: 3}
-  cost: 55
+  artWork: {fileID: 21300000, guid: 9135e8834e2f899408e5cde1b36dacde, type: 3}
   powerUpType: 2
   powerUpLVL: 0
   spiritClone_1: {fileID: 442441609, guid: 64329bc28b8cc00428f9d83c972259b7, type: 3}

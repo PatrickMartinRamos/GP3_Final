@@ -42,7 +42,7 @@ public class shopPowerUpCards : ScriptableObject
     #endregion
 
     #region
-    [HideInInspector]public int[] shieldHealthLevels = new int[3]; // Array to store shield health levels
+    [HideInInspector]public int[] shieldHealthLevels = new int[3]; 
     [HideInInspector]public int[] shieldCooldownLevels = new int[3];
     #endregion
 

@@ -14,13 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   powerUPName: Damage UP
   description: Add +5 to your Bullets
-  artWork: {fileID: 21300000, guid: 4835212987e8ed24b9cfb6c0e1fb9b4c, type: 3}
-  cost: 5
+  artWork: {fileID: 21300000, guid: 61c1f8dc4c82d2f47ad96d7db52e2ea7, type: 3}
   powerUpType: 1
   powerUpLVL: 0
   spiritClone_1: {fileID: 0}
   spiritClone_2: {fileID: 0}
+  _wispBullet: {fileID: 0}
   healthToAdd: 0
-  damageBuff: 0
-  addShield: 0
-  playerManager: {fileID: 0}
+  damageBuff: 3
+  chanceOfExplostion: 0
+  shieldHealthLevels: 000000000000000000000000
+  shieldCooldownLevels: 000000000000000000000000
+  playerPowerUPManager: {fileID: 0}

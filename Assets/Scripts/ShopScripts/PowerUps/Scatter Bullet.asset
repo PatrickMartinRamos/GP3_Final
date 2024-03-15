@@ -14,16 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   powerUPName: Scatter Bullet
   description: 'Add more bullet to '
-  artWork: {fileID: 21300000, guid: 86d49f40545525047a02e67ea6df30ac, type: 3}
-  cost: 8
+  artWork: {fileID: 21300000, guid: 6999164251f2316429213edcb9805e47, type: 3}
   powerUpType: 5
   powerUpLVL: 0
   spiritClone_1: {fileID: 0}
   spiritClone_2: {fileID: 0}
+  _wispBullet: {fileID: 0}
   healthToAdd: 0
   damageBuff: 0
-  addShield: 0
-  currencyMultiplierNumber: 0
-  bulletScatter_1: 0
-  bulletScatter_2: 0
+  chanceOfExplostion: 0
+  shieldHealthLevels: 000000000000000000000000
+  shieldCooldownLevels: 000000000000000000000000
   playerPowerUPManager: {fileID: 0}

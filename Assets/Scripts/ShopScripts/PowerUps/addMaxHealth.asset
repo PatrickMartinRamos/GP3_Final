@@ -14,16 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   powerUPName: Add Health
   description: +1 to Max Health
-  artWork: {fileID: 21300000, guid: b85c1d751aeba4e4c9acbb094f72a042, type: 3}
-  cost: 5
+  artWork: {fileID: 21300000, guid: e861c68aad5be024d8335495bd0fdf6b, type: 3}
   powerUpType: 3
-  powerUpLVL: 3
+  powerUpLVL: 0
   spiritClone_1: {fileID: 0}
   spiritClone_2: {fileID: 0}
+  _wispBullet: {fileID: 0}
   healthToAdd: 5
   damageBuff: 0
-  addShield: 0
-  currencyMultiplierNumber: 0
-  bulletScatter_1: 0
-  bulletScatter_2: 0
+  chanceOfExplostion: 0
+  shieldHealthLevels: 000000000000000000000000
+  shieldCooldownLevels: 000000000000000000000000
   playerPowerUPManager: {fileID: 0}

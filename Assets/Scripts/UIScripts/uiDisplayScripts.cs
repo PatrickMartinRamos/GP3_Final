@@ -41,7 +41,7 @@ public class uiDisplayScripts : MonoBehaviour
             if (_playerManager.isShieldCooldown)
             {
                 float remainingCooldown = Mathf.Max(0, _playerManager._shieldCooldown - _playerManager.timeSinceShieldDamage);
-                _displayCooldown.text = "Shield Cooldown: " + remainingCooldown.ToString("F1") + "s";
+                _displayCooldown.text = remainingCooldown.ToString("F1") + "s";
 
                 // Calculate the alpha based on the shield cooldown
                 float alpha = Mathf.Clamp01(1.0f - (remainingCooldown / _playerManager._shieldCooldown));
@@ -59,9 +59,6 @@ public class uiDisplayScripts : MonoBehaviour
             }
             else
             {
-                _displayCooldown.text = "Shield Cooldown: Ready";
-
-                // Reset alpha for all shield sprites
                 for (int i = 0; i < shieldSprite.Length; i++)
                 {
                     if (i < _playerManager._playerCurrentShield)
