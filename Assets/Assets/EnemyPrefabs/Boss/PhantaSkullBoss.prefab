@@ -66,8 +66,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.025299966, y: 0.78945005, z: 0}
-    m_Extent: {x: 1.0922, y: 1.47625, z: 0}
+    m_Center: {x: 0.034799993, y: 0.79350007, z: 0}
+    m_Extent: {x: 1.0927999, y: 1.4685, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -104,7 +104,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1808960606035544184
 Transform:
   m_ObjectHideFlags: 0
@@ -356,7 +356,7 @@ MonoBehaviour:
   EnemyMoveBase: {fileID: 11400000, guid: 5737faec6f8a2e046aec5fe2b2afd5ae, type: 2}
   EnemyAttackSOBaseList:
   - {fileID: 11400000, guid: 2ceaf39090a742f4b9ee2b5b68e107e0, type: 2}
-  Type: 0
+  Type: 2
   EnemyMoveToPointBase: {fileID: 11400000, guid: d99c4da8fe171994989d9f618456fc97, type: 2}
   HalfHPBossAtkBase: {fileID: 11400000, guid: 72bc993d598b8c8459f20d75d14a66ec, type: 2}
 --- !u!1 &7118165865720226394
