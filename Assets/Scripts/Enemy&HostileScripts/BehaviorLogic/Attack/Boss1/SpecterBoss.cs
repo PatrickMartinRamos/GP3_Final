@@ -59,6 +59,7 @@ public class SpecterBoss : EnemyAttackSOBase
             timer = 0;
             enemy.StateMachine.ChangeState(boss.MoveState2);
         }
+        //Move Up Down if can't skill
         else Move();
 
     }

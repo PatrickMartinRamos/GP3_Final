@@ -71,6 +71,7 @@ public class SpecterBossSpecial : EnemyAttackSOBase
 
     void Summon()
     {
+        this.gameObject.GetComponent<Animator>().SetTrigger("canAttack");
         if (spawnTime >= SpawnRate && SkullSpawned < 6)
         {
             spawnTime = 0f;
@@ -81,10 +82,11 @@ public class SpecterBossSpecial : EnemyAttackSOBase
         }
         else if (SkullSpawned == 6)
         {
-            boss.canSkill = false;
             GameManager.instance.eWaves.summoning = false;
             SkullSpawned = 0;
             int wave = GameManager.instance.eWaves.ResetEnemyCount();
+            this.gameObject.GetComponent<Animator>().SetTrigger("stopAttack");
+            boss.canSkill = false;
         }
     }
 
@@ -99,7 +101,7 @@ public class SpecterBossSpecial : EnemyAttackSOBase
         enemy.gameObject.transform.DOScale(1.5f, 0.1f);
         boss.canSkill = false;
     }
-
+     
     void LaserBeam()
     {
         boss.transform.GetChild(0).gameObject.SetActive(true);
