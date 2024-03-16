@@ -126,7 +126,7 @@ public class EnemyWaves : MonoBehaviour
     ObjectPool<Enemy> GetPool()
     {
 
-        if (GameManager.instance.UpcomingBoss.name == "SkullBoss(Clone)")
+        if (GameManager.instance.UpcomingBoss.name == "PhantaSkullBoss(Clone)")
         {
             EnemyPrefab = Enemylist[0];
             return skull;
@@ -169,4 +169,5 @@ public class EnemyWaves : MonoBehaviour
     {
         Destroy(enemy.gameObject);
     }
+    public void setWave(int wave) => WaveNum = wave;
 }

@@ -12938,8 +12938,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 16.305351, y: 0.14485025, z: 0}
-    m_Extent: {x: 10.990251, y: 14.450251, z: 0}
+    m_Center: {x: 16.30935, y: 0.13600016, z: 0}
+    m_Extent: {x: 10.99765, y: 14.4457, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -18242,8 +18242,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 1.2147999, y: 0.35409975, z: 0}
-    m_Extent: {x: 18.8214, y: 13.0116005, z: 0}
+    m_Center: {x: 1.21, y: 0.35509968, z: 0}
+    m_Extent: {x: 18.809101, y: 13.0113, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0.2
@@ -18327,8 +18327,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 6.736701, y: -13.144051, z: 0}
-    m_Extent: {x: 30.5849, y: 7.97505, z: 0}
+    m_Center: {x: 6.72655, y: -13.1391, z: 0}
+    m_Extent: {x: 30.58125, y: 7.9775, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -25452,8 +25452,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 16.52805, y: 0.9949498, z: 0}
-    m_Extent: {x: 11.21045, y: 15.00355, z: 0}
+    m_Center: {x: 16.531399, y: 0.9976001, z: 0}
+    m_Extent: {x: 11.213799, y: 14.9942, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -31632,6 +31632,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PhantaSkullBoss
       objectReference: {fileID: 0}
+    - target: {fileID: 3601941360063180422, guid: b426e4abc8d8bd242bdf76cd0ffa4229, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -33391,8 +33395,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 16.5293, y: 0.9970002, z: 0}
-    m_Extent: {x: 11.2041, y: 14.9932995, z: 0}
+    m_Center: {x: 16.5205, y: 0.98950005, z: 0}
+    m_Extent: {x: 11.205799, y: 14.9908, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0

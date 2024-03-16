@@ -61,18 +61,22 @@ public class EnemySpawner : MonoBehaviour
         }
         else if (WaveNumber == 4)
         {
-            WaveNumber = 0;
             Boss = GameManager.instance.UpcomingBoss;
             GameManager.instance.UpcomingBoss = GameManager.instance.bSpawner.SpawnRandomBoss();
 
             yield return new WaitWhile(() => (Boss.activeSelf));
-            GameManager.instance.powerUpManager.gameObject.SetActive(true);
+            {
+                GameManager.instance.powerUpManager.gameObject.SetActive(true);
+                WaveNumber = 0;
+                EnemyWaves.setWave(0);
+            }
 
         }
         else
         {
             yield return new WaitWhile(() => (GameManager.instance.powerUpManager.gameObject.activeSelf));
             WaveNumber = 1;
+            EnemyWaves.setWave(1);
             GameObject temp = GameManager.instance.UpcomingBoss;
             while (temp.gameObject.name == GameManager.instance.UpcomingBoss.name)
             {

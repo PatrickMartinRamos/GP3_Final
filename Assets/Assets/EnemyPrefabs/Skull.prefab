@@ -5185,7 +5185,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8205732870715919606}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -5277,6 +5277,7 @@ MonoBehaviour:
   enemyDamage: 0
   EnemyMoveBase: {fileID: 11400000, guid: 900d8344a2bb17a4999833454c49c02c, type: 2}
   EnemyAttackSOBaseList:
+  - {fileID: 11400000, guid: f42109ba42c2292428b7639df6717fa5, type: 2}
   - {fileID: 11400000, guid: 11b06e55f33fbcd418e3002ce4eee283, type: 2}
   - {fileID: 11400000, guid: 4235f99ad3f81724a9c66e4796dca856, type: 2}
-  - {fileID: 11400000, guid: f42109ba42c2292428b7639df6717fa5, type: 2}
+  - {fileID: 11400000, guid: 4235f99ad3f81724a9c66e4796dca856, type: 2}
