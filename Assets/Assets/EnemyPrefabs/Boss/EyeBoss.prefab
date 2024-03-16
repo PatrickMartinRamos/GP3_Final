@@ -163,7 +163,7 @@ MonoBehaviour:
   EnemyMoveBase: {fileID: 11400000, guid: 5737faec6f8a2e046aec5fe2b2afd5ae, type: 2}
   EnemyAttackSOBaseList:
   - {fileID: 11400000, guid: 2ceaf39090a742f4b9ee2b5b68e107e0, type: 2}
-  Type: 0
+  Type: 1
   EnemyMoveToPointBase: {fileID: 11400000, guid: 401b25d7350334046a94dc22fcc24176, type: 2}
   HalfHPBossAtkBase: {fileID: 11400000, guid: 72bc993d598b8c8459f20d75d14a66ec, type: 2}
 --- !u!50 &-6765477585858233870
@@ -219,7 +219,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: d4e0c4813393f994c869badbabbab19e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.6
+      value: -0.235
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: d4e0c4813393f994c869badbabbab19e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -227,7 +227,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: d4e0c4813393f994c869badbabbab19e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400008, guid: d4e0c4813393f994c869badbabbab19e, type: 3}
       propertyPath: m_LocalRotation.w
