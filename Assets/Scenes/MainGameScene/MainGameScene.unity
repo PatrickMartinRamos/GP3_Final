@@ -1347,7 +1347,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 47.55
+  m_fontSize: 60.2
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -1436,8 +1436,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -672.31, y: 293.43}
-  m_SizeDelta: {x: 48.08, y: 47.51}
+  m_AnchoredPosition: {x: -752.4, y: 299.75}
+  m_SizeDelta: {x: 57.28, y: 60.155}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &229858022
 GameObject:
@@ -11870,7 +11870,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Shield: 0/0'
+  m_text: 'Shield:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ae3b35a6a1e20974a9938e187193f818, type: 2}
   m_sharedMaterial: {fileID: 4921664790852494840, guid: ae3b35a6a1e20974a9938e187193f818, type: 2}
@@ -12304,7 +12304,7 @@ GameObject:
   - component: {fileID: 566523081}
   - component: {fileID: 566523082}
   m_Layer: 0
-  m_Name: UICam
+  m_Name: shopCam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12384,7 +12384,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 1
+  m_RenderPostProcessing: 0
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -12938,8 +12938,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 16.30935, y: 0.13600016, z: 0}
-    m_Extent: {x: 10.99765, y: 14.4457, z: 0}
+    m_Center: {x: 16.30915, y: 0.14055014, z: 0}
+    m_Extent: {x: 10.99535, y: 14.45075, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -18080,8 +18080,8 @@ Canvas:
   m_GameObject: {fileID: 721432512}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
-  m_Camera: {fileID: 566523081}
+  m_RenderMode: 0
+  m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -18242,8 +18242,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 1.21, y: 0.35509968, z: 0}
-    m_Extent: {x: 18.809101, y: 13.0113, z: 0}
+    m_Center: {x: 1.2108002, y: 0.35704994, z: 0}
+    m_Extent: {x: 18.8264, y: 13.01285, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0.2
@@ -18327,8 +18327,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 6.72655, y: -13.1391, z: 0}
-    m_Extent: {x: 30.58125, y: 7.9775, z: 0}
+    m_Center: {x: 6.7312994, y: -13.1384, z: 0}
+    m_Extent: {x: 30.584099, y: 7.9796, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -25452,8 +25452,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 16.531399, y: 0.9976001, z: 0}
-    m_Extent: {x: 11.213799, y: 14.9942, z: 0}
+    m_Center: {x: 16.5323, y: 0.99195004, z: 0}
+    m_Extent: {x: 11.209701, y: 14.99775, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -26432,7 +26432,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Health: 5/5'
+  m_text: 'Health:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ae3b35a6a1e20974a9938e187193f818, type: 2}
   m_sharedMaterial: {fileID: 4921664790852494840, guid: ae3b35a6a1e20974a9938e187193f818, type: 2}
@@ -32362,7 +32362,7 @@ Transform:
   m_GameObject: {fileID: 1718259125}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.57, y: 2.79, z: 0}
+  m_LocalPosition: {x: -6.18, y: 2.79, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -33395,8 +33395,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 16.5205, y: 0.98950005, z: 0}
-    m_Extent: {x: 11.205799, y: 14.9908, z: 0}
+    m_Center: {x: 16.5208, y: 0.99539995, z: 0}
+    m_Extent: {x: 11.2073, y: 14.9988, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -33756,7 +33756,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2011791392
 Transform:
   m_ObjectHideFlags: 0
@@ -39202,7 +39202,7 @@ Transform:
   m_GameObject: {fileID: 2144464518}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.2, y: 4.18, z: 0}
+  m_LocalPosition: {x: -6.15, y: 4.18, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

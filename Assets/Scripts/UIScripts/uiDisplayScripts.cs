@@ -32,11 +32,11 @@ public class uiDisplayScripts : MonoBehaviour
     #region UI Display
     void uiDisplay()
     {
-        _displayHealth.text = "Health: " + _playerManager._playerCurrentHealth.ToString() + "/" + _playerManager._maxHealth.ToString();
+        _displayHealth.text = "Health: ";
 
         if (_playerManager.isUsingShield)
         {
-            _displayShield.text = "Shield: " + _playerManager._playerCurrentShield.ToString() + "/" + _playerManager._playerMaxShield.ToString();
+            _displayShield.text = "Shield: ";
 
             if (_playerManager.isShieldCooldown)
             {
