@@ -12,7 +12,7 @@ public class EnemyWaves : MonoBehaviour
     private ObjectPool<Enemy> eyeGroup;
     private ObjectPool<Enemy> enemyType3;
     [SerializeField]
-    private int enemiesPerWave, enemiesSpawned, WaveNum, enemiesCreated = 1;
+    public int enemiesPerWave, enemiesSpawned, WaveNum, enemiesCreated = 1;
     public bool canSpawn, summoning=false;
     public bool fillingPool;
     public int ActiveEnemies;
