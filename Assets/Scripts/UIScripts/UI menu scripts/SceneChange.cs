@@ -14,9 +14,13 @@ public class SceneChange : MonoBehaviour
         credits.SetActive(false);
     }
 
-    public void loadnextLevel()
+    public void loadnextGameScene()
     {
         StartCoroutine(loadLevel(SceneManager.GetActiveScene().buildIndex + 1));
+    }
+    public void loadMainMenu()
+    {
+        StartCoroutine(loadLevel(SceneManager.GetActiveScene().buildIndex - 1));
     }
 
     IEnumerator loadLevel(int levelIndex)

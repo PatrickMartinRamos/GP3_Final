@@ -6,6 +6,7 @@ public class playerManagerScript : MonoBehaviour
 {
     public static playerManagerScript _playerManagerInstance;
     public playerPowerUpManager _powerUpManager;
+    public SceneChange sceneChange;
 
     #region health
     //public var
@@ -47,7 +48,7 @@ public class playerManagerScript : MonoBehaviour
     private void Start()
     {
         circleCollider = GetComponent<CircleCollider2D>();
-        
+        sceneChange = FindObjectOfType<SceneChange>();
     }
 
     private void Update()
@@ -142,9 +143,10 @@ public class playerManagerScript : MonoBehaviour
 
     void gameOver()
     {
-        if(_playerCurrentShield <= 0)
+        if(_playerCurrentHealth <= 0)
         {
             Debug.Log("Game Over");
+            sceneChange.loadMainMenu();
         }
 
     }
