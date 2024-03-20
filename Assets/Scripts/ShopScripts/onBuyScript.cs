@@ -32,7 +32,7 @@ public class onBuyScript : MonoBehaviour
 
                 // Activate the power-up
                 powerUpCard.ActivatePowerUp();
-                //_powerUpShop.SetActive(false);
+                _powerUpShop.SetActive(false);
 
                 // Update the card display level using the powerCardDisplay component
                 powerCardDisplayComponent.UpdateCardLevel();
