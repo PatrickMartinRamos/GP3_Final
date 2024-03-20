@@ -10,11 +10,16 @@ public class diplayWaveIngame : MonoBehaviour
 
     private void Start()
     {
-        enemyWave = GetComponent<EnemyWaves>();
+        enemyWave = GameManager.instance.eWaves;
     }
 
     private void Update()
     {
-        displayWave.text = "Wave: " + enemyWave.WaveNum ;
+        if (enemyWave.WaveNum > 1 && enemyWave.WaveNum < 4)
+            displayWave.text = "Wave: " + enemyWave.WaveNum;
+        else if (enemyWave.WaveNum == 4)
+            displayWave.text = "Incoming Boss!!!";
+        else if (enemyWave.WaveNum == 1)
+            displayWave.text = "Round: " + enemyWave.roundNumber;
     }
 }

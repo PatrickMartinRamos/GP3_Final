@@ -12941,8 +12941,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 16.315649, y: 0.14190006, z: 0}
-    m_Extent: {x: 10.9908495, y: 14.4495, z: 0}
+    m_Center: {x: 16.3126, y: 0.14604998, z: 0}
+    m_Extent: {x: 10.9986, y: 14.44455, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -18404,8 +18404,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 1.2106495, y: 0.36179972, z: 0}
-    m_Extent: {x: 18.81435, y: 13.0095005, z: 0}
+    m_Center: {x: 1.2097502, y: 0.36730003, z: 0}
+    m_Extent: {x: 18.812649, y: 13.0071, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0.2
@@ -18489,8 +18489,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 6.72865, y: -13.14875, z: 0}
-    m_Extent: {x: 30.574451, y: 7.97015, z: 0}
+    m_Center: {x: 6.7276497, y: -13.13985, z: 0}
+    m_Extent: {x: 30.58395, y: 7.9698496, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -25616,8 +25616,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 16.5327, y: 0.9899502, z: 0}
-    m_Extent: {x: 11.207701, y: 15.00255, z: 0}
+    m_Center: {x: 16.522251, y: 0.9928999, z: 0}
+    m_Extent: {x: 11.20575, y: 14.9921, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -32247,6 +32247,7 @@ GameObject:
   - component: {fileID: 1629029955}
   - component: {fileID: 1629029954}
   - component: {fileID: 1629029956}
+  - component: {fileID: 1629029957}
   m_Layer: 0
   m_Name: '-------Music Manager------- '
   m_TagString: Untagged
@@ -32381,6 +32382,19 @@ MonoBehaviour:
   buttonSFX: {fileID: 8300000, guid: 13dcf07f490e60c4da01ab2254bd6916, type: 3}
   playerHitSFX: {fileID: 8300000, guid: c1646d500fe98304ea37b401616a77ef, type: 3}
   shieldHitSFX: {fileID: 8300000, guid: a16e8e61f99ac4a43b8abde3f7644305, type: 3}
+--- !u!114 &1629029957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1629029953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 838933c0377db5c4f9799a104d73585f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audio: {fileID: 11400000, guid: c15d4a6b9c6150c4db888ad4236d7e2b, type: 2}
 --- !u!1 &1663248088
 GameObject:
   m_ObjectHideFlags: 0
@@ -32849,6 +32863,7 @@ MonoBehaviour:
   InstantiateTransform: {fileID: 1545496872}
   SpawnRate: 0
   Boss: {fileID: 229858022}
+  roundNumber: 1
 --- !u!61 &1772403434
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -33680,8 +33695,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 16.53065, y: 0.9869499, z: 0}
-    m_Extent: {x: 11.20845, y: 14.99565, z: 0}
+    m_Center: {x: 16.523201, y: 0.99294996, z: 0}
+    m_Extent: {x: 11.2081, y: 15.00115, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0

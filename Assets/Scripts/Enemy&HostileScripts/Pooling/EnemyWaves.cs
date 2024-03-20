@@ -16,6 +16,7 @@ public class EnemyWaves : MonoBehaviour
     public bool canSpawn, summoning=false;
     public bool fillingPool;
     public int ActiveEnemies;
+    public int roundNumber { get; set; } = 1;
 
     private void Awake()
     {
@@ -169,5 +170,8 @@ public class EnemyWaves : MonoBehaviour
     {
         Destroy(enemy.gameObject);
     }
-    public void setWave(int wave) => WaveNum = wave;
+    public void setWave(int wave)
+    {
+        WaveNum = wave;
+    }
 }

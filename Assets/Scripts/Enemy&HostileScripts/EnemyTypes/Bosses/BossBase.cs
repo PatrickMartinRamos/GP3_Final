@@ -55,6 +55,7 @@ public class BossBase : Enemy
     public override void Die()
     {
         base.Die();
+        GameManager.instance.eWaves.roundNumber += 1;
     }
 
     public override void InitializeEnemy()

@@ -17,8 +17,6 @@ public class EnemySpawner : MonoBehaviour
     private float spawnTime;
     public GameObject Boss;
 
-    private bool Spawning;
-
     private void Start()
     {
         EnemyWaves = GameManager.instance.eWaves;
@@ -39,7 +37,7 @@ public class EnemySpawner : MonoBehaviour
         }
         else if (spawnTime >= SpawnRate && WaveNumber == 4 && EnemyWaves.ActiveEnemies == 0)
         {
-            SpawnRate = 10f;
+            SpawnRate = 5f;
             StartCoroutine(NextWave());
         }
         else if (EnemyWaves.canSpawn == false && EnemyWaves.ActiveEnemies == 0)
@@ -84,11 +82,14 @@ public class EnemySpawner : MonoBehaviour
         else
         {
             yield return new WaitUntil(() => (!GameManager.instance.powerUpManager.gameObject.activeSelf));
-            WaveNumber = 1;
-            EnemyWaves.setWave(1);
-            GameManager.instance.waveNotif.SetActive(true);
             GameObject temp = GameManager.instance.UpcomingBoss;
             GameManager.instance.UpcomingBoss = GameManager.instance.bSpawner.GetBossToSpawn();
+            yield return new WaitForSeconds(3);
+            WaveNumber = 1;
+            EnemyWaves.setWave(1);
+            spawnTime = 0;
+            GameManager.instance.waveNotif.SetActive(true);
+
 
         }
     }
