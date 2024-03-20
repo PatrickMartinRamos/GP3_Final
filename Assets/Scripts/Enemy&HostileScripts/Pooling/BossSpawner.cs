@@ -15,7 +15,6 @@ public class BossSpawner : MonoBehaviour
             Instantiate(boss,this.transform.position,this.transform.rotation, transform);
             boss.SetActive(false);
         }
-
     }
     public GameObject SpawnRandomBoss()
     {
@@ -35,7 +34,16 @@ public class BossSpawner : MonoBehaviour
     }
     public GameObject GetBossToSpawn()
     {
-        return BossPrefab = GetRandomChild(this.transform);
+        GameObject temp;
+        do
+        {
+            temp = GetRandomChild(this.transform);
+        }
+        while (BossPrefab == temp);
+
+        BossPrefab = temp;
+
+        return BossPrefab;
     }
 
     GameObject GetRandomChild(Transform parent)
@@ -54,5 +62,10 @@ public class BossSpawner : MonoBehaviour
         }
 
         return null;
+    }
+
+    public GameObject InitializeBoss()
+    {
+        return BossPrefab = GetRandomChild(this.transform);
     }
 }

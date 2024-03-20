@@ -64,7 +64,7 @@ public class EnemyWaves : MonoBehaviour
                     EnemyPrefab = Enemylist[2];
                     while (fin)
                         fin = FillPool(enemyType3, GameManager.instance.eSpawner.InstantiateTransform.position, GameManager.instance.eSpawner.InstantiateTransform.rotation);
-                    GameManager.instance.UpcomingBoss = GameManager.instance.bSpawner.GetBossToSpawn();
+                    GameManager.instance.UpcomingBoss = GameManager.instance.bSpawner.InitializeBoss();
                     fillingPool = false;
                 }
                 enemiesSpawned = 1;

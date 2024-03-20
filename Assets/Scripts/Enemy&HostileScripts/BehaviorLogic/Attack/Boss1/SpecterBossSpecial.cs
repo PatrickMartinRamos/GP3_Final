@@ -50,6 +50,7 @@ public class SpecterBossSpecial : EnemyAttackSOBase
 
         else if (!boss.canSkill)
         {
+            this.gameObject.GetComponent<Animator>().SetTrigger("stopAttacking");
             boss.StateMachine.ChangeState(boss.MoveState2);
         }
     }
@@ -85,7 +86,6 @@ public class SpecterBossSpecial : EnemyAttackSOBase
             GameManager.instance.eWaves.summoning = false;
             SkullSpawned = 0;
             int wave = GameManager.instance.eWaves.ResetEnemyCount();
-            this.gameObject.GetComponent<Animator>().SetTrigger("stopAttack");
             boss.canSkill = false;
         }
     }

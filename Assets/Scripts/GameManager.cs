@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
 
     [Header("GameObjects")]
     public GameObject Player;
-    public GameObject UpcomingBoss { get; set; }
+    [SerializeField ]public GameObject UpcomingBoss { get; set; }
 
     [Header("Scripts")]
     public EnemyWaves eWaves;
