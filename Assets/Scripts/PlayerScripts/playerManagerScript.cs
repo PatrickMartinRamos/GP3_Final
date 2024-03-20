@@ -54,6 +54,7 @@ public class playerManagerScript : MonoBehaviour
     {
         switchToShield();
         startShieldCooldown();
+        gameOver();
     }
     #endregion
 
@@ -136,8 +137,16 @@ public class playerManagerScript : MonoBehaviour
                 Debug.Log("collide with shield");
                 collision.gameObject.GetComponent<Enemy>().Die();
             }
-
         }
+    }
+
+    void gameOver()
+    {
+        if(_playerCurrentShield <= 0)
+        {
+            Debug.Log("Game Over");
+        }
+
     }
     #endregion
 }

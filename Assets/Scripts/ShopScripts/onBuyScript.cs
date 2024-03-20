@@ -24,10 +24,12 @@ public class onBuyScript : MonoBehaviour
                 // Increment the level count
                 powerUpCard.powerUpLVL++;
 
+
                 Debug.Log("Power-Up Name: " + powerUpCard.powerUPName + "\n level " + powerUpCard.powerUpLVL);
 
                 // Activate the power-up
                 powerUpCard.ActivatePowerUp();
+                _powerUpShop.SetActive(false);
             }
             else
             {
