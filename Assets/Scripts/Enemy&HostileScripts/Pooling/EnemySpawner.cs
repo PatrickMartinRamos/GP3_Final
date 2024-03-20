@@ -17,6 +17,8 @@ public class EnemySpawner : MonoBehaviour
     private float spawnTime;
     public GameObject Boss;
 
+    private bool Spawning;
+
     private void Start()
     {
         EnemyWaves = GameManager.instance.eWaves;
@@ -30,6 +32,7 @@ public class EnemySpawner : MonoBehaviour
         spawnTime += Time.deltaTime;
         if (spawnTime >= SpawnRate && WaveNumber <= 3 && WaveNumber > 0 && !GameManager.instance.eWaves.fillingPool)
         {
+            GameManager.instance.waveNotif.SetActive(false);
             SpawnRate = 2f / WaveNumber;
             spawnTime = 0f;
             Spawn();
@@ -41,7 +44,12 @@ public class EnemySpawner : MonoBehaviour
         }
         else if (EnemyWaves.canSpawn == false && EnemyWaves.ActiveEnemies == 0)
         {
+            GameManager.instance.waveNotif.SetActive(true);
             SpawnRate = 3f / WaveNumber;
+            StartCoroutine(NextWave());
+        }
+        else if (WaveNumber == 0)
+        {
             StartCoroutine(NextWave());
         }
     }
@@ -55,12 +63,13 @@ public class EnemySpawner : MonoBehaviour
     {
         yield return new WaitForSeconds(SpawnRate);
 
-        if (WaveNumber <= 3)
+        if (WaveNumber > 0 && WaveNumber <= 3)
         {
             WaveNumber = EnemyWaves.ResetEnemyCount();
         }
         else if (WaveNumber == 4)
         {
+            GameManager.instance.waveNotif.SetActive(false);
             Boss = GameManager.instance.UpcomingBoss;
             GameManager.instance.UpcomingBoss = GameManager.instance.bSpawner.SpawnRandomBoss();
 
@@ -74,20 +83,13 @@ public class EnemySpawner : MonoBehaviour
         }
         else
         {
-            yield return new WaitWhile(() => (GameManager.instance.powerUpManager.gameObject.activeSelf));
+            yield return new WaitUntil(() => (!GameManager.instance.powerUpManager.gameObject.activeSelf));
             WaveNumber = 1;
             EnemyWaves.setWave(1);
+            GameManager.instance.waveNotif.SetActive(true);
             GameObject temp = GameManager.instance.UpcomingBoss;
-            while (temp.gameObject.name == GameManager.instance.UpcomingBoss.name)
-            {
-                temp = GameManager.instance.bSpawner.GetBossToSpawn();
-                if (temp != null)
-                {
-                    GameManager.instance.UpcomingBoss = temp;
-                }
-                else
-                    temp = GameManager.instance.UpcomingBoss;
-            }
+            GameManager.instance.UpcomingBoss = GameManager.instance.bSpawner.GetBossToSpawn();
+
         }
     }
 }

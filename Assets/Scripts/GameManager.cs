@@ -17,6 +17,9 @@ public class GameManager : MonoBehaviour
     public EnemySpawner eSpawner;
     public BossSpawner bSpawner;
 
+    [Header("Text Fields")]
+    public GameObject waveNotif;
+
     public void Awake()
     {
         if (instance != null && instance != this) { Destroy(this); }
