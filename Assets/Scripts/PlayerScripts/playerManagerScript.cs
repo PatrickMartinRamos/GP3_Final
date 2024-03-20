@@ -7,7 +7,7 @@ public class playerManagerScript : MonoBehaviour
     public static playerManagerScript _playerManagerInstance;
     public playerPowerUpManager _powerUpManager;
     public SceneChange sceneChange;
-
+    public musicManager musicManager;
     #region health
     //public var
     [Header("Health")]
@@ -23,6 +23,7 @@ public class playerManagerScript : MonoBehaviour
     public bool isUsingShield = false;
     public bool isShieldCooldown = false;
     public float _shieldCooldown;
+    public GameObject shieldObject;
     [HideInInspector]public float timeSinceShieldDamage = 0f;
     #endregion
 
@@ -49,6 +50,7 @@ public class playerManagerScript : MonoBehaviour
     {
         circleCollider = GetComponent<CircleCollider2D>();
         sceneChange = FindObjectOfType<SceneChange>();
+        musicManager = FindObjectOfType<musicManager>();
     }
 
     private void Update()
@@ -56,6 +58,7 @@ public class playerManagerScript : MonoBehaviour
         switchToShield();
         startShieldCooldown();
         gameOver();
+        handleShieldState();
     }
     #endregion
 
@@ -69,6 +72,18 @@ public class playerManagerScript : MonoBehaviour
         else
         {
             circleCollider.radius = _originalShieldRadius;
+        }
+
+    }
+    void handleShieldState()
+    {
+        if (_playerCurrentShield <= 0)
+        {
+            _powerUpManager._shieldBuffObject.SetActive(false);
+        }
+        else
+        {
+            _powerUpManager._shieldBuffObject.SetActive(true);
         }
     }
 
@@ -101,6 +116,7 @@ public class playerManagerScript : MonoBehaviour
            timeSinceShieldDamage = 0f;
         }
     }
+
     #endregion
 
     #region increase max health and increase max shield/decrease shield cooldown
@@ -130,6 +146,7 @@ public class playerManagerScript : MonoBehaviour
                 _playerCurrentHealth -= damage;
                 Debug.Log("collide with player");
                 collision.gameObject.GetComponent<Enemy>().Die();
+                musicManager.playHitPlayerSFX();
             }
             else
             {
@@ -137,6 +154,7 @@ public class playerManagerScript : MonoBehaviour
                 isShieldCooldown = true;
                 Debug.Log("collide with shield");
                 collision.gameObject.GetComponent<Enemy>().Die();
+                musicManager.shieldHitPlayerSFX();
             }
         }
     }

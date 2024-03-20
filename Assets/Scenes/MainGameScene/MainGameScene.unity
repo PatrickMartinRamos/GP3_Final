@@ -607,7 +607,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _powerUpManager: {fileID: 99104007}
-  sceneChange: {fileID: 0}
+  sceneChange: {fileID: 7767354625651142568}
+  musicManager: {fileID: 1629029956}
   _maxHealth: 5
   _playerCurrentHealth: 0
   _playerMaxShield: 0
@@ -616,6 +617,7 @@ MonoBehaviour:
   isUsingShield: 0
   isShieldCooldown: 0
   _shieldCooldown: 0
+  shieldObject: {fileID: 3181500}
   timeSinceShieldDamage: 0
   playerMoveSpeed: 10
 --- !u!95 &99104009
@@ -12939,8 +12941,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 16.307201, y: 0.1401, z: 0}
-    m_Extent: {x: 10.9877, y: 14.448299, z: 0}
+    m_Center: {x: 16.315649, y: 0.14190006, z: 0}
+    m_Extent: {x: 10.9908495, y: 14.4495, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -18402,8 +18404,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 1.2134008, y: 0.3508501, z: 0}
-    m_Extent: {x: 18.821701, y: 13.01035, z: 0}
+    m_Center: {x: 1.2106495, y: 0.36179972, z: 0}
+    m_Extent: {x: 18.81435, y: 13.0095005, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0.2
@@ -18487,8 +18489,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 6.728801, y: -13.134951, z: 0}
-    m_Extent: {x: 30.5914, y: 7.96625, z: 0}
+    m_Center: {x: 6.72865, y: -13.14875, z: 0}
+    m_Extent: {x: 30.574451, y: 7.97015, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -25614,8 +25616,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 16.5236, y: 0.99755, z: 0}
-    m_Extent: {x: 11.2158, y: 14.99585, z: 0}
+    m_Center: {x: 16.5327, y: 0.9899502, z: 0}
+    m_Extent: {x: 11.207701, y: 15.00255, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -32244,6 +32246,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1629029955}
   - component: {fileID: 1629029954}
+  - component: {fileID: 1629029956}
   m_Layer: 0
   m_Name: '-------Music Manager------- '
   m_TagString: Untagged
@@ -32261,11 +32264,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: a2c772247a030f747b1b487343f106ff, type: 3}
-  m_PlayOnAwake: 1
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
   m_Volume: 0.5
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -32362,6 +32365,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1629029956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1629029953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1169d72e79f43624588338706c06ead7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bgMusic: {fileID: 8300000, guid: a2c772247a030f747b1b487343f106ff, type: 3}
+  buttonSFX: {fileID: 8300000, guid: 13dcf07f490e60c4da01ab2254bd6916, type: 3}
+  playerHitSFX: {fileID: 8300000, guid: c1646d500fe98304ea37b401616a77ef, type: 3}
+  shieldHitSFX: {fileID: 8300000, guid: a16e8e61f99ac4a43b8abde3f7644305, type: 3}
 --- !u!1 &1663248088
 GameObject:
   m_ObjectHideFlags: 0
@@ -33661,8 +33680,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 16.52005, y: 0.99559975, z: 0}
-    m_Extent: {x: 11.207251, y: 14.9994, z: 0}
+    m_Center: {x: 16.53065, y: 0.9869499, z: 0}
+    m_Extent: {x: 11.20845, y: 14.99565, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -34058,6 +34077,7 @@ MonoBehaviour:
   - {fileID: 447254252}
   - {fileID: 779187354}
   _powerUpShop: {fileID: 2011791391}
+  musicManager: {fileID: 1629029956}
 --- !u!114 &2011791395
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39727,6 +39747,7 @@ MonoBehaviour:
   credits: {fileID: 1907812964}
   sceneloader: {fileID: 2117401764355913217}
   transitionTime: 1
+  buttonSound: {fileID: 0}
 --- !u!4 &8215568612240618004
 Transform:
   m_ObjectHideFlags: 0

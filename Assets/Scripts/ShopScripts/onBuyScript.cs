@@ -8,34 +8,34 @@ public class onBuyScript : MonoBehaviour
 
     public GameObject[] particleEffect;
     public GameObject _powerUpShop;
-    
+
+    // Reference to the musicManager
+    public musicManager musicManager;
+
+    void Start()
+    {
+        // Get the musicManager component
+        musicManager = FindObjectOfType<musicManager>();
+    }
 
     public void OnBuyButtonClick(int cardIndex)
     {
         if (cardIndex >= 0 && cardIndex < shopPowerUpManager.powerUpCardDisplays.Count)
         {
             powerCardDisplay powerCardDisplayComponent = shopPowerUpManager.powerUpCardDisplays[cardIndex];
-
-            // Access the powerUpCard from the powerCardDisplay component
             shopPowerUpCards powerUpCard = powerCardDisplayComponent._powerUpCard;
 
-            // Check if the player has already purchased this card three times
             if (powerUpCard.powerUpLVL < 3)
             {
-                // Assign the playerPowerUpManager reference
                 powerUpCard.playerPowerUPManager = playerPowerUpManager;
-
-                // Increment the level count
                 powerUpCard.powerUpLVL++;
-
                 Debug.Log("Power-Up Name: " + powerUpCard.powerUPName + "\n level " + powerUpCard.powerUpLVL);
-
-                // Activate the power-up
                 powerUpCard.ActivatePowerUp();
                 _powerUpShop.SetActive(false);
-
-                // Update the card display level using the powerCardDisplay component
                 powerCardDisplayComponent.UpdateCardLevel();
+
+                // Call the method in musicManager to play the button SFX
+                musicManager.PlayButtonSFX();
             }
             else
             {
