@@ -14,24 +14,18 @@ public class SceneChange : MonoBehaviour
         credits.SetActive(false);
     }
 
-    public void MoveToScene(int sceneID)
+    public void loadnextLevel()
     {
-        StartCoroutine(LoadGame(sceneID));
+        StartCoroutine(loadLevel(SceneManager.GetActiveScene().buildIndex + 1));
     }
 
-    IEnumerator LoadGame(int sceneID)
+    IEnumerator loadLevel(int levelIndex)
     {
-        // Play transition animation
-        if (sceneloader != null)
-        {
-            sceneloader.SetTrigger("Start");
-        }
+        sceneloader.SetTrigger("start");
 
-        // Wait for transition time
-        yield return new WaitForSeconds(transitionTime);
+        yield  return new WaitForSeconds(transitionTime);
 
-        // Load the game scene
-        SceneManager.LoadScene(sceneID);
+        SceneManager.LoadScene(levelIndex);
     }
 
     public void ShowCredits()

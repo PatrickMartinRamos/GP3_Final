@@ -274,7 +274,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   credits: {fileID: 1131620571}
-  sceneloader: {fileID: 0}
+  sceneloader: {fileID: 384892856}
   transitionTime: 1
 --- !u!4 &225935399
 Transform:
@@ -291,6 +291,31 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &384892854 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6114426397266040337, guid: de975deedf017b74a9e4ce101e8bed42, type: 3}
+  m_PrefabInstance: {fileID: 44089046550533732}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &384892856 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2117401764667207256, guid: de975deedf017b74a9e4ce101e8bed42, type: 3}
+  m_PrefabInstance: {fileID: 44089046550533732}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &384892860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 384892854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91a55e8e0de102641ad242396eafdfe2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  credits: {fileID: 1131620571}
+  sceneloader: {fileID: 384892856}
+  transitionTime: 1
 --- !u!1 &488473760
 GameObject:
   m_ObjectHideFlags: 0
@@ -392,7 +417,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 225935398}
         m_TargetAssemblyTypeName: SceneChange, Assembly-CSharp
-        m_MethodName: showCredits
+        m_MethodName: ShowCredits
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -540,8 +565,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 225935398}
         m_TargetAssemblyTypeName: SceneChange, Assembly-CSharp
-        m_MethodName: MoveToScene
-        m_Mode: 3
+        m_MethodName: loadnextLevel
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -808,7 +833,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 225935398}
         m_TargetAssemblyTypeName: SceneChange, Assembly-CSharp
-        m_MethodName: closeCredits
+        m_MethodName: CloseCredits
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1506,10 +1531,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8971028641809265799, guid: de975deedf017b74a9e4ce101e8bed42, type: 3}
+      propertyPath: m_Alpha
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6114426397266040337, guid: de975deedf017b74a9e4ce101e8bed42, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 384892860}
   m_SourcePrefab: {fileID: 100100000, guid: de975deedf017b74a9e4ce101e8bed42, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

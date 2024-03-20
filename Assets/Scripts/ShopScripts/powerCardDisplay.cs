@@ -10,6 +10,7 @@ public class powerCardDisplay : MonoBehaviour
 
     public TextMeshProUGUI description;
     public TextMeshProUGUI namePowerUP;
+    public TextMeshProUGUI cardLevel;
 
     public Image artWork;
 
