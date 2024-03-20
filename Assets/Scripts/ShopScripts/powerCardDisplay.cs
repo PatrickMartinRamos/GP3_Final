@@ -29,4 +29,8 @@ public class powerCardDisplay : MonoBehaviour
             Debug.LogError("No shopPowerUpCards assigned to powerCardDisplay.");
         }
     }
+    public void UpdateCardLevel()
+    {
+        cardLevel.text = _powerUpCard.powerUpLVL.ToString();
+    }
 }
