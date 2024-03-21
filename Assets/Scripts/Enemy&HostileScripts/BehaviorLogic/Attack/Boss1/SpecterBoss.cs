@@ -46,14 +46,14 @@ public class SpecterBoss : EnemyAttackSOBase
         else if (boss.CurrentHealth <= (boss.MaxHealth * 0.30f)) spawnTime = 4;
         else if (boss.CurrentHealth <= (boss.MaxHealth * 0.10f)) spawnTime = 2;
 
-        if (boss.CurrentHealth == (boss.MaxHealth * 0.50f))
+        if (boss.CurrentHealth == (boss.MaxHealth * 0.80f))
         {
             boss.canSkill = true;
             timer = 0;
             enemy.StateMachine.ChangeState(boss.MoveState2);
         }
 
-        else if ((boss.CurrentHealth < (boss.MaxHealth * 0.50f)) && (timer >= spawnTime))
+        else if ((boss.CurrentHealth < (boss.MaxHealth * 0.80f)) && (timer >= spawnTime))
         {
             boss.canSkill = true;
             timer = 0;
