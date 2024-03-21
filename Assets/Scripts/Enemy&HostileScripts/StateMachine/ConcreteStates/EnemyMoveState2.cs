@@ -19,14 +19,12 @@ public class EnemyMoveState2 : EnemyState
     public override void EnterState()
     {
         base.EnterState();
-        boss.Collider.enabled = false;
         boss.EnemyMoveToPointInstance.DoEnterLogic();
     }
 
     public override void ExitState()
     {
         base.ExitState();
-        boss.Collider.enabled = true;
         boss.EnemyMoveToPointInstance.DoExitLogic();
     }
 

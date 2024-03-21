@@ -42,7 +42,7 @@ public class SpecterBoss : EnemyAttackSOBase
             enemy.SetInPlaceStatus(false);
         }
 
-        if (boss.CurrentHealth <= (boss.MaxHealth * 0.50f)) spawnTime = 6;
+        if (boss.CurrentHealth <= (boss.MaxHealth * 0.80f)) spawnTime = 6;
         else if (boss.CurrentHealth <= (boss.MaxHealth * 0.30f)) spawnTime = 4;
         else if (boss.CurrentHealth <= (boss.MaxHealth * 0.10f)) spawnTime = 2;
 
