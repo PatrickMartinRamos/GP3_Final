@@ -134,6 +134,14 @@ public class playerManagerScript : MonoBehaviour
     }
     #endregion
 
+    #region
+    public void healPlayer(int healthToHeal)
+    {
+        _playerCurrentHealth += healthToHeal;
+        Debug.Log("heaal");
+    }
+    #endregion
+
     #region handle enemy collision
     private void OnCollisionEnter2D(Collision2D collision)
     {

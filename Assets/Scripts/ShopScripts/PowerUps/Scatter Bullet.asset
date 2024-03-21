@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82df870968c87f24ba633f7481d28320, type: 3}
   m_Name: Scatter Bullet
   m_EditorClassIdentifier: 
-  powerUPName: Scatter Bullet
-  description: 'Add more bullet to '
+  powerUPName: Extra Bullet
+  description: Add extra bullet
   artWork: {fileID: 21300000, guid: 6999164251f2316429213edcb9805e47, type: 3}
   powerUpType: 5
-  powerUpLVL: 0
+  powerUpLVL: 1
   spiritClone_1: {fileID: 0}
   spiritClone_2: {fileID: 0}
   _wispBullet: {fileID: 0}

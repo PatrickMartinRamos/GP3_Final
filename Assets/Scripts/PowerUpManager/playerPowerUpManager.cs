@@ -51,9 +51,6 @@ public class playerPowerUpManager : MonoBehaviour
     //Bullet Buff Var
     public int _damageBuffLevel;
 
-    //Currency Multiplier Buff
-    public int _addMaxCurrencyMultiplierLevel;
-
     private void Start()
     {
         _explosionDamage = 10;
@@ -217,6 +214,14 @@ public class playerPowerUpManager : MonoBehaviour
     public void IncreaseShieldBuffLevel()
     {
         _shieldBuffLevel++;
+    }
+    #endregion
+
+    #region Heal
+    public void activateHealHealth(int healthToHeal)
+    {
+        _playerManager.healPlayer(healthToHeal);
+        Debug.Log("activate heal");
     }
     #endregion
 }

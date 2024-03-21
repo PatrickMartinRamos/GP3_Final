@@ -18,6 +18,7 @@ public class onBuyScript : MonoBehaviour
         musicManager = FindObjectOfType<musicManager>();
     }
 
+
     public void OnBuyButtonClick(int cardIndex)
     {
         if (cardIndex >= 0 && cardIndex < shopPowerUpManager.powerUpCardDisplays.Count)
@@ -31,16 +32,35 @@ public class onBuyScript : MonoBehaviour
                 powerUpCard.powerUpLVL++;
                 Debug.Log("Power-Up Name: " + powerUpCard.powerUPName + "\n level " + powerUpCard.powerUpLVL);
                 powerUpCard.ActivatePowerUp();
-                _powerUpShop.SetActive(false);
+               // _powerUpShop.SetActive(false);
                 powerCardDisplayComponent.UpdateCardLevel();
 
                 // Call the method in musicManager to play the button SFX
                 musicManager.PlayButtonSFX();
+                //shopPowerUpManager.ReshufflePowerUps();
             }
             else
-            {
+            {            
                 Debug.Log("You have already purchased this power-up three times.");
             }
         }
     }
+
+    public void PurchaseUnlimitedPowerUp(int cardIndex)
+    {
+        if (cardIndex >= 0 && cardIndex < shopPowerUpManager.unlimitedPowerUpCardDisplays.Count)
+        {
+
+            powerCardDisplay powerCardDisplayComponent = shopPowerUpManager.unlimitedPowerUpCardDisplays[cardIndex];
+            shopPowerUpCards powerUpCard = powerCardDisplayComponent._powerUpCard;
+            powerUpCard.playerPowerUPManager = playerPowerUpManager;
+
+            // Handle assignment of unlimited power-up here
+            Debug.Log("Unlimited Power-Up Purchased: " + powerUpCard.powerUPName);
+            powerUpCard.ActivatePowerUp();
+        }
+    }
+
+
+
 }
