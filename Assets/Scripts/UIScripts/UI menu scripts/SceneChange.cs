@@ -54,4 +54,8 @@ public class SceneChange : MonoBehaviour
         credits.SetActive(false);
         audioSource.PlayOneShot(buttonSound);
     }
+    public void exitAPP()
+    {
+        Application.Quit();
+    }
 }

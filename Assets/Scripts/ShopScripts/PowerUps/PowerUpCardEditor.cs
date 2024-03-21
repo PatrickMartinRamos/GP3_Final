@@ -18,6 +18,7 @@ public class PowerUpCardEditor : Editor
         showAddMaxHealthOption();
         showAddDamageBuffOption();
         showAddshieldBuffOption();
+        showHealHealthOption();
     }
 
     #region show clone option inspector
@@ -91,4 +92,17 @@ public class PowerUpCardEditor : Editor
     }
     #endregion
 
+    #region  show add heal to player option inspector
+    void showHealHealthOption()
+    {
+        shopPowerUpCards powerUpCard = (shopPowerUpCards)target;
+
+        if (powerUpCard.powerUpType == PowerUpType.HealHealth)
+        {
+            EditorGUILayout.Space(); // Add some space
+
+            powerUpCard.healPlayer = EditorGUILayout.IntField("Health to Heal", powerUpCard.healPlayer);
+        }
+    }
+    #endregion
 }

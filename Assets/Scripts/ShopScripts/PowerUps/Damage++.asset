@@ -10,20 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 82df870968c87f24ba633f7481d28320, type: 3}
-  m_Name: Explode Enemy
+  m_Name: Damage++
   m_EditorClassIdentifier: 
-  powerUPName: Essence Implosion
-  description: When Enemy is killed there is a chance that enemy will explode damaging
-    nearyby enemy
-  artWork: {fileID: 21300000, guid: 94fcdb9d25075b74d8ec774cd3d5d6c2, type: 3}
-  powerUpType: 4
-  powerUpLVL: 3
+  powerUPName: Damage++
+  description: +1 Damage
+  artWork: {fileID: 21300000, guid: 8629698e5536c0d4cb038d2a41d3dc9f, type: 3}
+  powerUpType: 1
+  powerUpLVL: 0
   spiritClone_1: {fileID: 0}
   spiritClone_2: {fileID: 0}
   _wispBullet: {fileID: 0}
   healthToAdd: 0
-  damageBuff: 0
+  damageBuff: 1
   chanceOfExplostion: 0
   shieldHealthLevels: 000000000000000000000000
   shieldCooldownLevels: 000000000000000000000000
+  healPlayer: 1
   playerPowerUPManager: {fileID: 0}

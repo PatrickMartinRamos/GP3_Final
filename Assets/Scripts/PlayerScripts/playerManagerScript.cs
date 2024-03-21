@@ -134,6 +134,19 @@ public class playerManagerScript : MonoBehaviour
     }
     #endregion
 
+    #region
+    public void healPlayer(int healthToHeal)
+    {
+        _playerCurrentHealth += healthToHeal;
+
+        // Check if the current health exceeds the maximum health
+        if (_playerCurrentHealth > _maxHealth)
+        {
+            _playerCurrentHealth = _maxHealth; // Set current health to maximum health if it exceeds
+        }
+    }
+    #endregion
+
     #region handle enemy collision
     private void OnCollisionEnter2D(Collision2D collision)
     {

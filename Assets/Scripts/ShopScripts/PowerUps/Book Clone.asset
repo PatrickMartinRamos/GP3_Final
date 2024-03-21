@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Book Clone
   m_EditorClassIdentifier: 
   powerUPName: Book Clone
-  description: Add a flying book the will shoot projectile also improve attack speed
+  description: Add a friendly flying book the will shoot projectile also improve
+    attack speed
   artWork: {fileID: 21300000, guid: 9135e8834e2f899408e5cde1b36dacde, type: 3}
   powerUpType: 2
   powerUpLVL: 0

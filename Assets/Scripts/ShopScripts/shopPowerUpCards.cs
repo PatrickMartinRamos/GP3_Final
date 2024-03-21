@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public enum PowerUpType
@@ -9,7 +10,8 @@ public enum PowerUpType
     spiritClone,
     addMaxHealth,
     explodeEnemy,
-    scatterBullet
+    scatterBullet,
+    HealHealth
 }
 
 [CreateAssetMenu(fileName = "New Power UP", menuName = "Power Up")]
@@ -41,9 +43,13 @@ public class shopPowerUpCards : ScriptableObject
    [HideInInspector] public float chanceOfExplostion; //explosion buff
     #endregion
 
-    #region
+    #region shieldHealth
     [HideInInspector]public int[] shieldHealthLevels = new int[3]; 
     [HideInInspector]public int[] shieldCooldownLevels = new int[3];
+    #endregion
+
+    #region Heal
+    [HideInInspector]public int healPlayer = 1;
     #endregion
 
 
@@ -59,7 +65,7 @@ public class shopPowerUpCards : ScriptableObject
             case PowerUpType.damageBuff://done
                 DamageBuff();           
                 break;
-            case PowerUpType.shield:
+            case PowerUpType.shield: //done
                 shieldBuff();
                 break;
             case PowerUpType.addMaxHealth://done
@@ -70,6 +76,9 @@ public class shopPowerUpCards : ScriptableObject
                 break;
             case PowerUpType.scatterBullet://done
                 scatterBullet();
+                break;
+            case PowerUpType.HealHealth:
+                healHealth();
                 break;
         }
     }
@@ -120,7 +129,23 @@ public class shopPowerUpCards : ScriptableObject
         playerPowerUPManager.activateScatterBulletBuff();
         Debug.Log("using scatterBullet!");
     }
-#endregion
+    #endregion
+
+    #region Heal
+    void healHealth()
+    {
+        if (playerPowerUPManager != null)
+        {
+            playerPowerUPManager.activateHealHealth(healPlayer);
+            Debug.Log("using heal!");
+        }
+        else
+        {
+            Debug.LogError("playerPowerUPManager is not assigned!");
+        }
+    }
+    #endregion
 }
+
 
 

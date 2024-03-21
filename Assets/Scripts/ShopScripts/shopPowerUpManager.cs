@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,10 +5,14 @@ public class shopPowerUpManager : MonoBehaviour
 {
     public List<shopPowerUpCards> allPowerUps;
     public List<powerCardDisplay> powerUpCardDisplays;
+    public List<powerCardDisplay> unlimitedPowerUpCardDisplays; // List for unlimited power-up card displays
+    public List<shopPowerUpCards> unlimitedPowerUps; // List for unlimited power-up cards
+    public GameObject shuffleButton;
 
 
-
-    private const int requiredCardCount = 3;
+    private const int requiredCardCount = 2;
+    private int reshuffleCount = 0;
+    private const int maxReshuffleCount = 2; // Maximum allowed reshuffle count
 
     void Start()
     {
@@ -23,7 +26,7 @@ public class shopPowerUpManager : MonoBehaviour
         ResetPowerUpLevels();
         AssignRandomPowerUpsToCards();
     }
-    #region validation check
+
     bool ValidatePowerUpCardDisplays()
     {
         if (powerUpCardDisplays.Count < requiredCardCount)
@@ -43,21 +46,99 @@ public class shopPowerUpManager : MonoBehaviour
         }
         return true;
     }
-    #endregion
 
-    #region assign random power up to shop cards
     void AssignRandomPowerUpsToCards()
+    {
+        if (AllNormalCardsAtLevelThree())
+        {
+            HideNormalPowerUpCards();
+            ShowUnlimitedPowerUpCards();
+            AssignUnlimitedPowerUpsToCards();
+            return;
+        }
+
+        HideUnlimitedPowerUpCards();
+
+        for (int i = 0; i < requiredCardCount; i++)
+        {
+            shopPowerUpCards randomPowerUp = GetRandomPowerUpWithLevelLessThanThree();
+            if (randomPowerUp != null)
+            {
+                powerUpCardDisplays[i]._powerUpCard = randomPowerUp;
+                powerUpCardDisplays[i].Start(); // Refresh UI with new power up
+            }
+        }
+    }
+
+    bool AllNormalCardsAtLevelThree()
+    {
+        foreach (var powerUp in allPowerUps)
+        {
+            if (powerUp.powerUpLVL < 3)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    void ShowUnlimitedPowerUpCards()
+    {
+        foreach (var display in unlimitedPowerUpCardDisplays)
+        {
+            display.gameObject.SetActive(true);
+        }
+    }
+
+    void HideUnlimitedPowerUpCards()
+    {
+        foreach (var display in unlimitedPowerUpCardDisplays)
+        {
+            display.gameObject.SetActive(false);
+        }
+    }
+
+    void HideNormalPowerUpCards()
+    {
+        foreach (var display in powerUpCardDisplays)
+        {
+            display.gameObject.SetActive(false);
+        }
+    }
+
+    void AssignUnlimitedPowerUpsToCards()
     {
         for (int i = 0; i < requiredCardCount; i++)
         {
-            powerUpCardDisplays[i]._powerUpCard = allPowerUps[i];
-            powerUpCardDisplays[i].Start(); // Refresh UI with new power up
+            if (i < unlimitedPowerUps.Count)
+            {
+                unlimitedPowerUpCardDisplays[i]._powerUpCard = unlimitedPowerUps[i];
+                unlimitedPowerUpCardDisplays[i].Start(); // Refresh UI with new unlimited power up
+            }
         }
     }
-    #endregion
 
-    #region shuffle shop cards function
-    void Shuffle<T>(List<T> list)
+    shopPowerUpCards GetRandomPowerUpWithLevelLessThanThree()
+    {
+        List<shopPowerUpCards> availablePowerUps = new List<shopPowerUpCards>();
+        foreach (var powerUp in allPowerUps)
+        {
+            if (powerUp.powerUpLVL < 3)
+            {
+                availablePowerUps.Add(powerUp);
+            }
+        }
+
+        if (availablePowerUps.Count > 0)
+        {
+            int randomIndex = Random.Range(0, availablePowerUps.Count);
+            return availablePowerUps[randomIndex];
+        }
+
+        return null; // Return null if all power-ups are at level 3
+    }
+
+    public void Shuffle<T>(List<T> list)
     {
         int remainingCount = list.Count;
         while (remainingCount > 1)
@@ -72,12 +153,25 @@ public class shopPowerUpManager : MonoBehaviour
 
     public void ReshufflePowerUps()
     {
-        Shuffle(allPowerUps);
-        AssignRandomPowerUpsToCards();
+        if (reshuffleCount < maxReshuffleCount)
+        {
+            Shuffle(allPowerUps);
+            AssignRandomPowerUpsToCards();
+            reshuffleCount++;
+        }
+        else
+        {
+            shuffleButton.SetActive(false);
+            Debug.Log("Maximum reshuffle limit reached.");
+        }
     }
-    #endregion
 
-    #region reset power-up levels
+    public void resetShuffleCount()
+    {
+        Debug.Log("reset shuffle");
+        reshuffleCount = 0;
+    }
+
     public void ResetPowerUpLevels()
     {
         Debug.Log("reset");
@@ -86,5 +180,8 @@ public class shopPowerUpManager : MonoBehaviour
             powerUp.powerUpLVL = 0; // Reset power-up level to 0 for each power-up card
         }
     }
-    #endregion
+    public void exitAPP()
+    {
+        Application.Quit();
+    }
 }

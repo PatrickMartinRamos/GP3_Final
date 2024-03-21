@@ -749,8 +749,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -2.8766975, y: 0.0801487, z: 0}
-    m_Extent: {x: 61.3252, y: 51.59445, z: 0}
+    m_Center: {x: -2.8652992, y: 0.08480072, z: 0}
+    m_Extent: {x: 61.320698, y: 51.5923, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0.2
@@ -5996,7 +5996,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 864029545}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 225935398}
+        m_TargetAssemblyTypeName: SceneChange, Assembly-CSharp
+        m_MethodName: exitAPP
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &864029545
 MonoBehaviour:
   m_ObjectHideFlags: 0
