@@ -16,10 +16,16 @@ public class diplayWaveIngame : MonoBehaviour
     private void Update()
     {
         if (enemyWave.WaveNum > 1 && enemyWave.WaveNum < 4)
-            displayWave.text = "Wave: " + enemyWave.WaveNum;
+        {
+            displayWave.text = "Round: " + enemyWave.roundNumber + "\nWave: " + enemyWave.WaveNum;
+        }
         else if (enemyWave.WaveNum == 4)
+        {
             displayWave.text = "Incoming Boss!!!";
+        }
         else if (enemyWave.WaveNum == 1)
-            displayWave.text = "Round: " + enemyWave.roundNumber;
+        {
+            displayWave.text = "Round: " + enemyWave.roundNumber + "\nWave: " + enemyWave.WaveNum;
+        }
     }
 }
