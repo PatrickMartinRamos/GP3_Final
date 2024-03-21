@@ -157,6 +157,23 @@ public class playerManagerScript : MonoBehaviour
                 musicManager.shieldHitPlayerSFX();
             }
         }
+
+        if (collision.collider.CompareTag("Boss"))
+        {
+            if (!isUsingShield || _playerCurrentShield <= 0)
+            {
+                _playerCurrentHealth -= damage;
+                Debug.Log("Boss collided with player");
+                musicManager.playHitPlayerSFX();
+            }
+            else
+            {
+                _playerCurrentShield -= damage;
+                isShieldCooldown = true;
+                Debug.Log("Boss collided with shield");
+                musicManager.shieldHitPlayerSFX();
+            }
+        }
     }
 
     void gameOver()

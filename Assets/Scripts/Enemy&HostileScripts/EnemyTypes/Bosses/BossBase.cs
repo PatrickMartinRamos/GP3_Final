@@ -19,8 +19,10 @@ public class BossBase : Enemy
     public EnemyMoveSOBase EnemyMoveToPointInstance { get; set; }
     public EnemyAttackSOBase HalfHPBossAtkInstance { get; set; }
     public bool canSkill { get; set; }
+
     public override void Awake()
     {
+        Collider = GetComponent<Collider2D>();
         base.Awake();
         string Name = this.gameObject.name;
         switch (Name)
@@ -39,7 +41,7 @@ public class BossBase : Enemy
 
         AttackState2 = new EnemyAttackState2(this, StateMachine);
         MoveState2 = new EnemyMoveState2(this, StateMachine);
-        MaxHealth *= 10;
+        MaxHealth *= 100;
     }
     public override void Attack()
     {
@@ -56,6 +58,7 @@ public class BossBase : Enemy
     {
         base.Die();
         GameManager.instance.eWaves.roundNumber += 1;
+        MaxHealth += MaxHealth * 0.10f;
     }
 
     public override void InitializeEnemy()
@@ -70,7 +73,14 @@ public class BossBase : Enemy
 
     public override void OnEnable()
     {
-        base.OnEnable();
         canSkill = false;
+        CurrentHealth = MaxHealth;
+        rb = GetComponent<Rigidbody2D>();
+        _playerPowerUpManager = FindObjectOfType<playerPowerUpManager>();
+        Attack();
+
+        EnemyMoveBaseInstance = Instantiate(EnemyMoveBase);
+
+        InitializeEnemy();
     }
 }

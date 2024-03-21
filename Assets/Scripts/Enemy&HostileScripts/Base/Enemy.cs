@@ -5,16 +5,16 @@ using UnityEngine.Pool;
 public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckeable
 {
 
-    public float MaxHealth { get; set; } = 20f;
+    public float MaxHealth { get; set; } = 10f;
     [field: SerializeField] public float CurrentHealth { get; set; }
     public IObjectPool<Enemy> ObjectPool { get; set; }
     public Rigidbody2D rb { get; set; }
 
-    playerPowerUpManager _playerPowerUpManager;
+    protected playerPowerUpManager _playerPowerUpManager;
     public GameObject explosionEffect;
 
     public int enemyDamage;
-
+    public Collider2D Collider { get; set; }
     #region State Machine Variables
     public EnemyStateMachine StateMachine { get; set; }
     public EnemyMovingState MoveState { get; set; }
@@ -23,7 +23,7 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckea
     #endregion
 
     #region ScriptableObject Variable
-    [SerializeField] private EnemyMoveSOBase EnemyMoveBase;
+    [SerializeField] protected EnemyMoveSOBase EnemyMoveBase;
     public List<EnemyAttackSOBase> EnemyAttackSOBaseList;
     public int WaveNum { get; set; } = 1;
     public int EnemyID { get; set; } = 1;
@@ -45,6 +45,7 @@ public class Enemy : MonoBehaviour, IDamageable, IEnemyMoveable, ITriggerCheckea
     }
     public virtual void OnEnable()
     {
+        MaxHealth = (10 * GameManager.instance.eWaves.roundNumber);
         CurrentHealth = MaxHealth;
         rb = GetComponent<Rigidbody2D>();
         _playerPowerUpManager = FindObjectOfType<playerPowerUpManager>();

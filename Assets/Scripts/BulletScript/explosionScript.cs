@@ -13,7 +13,7 @@ public class explosionScript : MonoBehaviour
     }
     private void OnParticleCollision(GameObject other)
     {
-        if (other.CompareTag("Enemy"))
+        if (other.CompareTag("Enemy") || other.CompareTag("Boss"))
         {
             Debug.Log("Particle collided with an enemy: " + other.name);
 
