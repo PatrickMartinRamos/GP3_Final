@@ -3,30 +3,34 @@ using UnityEngine;
 
 public class shopPowerUpManager : MonoBehaviour
 {
+    // Lists to store all power-ups, power-up card displays, unlimited power-up card displays, and unlimited power-ups
     public List<shopPowerUpCards> allPowerUps;
     public List<powerCardDisplay> powerUpCardDisplays;
     public List<powerCardDisplay> unlimitedPowerUpCardDisplays; // List for unlimited power-up card displays
     public List<shopPowerUpCards> unlimitedPowerUps; // List for unlimited power-up cards
-    public GameObject shuffleButton;
+    public GameObject shuffleButton; // Button to shuffle power-ups
 
-
+    // Constants for validation and reshuffling
     private const int requiredCardCount = 2;
     private int reshuffleCount = 0;
     private const int maxReshuffleCount = 2; // Maximum allowed reshuffle count
 
     void Start()
     {
+        // Validate and initialize power-up cards and power-ups
         if (!ValidatePowerUpCardDisplays())
             return;
 
         if (!ValidatePowerUps())
             return;
 
+        // Shuffle power-ups and assign them to cards
         Shuffle(allPowerUps);
         ResetPowerUpLevels();
         AssignRandomPowerUpsToCards();
     }
 
+    // Method to validate power-up card displays
     bool ValidatePowerUpCardDisplays()
     {
         if (powerUpCardDisplays.Count < requiredCardCount)
@@ -37,6 +41,7 @@ public class shopPowerUpManager : MonoBehaviour
         return true;
     }
 
+    // Method to validate power-ups
     bool ValidatePowerUps()
     {
         if (allPowerUps.Count < requiredCardCount)
@@ -47,6 +52,7 @@ public class shopPowerUpManager : MonoBehaviour
         return true;
     }
 
+    // Method to assign random power-ups to cards
     void AssignRandomPowerUpsToCards()
     {
         if (AllNormalCardsAtLevelThree())
@@ -70,6 +76,7 @@ public class shopPowerUpManager : MonoBehaviour
         }
     }
 
+    // Check if all normal cards are at level 3
     bool AllNormalCardsAtLevelThree()
     {
         foreach (var powerUp in allPowerUps)
@@ -82,6 +89,7 @@ public class shopPowerUpManager : MonoBehaviour
         return true;
     }
 
+    // Show unlimited power-up cards
     void ShowUnlimitedPowerUpCards()
     {
         foreach (var display in unlimitedPowerUpCardDisplays)
@@ -90,6 +98,7 @@ public class shopPowerUpManager : MonoBehaviour
         }
     }
 
+    // Hide unlimited power-up cards
     void HideUnlimitedPowerUpCards()
     {
         foreach (var display in unlimitedPowerUpCardDisplays)
@@ -98,6 +107,7 @@ public class shopPowerUpManager : MonoBehaviour
         }
     }
 
+    // Hide normal power-up cards
     void HideNormalPowerUpCards()
     {
         foreach (var display in powerUpCardDisplays)
@@ -106,6 +116,7 @@ public class shopPowerUpManager : MonoBehaviour
         }
     }
 
+    // Assign unlimited power-ups to cards
     void AssignUnlimitedPowerUpsToCards()
     {
         for (int i = 0; i < requiredCardCount; i++)
@@ -118,6 +129,7 @@ public class shopPowerUpManager : MonoBehaviour
         }
     }
 
+    // Get a random power-up with level less than three
     shopPowerUpCards GetRandomPowerUpWithLevelLessThanThree()
     {
         List<shopPowerUpCards> availablePowerUps = new List<shopPowerUpCards>();
@@ -138,6 +150,7 @@ public class shopPowerUpManager : MonoBehaviour
         return null; // Return null if all power-ups are at level 3
     }
 
+    // Shuffle a list
     public void Shuffle<T>(List<T> list)
     {
         int remainingCount = list.Count;
@@ -151,6 +164,7 @@ public class shopPowerUpManager : MonoBehaviour
         }
     }
 
+    // Reshuffle power-ups
     public void ReshufflePowerUps()
     {
         if (reshuffleCount < maxReshuffleCount)
@@ -166,22 +180,21 @@ public class shopPowerUpManager : MonoBehaviour
         }
     }
 
+    // Reset shuffle count
     public void resetShuffleCount()
     {
-        Debug.Log("reset shuffle");
+        Debug.Log("Reset shuffle count.");
         reshuffleCount = 0;
     }
 
+    // Reset power-up levels
     public void ResetPowerUpLevels()
     {
-        Debug.Log("reset");
+        Debug.Log("Reset power-up levels.");
         foreach (var powerUp in allPowerUps)
         {
             powerUp.powerUpLVL = 0; // Reset power-up level to 0 for each power-up card
         }
     }
-    public void exitAPP()
-    {
-        Application.Quit();
-    }
+
 }

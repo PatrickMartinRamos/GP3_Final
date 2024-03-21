@@ -22,7 +22,7 @@ public class PowerUpCardEditor : Editor
     }
 
     #region show clone option inspector
-    void showCloneOption()
+    protected void showCloneOption() // Add 'protected' access modifier
     {
         // Cast the target object to the appropriate type
         shopPowerUpCards powerUpCard = (shopPowerUpCards)target;
@@ -42,7 +42,7 @@ public class PowerUpCardEditor : Editor
     #endregion
 
     #region  show add maxHealth option inspector
-    void showAddMaxHealthOption()
+    protected void showAddMaxHealthOption() // Add 'protected' access modifier
     {
         shopPowerUpCards powerUpCard = (shopPowerUpCards)target;
 
@@ -56,7 +56,7 @@ public class PowerUpCardEditor : Editor
     #endregion
 
     #region show damage buff option inspector
-    void showAddDamageBuffOption()
+    protected void showAddDamageBuffOption() // Add 'protected' access modifier
     {
         shopPowerUpCards powerUpCard = (shopPowerUpCards)target;
 
@@ -70,7 +70,7 @@ public class PowerUpCardEditor : Editor
     #endregion
 
     #region show shield buff option inspector
-    void showAddshieldBuffOption()
+    protected void showAddshieldBuffOption() // Add 'protected' access modifier
     {
         shopPowerUpCards powerUpCard = (shopPowerUpCards)target;
 
@@ -93,7 +93,7 @@ public class PowerUpCardEditor : Editor
     #endregion
 
     #region  show add heal to player option inspector
-    void showHealHealthOption()
+    protected void showHealHealthOption() // Add 'protected' access modifier
     {
         shopPowerUpCards powerUpCard = (shopPowerUpCards)target;
 

@@ -35,8 +35,8 @@ public class onBuyScript : MonoBehaviour
                 _powerUpShop.SetActive(false);
                 powerCardDisplayComponent.UpdateCardLevel();
 
-                // Call the method in musicManager to play the button SFX
-                musicManager.PlayButtonSFX();
+                
+                musicManager.PlayButtonSFX(); // Call the method in musicManager to play the button SFX
                 shopPowerUpManager.ReshufflePowerUps();
                 shopPowerUpManager.resetShuffleCount();
                 shopPowerUpManager.shuffleButton.SetActive(true);
