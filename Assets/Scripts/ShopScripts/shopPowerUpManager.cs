@@ -7,8 +7,12 @@ public class shopPowerUpManager : MonoBehaviour
     public List<powerCardDisplay> powerUpCardDisplays;
     public List<powerCardDisplay> unlimitedPowerUpCardDisplays; // List for unlimited power-up card displays
     public List<shopPowerUpCards> unlimitedPowerUps; // List for unlimited power-up cards
+    public GameObject shuffleButton;
+
 
     private const int requiredCardCount = 2;
+    private int reshuffleCount = 0;
+    private const int maxReshuffleCount = 2; // Maximum allowed reshuffle count
 
     void Start()
     {
@@ -149,8 +153,23 @@ public class shopPowerUpManager : MonoBehaviour
 
     public void ReshufflePowerUps()
     {
-        Shuffle(allPowerUps);
-        AssignRandomPowerUpsToCards();
+        if (reshuffleCount < maxReshuffleCount)
+        {
+            Shuffle(allPowerUps);
+            AssignRandomPowerUpsToCards();
+            reshuffleCount++;
+        }
+        else
+        {
+            shuffleButton.SetActive(false);
+            Debug.Log("Maximum reshuffle limit reached.");
+        }
+    }
+
+    public void resetShuffleCount()
+    {
+        Debug.Log("reset shuffle");
+        reshuffleCount = 0;
     }
 
     public void ResetPowerUpLevels()
@@ -160,5 +179,9 @@ public class shopPowerUpManager : MonoBehaviour
         {
             powerUp.powerUpLVL = 0; // Reset power-up level to 0 for each power-up card
         }
+    }
+    public void exitAPP()
+    {
+        Application.Quit();
     }
 }

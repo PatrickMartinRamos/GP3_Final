@@ -138,7 +138,12 @@ public class playerManagerScript : MonoBehaviour
     public void healPlayer(int healthToHeal)
     {
         _playerCurrentHealth += healthToHeal;
-        Debug.Log("heaal");
+
+        // Check if the current health exceeds the maximum health
+        if (_playerCurrentHealth > _maxHealth)
+        {
+            _playerCurrentHealth = _maxHealth; // Set current health to maximum health if it exceeds
+        }
     }
     #endregion
 

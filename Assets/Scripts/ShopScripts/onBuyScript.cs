@@ -32,12 +32,14 @@ public class onBuyScript : MonoBehaviour
                 powerUpCard.powerUpLVL++;
                 Debug.Log("Power-Up Name: " + powerUpCard.powerUPName + "\n level " + powerUpCard.powerUpLVL);
                 powerUpCard.ActivatePowerUp();
-               // _powerUpShop.SetActive(false);
+                _powerUpShop.SetActive(false);
                 powerCardDisplayComponent.UpdateCardLevel();
 
                 // Call the method in musicManager to play the button SFX
                 musicManager.PlayButtonSFX();
-                //shopPowerUpManager.ReshufflePowerUps();
+                shopPowerUpManager.ReshufflePowerUps();
+                shopPowerUpManager.resetShuffleCount();
+                shopPowerUpManager.shuffleButton.SetActive(true);
             }
             else
             {            
@@ -58,6 +60,11 @@ public class onBuyScript : MonoBehaviour
             // Handle assignment of unlimited power-up here
             Debug.Log("Unlimited Power-Up Purchased: " + powerUpCard.powerUPName);
             powerUpCard.ActivatePowerUp();
+            musicManager.PlayButtonSFX();
+            shopPowerUpManager.resetShuffleCount();
+            shopPowerUpManager.shuffleButton.SetActive(true);
+            _powerUpShop.SetActive(false);
+
         }
     }
 
