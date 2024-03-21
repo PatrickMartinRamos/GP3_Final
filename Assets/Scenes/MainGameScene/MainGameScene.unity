@@ -12941,8 +12941,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 16.3126, y: 0.14604998, z: 0}
-    m_Extent: {x: 10.9986, y: 14.44455, z: 0}
+    m_Center: {x: 16.31395, y: 0.13859987, z: 0}
+    m_Extent: {x: 10.99845, y: 14.450399, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -18215,7 +18215,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 156, y: 0}
   m_SizeDelta: {x: 769.8274, y: 188.8681}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &742041096
@@ -18404,8 +18404,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 1.2097502, y: 0.36730003, z: 0}
-    m_Extent: {x: 18.812649, y: 13.0071, z: 0}
+    m_Center: {x: 1.20825, y: 0.35414982, z: 0}
+    m_Extent: {x: 18.81995, y: 13.01025, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0.2
@@ -18489,8 +18489,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 6.7276497, y: -13.13985, z: 0}
-    m_Extent: {x: 30.58395, y: 7.9698496, z: 0}
+    m_Center: {x: 6.7277, y: -13.14175, z: 0}
+    m_Extent: {x: 30.589802, y: 7.9782505, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -25616,8 +25616,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 16.522251, y: 0.9928999, z: 0}
-    m_Extent: {x: 11.20575, y: 14.9921, z: 0}
+    m_Center: {x: 16.52345, y: 0.99125004, z: 0}
+    m_Extent: {x: 11.21365, y: 15.00175, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -32863,7 +32863,6 @@ MonoBehaviour:
   InstantiateTransform: {fileID: 1545496872}
   SpawnRate: 0
   Boss: {fileID: 229858022}
-  roundNumber: 1
 --- !u!61 &1772403434
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -33695,8 +33694,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 16.523201, y: 0.99294996, z: 0}
-    m_Extent: {x: 11.2081, y: 15.00115, z: 0}
+    m_Center: {x: 16.525549, y: 0.9928503, z: 0}
+    m_Extent: {x: 11.20935, y: 14.98765, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -39746,7 +39745,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &7767354625651142568
 MonoBehaviour:
   m_ObjectHideFlags: 0
